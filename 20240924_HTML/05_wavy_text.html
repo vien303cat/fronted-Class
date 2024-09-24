@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<style>
+    body,
+    html{
+        height: 100%;
+    }
+    body{
+        font-family: "Orbitron", sans-serif;
+        background: linear-gradient(transparent 50%, rgba(0,0,0,0.5) 100%);
+    }
+    div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* 倒影 */
+        -webkit-box-reflect: below -35px linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    }
+    div span{
+        font-weight: bold;
+        display: inline-block;
+        font-size: 5rem;
+        margin: 0 1rem;
+        text-shadow: 
+        1px 1px 1px rgba(0,0,0,0.5),
+        2px 2px 2px rgba(0,0,0,0.3),
+        3px 3px 3px rgba(0,0,0,0.1);
+
+        filter: drop-shadow(0 0 3px rgba(255, 13, 0, 0.5));
+        animation: jump 1s ease-in-out infinite;
+    }
+
+    div span:nth-child(1){
+        animation-delay: 0.1s;
+    }
+    div span:nth-child(2){
+        animation-delay: 0.2s;
+    }
+    div span:nth-child(3){
+        animation-delay: 0.3s;
+    }
+    div span:nth-child(4){
+        animation-delay: 0.4s;
+    }
+    div span:nth-child(5){
+        animation-delay: 0.5s;
+    }
+    div span:nth-child(6){
+        animation-delay: 0.6s;
+    }
+    div span:nth-child(7){
+        animation-delay: 0.7s;
+    }
+    div span:nth-child(8){
+        animation-delay: 0.8s;
+    }
+    @keyframes jump {
+        from {
+        transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+        transform: translateY(-50px) rotate(360deg);
+        }
+
+        50.1% {
+        transform: translateY(-50px) rotate(360deg);
+        }
+
+        to {
+        transform: translateY(0px) rotate(360deg);
+        }
+    }
+</style>
+<body>
+
+    <div>
+        <span>F</span>
+        <span>R</span>
+        <span>O</span>
+        <span>N</span>
+        <span>T</span>
+        <span>E</span>
+        <span>N</span>
+        <span>D</span>
+    </div>
+</body>
+</html>

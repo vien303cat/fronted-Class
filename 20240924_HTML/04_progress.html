@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body,
+    html{
+        height: 100%;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .progress{
+        width:  600px;
+        height: 30px;
+        border: 1px solid #333;
+        border-radius: 1rem;
+        box-shadow: 
+            0 0 5px rgba(0, 0,0,0.5),
+            inset 0 0 5px 1px rgba(0, 0,0,0.8);
+        /* 渲染漸層網站 https://projects.verou.me/css3patterns/ */
+        /* background-image: linear-gradient(45deg,
+        #333 0%,
+        #333 25%,
+        #fff 25%,
+        #fff 50%,
+        #333 50%,
+        #333 75%,
+        #fff 75%,
+        #fff 100%); */
+
+        background: repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+
+        background-size: 20px 20px;
+        animation:myprogress 0.3s linear infinite;
+    }
+
+    @keyframes myprogress{
+        from{
+            background-position: 0 0;
+        }
+        to{
+            background-position: 20px 0;
+        }
+    }
+</style>
+<body>
+    <div class="progress">
+
+    </div>
+</body>
+</html>

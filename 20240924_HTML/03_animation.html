@@ -35,14 +35,33 @@
         to(100%)
     */
     @keyframes animationName{
-        from{
+        /* from{
             transform:translate(0,0);
             background-color: red;
         }
         to{
             transform:translate(50vw,0);
             background-color: blue;
+        } */
+        
+        0% {
+            transform:translate(0,0);
+            background-color: red;
         }
+        30% {
+            transform:translate(70vw,0) rotate(3600deg);
+            background-color: green;
+        }
+        90% {
+            transform:translate(0vw,0) rotate(-3600deg);
+            background-color: green;
+        }
+        100% {
+            transform:translate(50vw,0) rotate(3600deg);
+            background-color: blue;
+        }
+
+        
     }
 
     /* 步驟二 建立一個專用的class */
@@ -57,13 +76,19 @@
         animation-timing-function: linear;
         /* 
             播放的方向 
-            normal
-            reverse
-            alternate
-            alternate-reverse
+            normal 正向播放(0% > 100%)
+            reverse 反向播放(100% > 0%)
+            alternate 交替撥放(0% > 100% > 0% > 100% > 0%)
+            alternate-reverse 反向交替撥放(100% > 0% > 100% > 0% > 100%)
         */
         animation-direction: alternate;
-        
+        /* 延遲時間 */
+        animation-delay: 1s;
+        /* 填充模式 */
+        /* both 動畫開始在第一幀 \ 0%(紅色)，結束在最後一幀 100%(藍色) */
+        animation-fill-mode: both;
+        /* 縮寫 */
+        animation: animationName 3s 0s 1 linear alternate both running;
     }
 </style>
 <body>

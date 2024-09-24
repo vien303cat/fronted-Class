@@ -1,0 +1,75 @@
+<html lang="zh-tw">
+
+<head>
+  <!-- 上課未交 -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 1024px;
+      height: 787px;
+    }
+
+    .bg {
+      background: url(bg_infinite.jpg) repeat-x center;
+      width: 100%;
+      height: 100%;
+      animation: slide 5s linear infinite;
+    }
+
+    @keyframes slide {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: -1024px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="bg"></div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' crossorigin='anonymous'></script>
+  <!-- others -->
+  <!-- jQuery-UI -->
+  <script src="js/jquery-ui.min.js"></script>
+  <script>
+    // let bg = document.getElementsByClassName('bg')[0];
+    // bg.addEventListener('mouseenter', function (evt) {
+    //     evt.currentTarget.style.animationPlayState = 'paused';
+    // });
+
+    // bg.addEventListener('mouseleave', function (evt) {
+    //     evt.target.style.animationPlayState = 'running';
+    // });
+    $('.bg').on({
+      mouseover: function () {
+        $(this).css({ animationPlayState: 'paused' });
+      },
+      mouseout: function () {
+        $(this).css({ animationPlayState: 'running' });
+      }
+    });
+  </script>
+</body>
+
+</html>
