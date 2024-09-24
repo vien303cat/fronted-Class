@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            若元素都進入定位層,沒有設定z-index的話 後進入定位層的元素會在上面(後蓋前) 
+        */
+
+        .box1{
+            width: 300px;
+            height: 300px;
+            background: deeppink;
+            /* 使用絕對定位水平垂直置中的方式 */
+            position: absolute;
+            /* 直接位移會從畫面的正中間開始往右往下 會多移動因此不在中間 */
+            top: 50%;
+            left: 50%;
+            /* 移動該元素的大小的一半值 */
+            transform: translate(-50%,-50%);
+
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            position: absolute;
+            /* 直接位移會從畫面的正中間開始往右往下 會多移動因此不在中間 */
+            top: 50%;
+            left: 50%;
+            /* 移動該元素的大小的一半值 */
+            transform: translate(-50%,-50%);
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background: lightgoldenrodyellow;
+            position: absolute;
+            /* 直接位移會從畫面的正中間開始往右往下 會多移動因此不在中間 */
+            top: 50%;
+            left: 50%;
+            /* 移動該元素的大小的一半值 */
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+</body>
+</html>

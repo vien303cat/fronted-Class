@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = [1,2,3,4];
+        // for (變數 of 陣列)
+        // 迴圈陣列每個值
+        for(const val of numbers){
+            document.write(val + '<br>');
+        }
+
+        document.write('<hr>');
+        
+        const letters = ['a', 'b', 'c', 'd'];
+        // for (索引 in 陣列)
+        // 迴圈陣列每個索引 
+        // i 的資料型態會是文字 
+        for (const key in letters) {
+            document.write(`key=${key} ` + `val=${letters[key]} ` +'<br>');
+        }
+        
+        document.write('<hr>');
+        // 物件只能用for in
+        const obj = {a:1,b:2,c:3};
+        for(const key in obj){
+            document.write(`key = ${key} , val = ${obj[key]} <br>`);
+        }
+
+    </script>
+</body>
+</html>

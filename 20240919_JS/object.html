@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const wdaf2e = {
+            name:       '前端技術',
+            students:   20,
+            year:       113,
+            semester:   2,
+            classroom:  '1114',
+        };
+        document.write(wdaf2e.name + '<br>');
+        document.write(wdaf2e["classroom"] + '<br>');
+        const key = 'students';
+        document.write(wdaf2e[key] + '<br>');
+        // 物件不能用.lenth取有幾個key 會返回undefine
+        document.write(wdaf2e.length + '<br>');
+        // Object.keys 物件內的key 取出微陣列
+        console.log(Object.keys(wdaf2e))
+        // Object.values 物件內的值取出微陣列
+        console.log(Object.values(wdaf2e))
+
+
+    </script>
+</body>
+</html>

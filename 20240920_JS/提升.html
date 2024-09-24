@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 直接使用未宣告也沒給值的東西會出錯
+        // Uncaught ReferenceError: test is not defined
+        // console.log(test);
+
+        // 不能再宣告變數前使用let 或 const
+        // Uncaught ReferenceError: Cannot access 'test' before initialization
+        // console.log(test);
+        // const test = 111 ;
+
+        // 不會有錯 因為test會綁到window內
+        // test = 111 ;
+        // console.log(test);
+
+        // var可以先使用在宣告，但是宣告前是undefined 
+        // 執行時會把變數宣告提升到使用前
+        // console.log(test);
+        // var test ;
+        // test = 111 ;
+
+        // function delaration 會提升
+        hi('AAA');
+        function hi (name){
+            console.log('hi ' + name);
+        }
+        
+
+        // function expression 會依照var let const 表現
+        // hi2('BBB');
+        console.log(hi2)
+        var hi2 = function (name){
+            console.log('hi ' + name);
+        }
+
+    </script>
+</body>
+</html>

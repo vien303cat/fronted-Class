@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cnt = [1,8,3,4,5,6,7,2,9,10] ;
+        let totalMoney = 0 ;
+        for(let i = 0 ; i < cnt.length ; i++){
+            totalMoney += (cnt[i] * (i+1));
+        }
+        document.write(`總共花了${totalMoney}元`);
+    </script>
+</body>
+</html>

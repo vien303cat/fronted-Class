@@ -1,0 +1,42 @@
+<!-- !DOCTYPE 宣告HTML的版本 -->
+<!DOCTYPE html>
+<!-- lang語系 -->
+<html lang="en">
+<head>
+
+    <title>Document</title>
+
+    <!-- <標籤 屬性="值"></標籤> -->    
+    <!-- UTF-8字元編碼，確保網頁瀏覽時正常，例如若沒有這行，我們使用繁體中文，他國人士的裝置瀏覽器會亂碼 -->
+    <meta charset="UTF-8">
+
+    <!-- RWD必要這行 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 連結外部CSS檔案 -->
+    <link rel="stylesheet" href="./css/example.css">
+
+    <!-- 本文件使用的CSS -->
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+        
+    <h1>O___________O</h1>
+    <h2>X___________X</h2>
+    <button id="btn">按鈕</button>
+
+    
+    <script src="./js/example.js"></script>
+    <script>
+        const bth = document.querySelector('#btn');
+        btn.onclick = function(){
+            alert('你好');
+        }
+    </script>
+</body>
+</html>

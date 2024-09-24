@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // function GoodMorning(time,item){
+        //     document.write(`<h1>${time}好,現在窩有${item}</h1>`);
+        // }
+        // // const GoodMorning = function(){
+        // // }
+        // GoodMorning('早上', '冰七令');
+        // GoodMorning('中午', '太陽餅');
+        // GoodMorning('晚上');
+
+        
+        // function GoodMorning( time = '早上', item = '冰七令'){
+        //     //function裡面的argument參數可以檢查傳入function的值
+        //     console.log(arguments);
+        //     document.write(`<h1>${time}好,現在窩有${item}</h1>`);
+        //     document.write(`<h2>${arguments.length}</h2>`);
+        // }
+        
+        // GoodMorning('晚上');
+        // GoodMorning(undefined, '太陽餅');\\
+
+        // function GoodMorning(time = '早上', item = '冰七令') {
+        //     return `${time}好,現在窩有${item}`;
+        //     console.log(123);
+        // }
+
+        
+        // console.log(GoodMorning('中午'));
+        // const text = GoodMorning('晚上');
+        // document.write(`<h1>${text}</td>`);
+
+        // const GoodMorning = (time = '早上' , item = '冰淇淋') =>{
+        //     //在箭頭函式裏沒有arguments參數
+        //     // console.log(arguments);
+
+        //     return `${time}好,現在窩有${item}`;
+        // }
+
+        // const text = GoodMorning();
+        // document.write(`<h1>${text}</td>`);
+
+
+        //箭頭參數剛好一個且沒有預設值不用()
+        // const isEven = number =>{
+        //     // return (number%2==0)?true:false;
+        //     return (number%2==0);
+        // }
+        // console.log(isEven(1));
+        // console.log(isEven(2));
+
+        //如果只有一行return可以省略大括號跟return
+        // const isOdd = number => (number % 2 == 1);
+        // console.log(isOdd(1));
+        // console.log(isOdd(2));
+
+        // 如果省略型return的是物件,要用()包
+        
+        const checkNum = number => ({a:1,b:number});
+        console.log(checkNum(1));
+        console.log(checkNum(2));
+
+    </script>
+</body>
+</html>

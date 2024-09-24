@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            background-image: url("https://picsum.photos/1920/1080/?random=10");
+            background-repeat: no-repeat;
+            /* 固定背景 */
+            background-attachment: fixed;
+        }
+
+        .box{
+            width:  600px;
+            height: 600px;
+            border: 5px solid #fff;
+            margin: 100px auto;
+            box-shadow: 0 0 20px rgba(0, 0,0,0.5);
+            font-size: 3rem;
+            text-shadow: 0 0 3px black;
+        }
+        .box:hover{
+            /* 讓盒子透明的部分具有模糊底層效果 */
+            backdrop-filter: blur(10px);
+            /* 轉場效果 *s */
+            transition: 0.5s;
+            /* 轉場效果 *s */
+            transform: scale(1.1);
+        }
+        
+        .bg-color{
+            background-repeat: repeat-x;
+        }
+        
+        .bg-img{
+            background-image: url("https://picsum.photos/200/200/?random=10");
+        }
+        .bg-repeat-x{
+            background-repeat: repeat-x;
+        }
+        .bg-repeat-y{
+            background-repeat: repeat-y;
+        }
+        
+        .bg-no-repeat{
+            background-repeat: no-repeat;
+        }
+        
+        .bg-size{
+            background-image: url("https://picsum.photos/200/200/?random=10");
+            background-repeat: no-repeat;
+            /* background-size: contain; */
+            /* 背景等比例縮放,會填滿整個盒子但可會部分裁切 */
+            background-size: cover;
+            /* 可以百分比 第一個是寬度 第二個是高度 */
+            background-size: 50% 50%;
+            /* 審略第二個值 第二個會被設定成auto */
+            background-size: 50%;
+            /* 這行與上一行相同 */
+            background-size: 50%;
+            /* 也可以px */
+            background-size: 300px 400px;
+        }
+
+        .bg-position{
+            /* 第一個值的關鍵字有  left,cnter,right <=> 可以用% */
+            /* 第二個值的關鍵字有  top,center,bottom <=> 可以用% */
+            background-position: center center;
+            /* 單一值另一個會被設定成center (50%) */
+            background-position: 20%;
+            
+        }
+
+        
+
+        .pikachu{
+            background-image: url(../images/pikachu.jpg);
+            background-repeat: no-repeat;
+            background-size: 90%;
+            background-position: center center;
+
+            font-size: 64px;
+            font-weight: 600;
+            
+            
+        }
+
+        /* 
+        background-size 一定要接在 background-position 後面 且必須用 / 分隔
+        */
+        .bg-abbr{
+            background: #faa url("https://picsum.photos/500/500/?random=10") no-repeat center / cover ;
+        }
+        
+        .bg-three{
+            background-image: 
+            url("https://picsum.photos/600/100/?random=10"),
+            url("https://picsum.photos/600/400/?random=10"),
+            url("https://picsum.photos/600/100/?random=10");
+            background-repeat: no-repeat,no-repeat,no-repeat;
+            background-repeat: left top, left 100px , left bottom;
+            background: 
+            url("https://picsum.photos/600/100/?random=10") no-repeat left top,
+            url("https://picsum.photos/600/400/?random=10") no-repeat left 100px,
+            url("https://picsum.photos/600/100/?random=10") no-repeat left bottom;
+        }
+
+        /*
+            1.漸層是背景的一種,用background,background-image來設定
+            2.預設角度 180deg v,箭頭會顏色渲染方向
+            3.45deg /^,箭頭維顏色渲染方向
+        */
+        .linear-gradient-1{
+            /* 預設角度180deg */
+            background: linear-gradient(red,yellow,white);
+            background: linear-gradient(45deg,red,yellow,white);
+        }
+        .linear-gradient-2{
+            /* 預設角度180deg */
+            background: linear-gradient(to right top,
+            #fff 0%,
+            lightblue 25%,
+            white 50% ,
+            lightblue 75% ,
+            white 100%);
+        }
+
+
+        /* 
+        漸層可以上網找到很多資源
+        https://projects.verou.me/css3patterns/
+        */
+        .linear-gradient-3{
+            background-color: #6d695c;
+            background-image:
+            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+            linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+            linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+            background-size: 70px 120px;
+        }
+
+
+        .radial-gradient-1{
+            background-image: radial-gradient(white,yellow,pink);
+        }
+
+        .radial-gradient-2{
+            background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+            radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+            radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+            background-size: 110px 200px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    <div class="box bg-color" >
+        666
+    </div>
+    <div class="box bg-img" >
+        666
+    </div>
+    
+    <div class="box bg-img bg-repeat-x" >
+        background-repeat-x
+    </div>
+
+    <div class="box bg-img bg-repeat-y" >
+        background-repeat-y
+    </div>
+    
+    <div class="box bg-img bg-no-repeat" >
+        background-repeat-y
+    </div>
+
+    <div class="box bg-img bg-size" >
+        bg-size
+    </div>
+
+    <div class="box bg-img bg-no-repeat bg-position">
+        bg-position
+    </div>
+
+    <div class="box pikachu">
+        pikachu
+    </div>
+
+    <div class="box bg-abbr">
+        背景縮寫
+    </div>
+
+    <div class="box bg-three">
+        多張背景
+    </div>
+    <div class="box linear-gradient-1">
+        linear-gradient
+    </div>
+    <div class="box linear-gradient-2">
+        linear-gradient
+    </div>
+    <div class="box linear-gradient-3">
+        linear-gradient
+    </div>
+    
+    <div class="box radial-gradient-1">
+        radial-gradient
+    </div>
+    <div class="box radial-gradient-2">
+        radial-gradient
+    </div>
+</body>
+</html>

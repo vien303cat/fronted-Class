@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = [1,2,3,4];
+        // let one = numbers[0]
+        // let two = numbers[1]
+        // let otherNumbers = [numbers[2],numbers[3]]
+        let [one, two, ...otherNumbers] = numbers ;
+        console.log(one);
+        console.log(two);
+        console.log(otherNumbers);
+
+        //object解構產出的名稱必須等於object的名稱
+        //否則需要利用:重新命名
+        const obj = {a:1,b:2,c:3,d:4,e:5}
+
+        //若本來已有這個變數名稱了會出錯(重複命名不能) 除非用var >_>
+        // let b = 456321;
+        let { a, b,c:newC, ...otherObj } = obj ;
+        console.log(a);
+        console.log(b);
+        console.log(newC);
+        console.log(otherObj);
+    </script>
+</body>
+</html>

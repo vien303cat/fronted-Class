@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    /*
+        class、id 命名規則
+        1. 以 . 開始宣告類別選擇器
+        2. 不能數字開頭，.123color => X
+        3. 有區分大小寫
+        4. 中間允許使用英文、數字、連字號(-)、底線(_)，一般框架都使用連字號
+            .text-center, .diplay-1, .card-title, .h1, .rounded-1
+        5. 可以中文，但不要做
+    */
+
+    /* 用功用去命名 */
+    .h1-title-color {
+      color: red;
+    }
+
+    .txt-color{
+        color: red;
+    }
+    .text-size{
+        font-size: 42px;
+    }
+    .active{
+        color:yellow;
+    }
+    #headArea{
+        color: red;
+    }
+    #sideArea{
+        color: blue;
+    }
+    #footerArea{
+        color: green;
+    }
+
+    /* 後代選擇器 */
+    nav p{
+        color: red;
+        font-size:30px;
+    }
+
+    /* 子代選擇器，以 > 表示 */
+    /* 只有 nav 下一層會被選擇起來 */
+    nav > p{
+        color: blue;
+        font-size:60px;
+
+    }
+</style>
+<body>
+
+
+    
+    <h1> CSS 的選擇器 </h1>
+    <p> CSS有非常多選擇器,幫助們再撰寫樣式時,運用選擇器選擇到我們的目標。 </p>
+    <h1 class="h1-title-color font-size">Class 選擇器</h1>
+    <p  class="text-size"> CSS有非常多選擇器,幫助們再撰寫樣式時,運用選擇器選擇到我們的目標。 </p>
+
+    <h1 class="txtColor txt-color"> Class選擇器 </h1>
+    <p  class="text-size"> CSS有非常多選擇器,幫助們再撰寫樣式時,運用選擇器選擇到我們的目標。 </p>
+    
+    <h2>相同元素但需要不同表示時</h2>
+    <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse ab laborum molestiae itaque perspiciatis!</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, dolorum!</li>
+        <li class="active">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, unde.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dignissimos.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, aliquid.</li>
+    </ul>
+
+    <hr>
+    <h1>id 選擇器</h1>
+    <p>一份文件裡面,只允許一個獨一無二的id(唯一性),就像身分證不能重複</p>
+    <p id="me">一份文件裡面,只允許一個獨一無二的id(唯一性),就像身分證不能重複</p>
+
+    <hr>
+    <h2>用區塊來分開</h2>
+    <div id ='headArea'>header區塊</div>
+    <div id ='sideArea'>sider區塊</div>
+    <div id ='footerArea'>footer區塊</div>
+
+    <h1>後代選擇器與子代選擇器</h1>
+    <nav>
+        <p>沒事來做健康操</p>
+        <div>
+            <p>黑 同學</p>
+        </div>
+    </nav>
+
+</body>
+</html>

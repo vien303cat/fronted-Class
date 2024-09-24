@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        練習
+        請寫一個 function 判斷輸入的文字是不是正著讀和反著讀都一樣的迴文
+        for、for of 和 for in 可以迴圈文字
+        */
+        const isPalindrome = (text) => {
+            let status = true ;
+            
+            //文字可以拿來跑迴圈跟比較 (可以拿來讀 但不能拿來改值)
+            for(let i = 0 ; i < ( text.length / 2 ) ; i++){
+                if( text[i] != text[text.length - (i+1)] ){
+                    status = false;
+                    break; 
+                }
+            }
+            return status;
+        }
+        
+        // const result = 'aaa';
+        const result = isPalindrome(prompt('輸入文字'))
+        console.log(result)
+        
+        if(result){
+            document.write(`<h1>是一個對稱的句子 好耶</h1>`);
+        }else{
+            document.write(`<h1>不是一個對稱的句子 不好耶</h1>`);
+        }
+
+    </script>
+</body>
+</html>

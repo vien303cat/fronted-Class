@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const name  = prompt("請輸入您的姓名");
+        const month = prompt("請輸入出生月份");
+        const date  = prompt("請輸入出生日期");
+        
+        let total = month + date ;
+        console.log(total);
+
+        let star = ""; 
+        if(total < 120 || total > 1221){
+            star = "魔羯座";
+        }else if(total < 219){
+            star = "水瓶座";
+        }else if(total < 321){
+            star = "雙魚座";
+        }else if(total < 421){
+            star = "白羊座";
+        }else if(total < 521){
+            star = "金牛座";
+        }else if(total < 622){
+            star = "雙子座";
+        }else if(total < 723){
+            star = "巨蟹座";
+        }else if(total < 823){
+            star = "獅子座";
+        }else if(total < 923){
+            star = "處女座";
+        }else if(total < 1023){
+            star = "天秤座";
+        }else if(total < 1122){
+            star = "天蠍座";
+        }else if(total < 1222){
+            star = "射手座";
+        }else{
+            star = "博愛座";
+        }
+
+        document.write(name,"您好，您的星座是",star);
+
+
+        
+    </script>
+</body>
+</html>

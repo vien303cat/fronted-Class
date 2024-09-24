@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function 也有對址與對值
+        
+        let a = { data : 100 }
+        let b = a;
+        console.log(a,b);
+        a.data = 1000;
+        console.log(a,b);
+
+        let c = { data : 100 }
+        let d = c;
+        console.log(c,d);
+        c = { data : 1000 };
+        console.log(c,d);
+        
+        const e = { data: 100};
+        const test = (input) =>{
+            input.data = 1000;
+            console.log(input);
+            console.log(e);
+        }
+        test(e);
+        console.log(e);
+
+        
+        const f = { data: 100};
+        const test2 = (input) =>{
+            input = {data: 1000};
+            console.log(input);
+            console.log(f);
+        }
+        test2(f);
+        console.log(f);
+        
+        
+        const g =  100;
+        const test3 = (input) =>{
+            input = 1000;
+            console.log(input);
+            console.log(g);
+        }
+        test3(g);
+        console.log(g);
+
+    </script>
+</body>
+</html>

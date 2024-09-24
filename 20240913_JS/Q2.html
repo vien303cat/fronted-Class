@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判斷式</title>
+</head>
+<body>
+    <script>
+
+        let cnt = prompt("一閃一閃亮晶晶,有幾層星星");
+        // let cnt = 10;
+        let blackStar = 1;
+
+        for(let i = cnt ; i > 0 ; i--){
+            for(let ia = 1 ; ia <= i-1 ; ia++){
+                document.write("☆");
+            }
+            
+            for(let ib = 1 ; ib <= blackStar ; ib ++){
+                document.write("★");
+            }
+            blackStar+=2;
+
+            for(let ic = 1 ; ic <= i-1 ; ic++){
+                document.write("☆");
+            }
+
+
+            // for(j = 1 ; j <= cnt*2-1 ; j++){
+            //     if(j < i ){
+            //         document.write("☆");
+            //     }else if( j > i ){
+            //         document.write("☆");
+            //     }else{
+            //         document.write("★");
+            //     }
+            // }
+
+            document.write("<br>");
+
+        }
+
+    </script>
+</body>
+</html>

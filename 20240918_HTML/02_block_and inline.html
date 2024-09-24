@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body 為block 自帶上下margin 8px */
+        body{
+            margin: 0;
+            padding-bottom: 300px;
+        }
+        hr{
+            margin: 30px 0;
+        }
+        .menu{
+            background:lightblue ;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width:1200px;
+            text-align: center;
+            /* inline-block會產生神祕小空間 在父元素上利用這行可以消除 */
+            font-size: 0;
+        }
+        .menu li{
+            width:150px;
+            background: black;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a{
+            display: block;
+            background: orange;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+
+        }
+        .menu a:hover{
+            background: black;
+            color:white;
+            text-decoration: underline;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>區塊盒與行內盒</h1>
+    <p>CSS 是盒子的世界 基礎盒子有區塊類大類與行內兩種</p>
+    <p>區塊類:block、table、flex...</p>
+
+    <h3>請說出以下兩行的差異?</h3>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, at?</span>
+    <hr>
+    <h3>加上背景顏色後...</h3>
+    <div style="background: yellow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+    <span style="background: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, at?</span>
+
+    <hr>
+    <h2>區塊盒(區塊元素)</h2>
+    <p>例子:div h1~h6 p ul li table</p>
+    <ul>
+        <li>區塊誕生後會佔據父元素的寬度，即便設定寬度，前後會斷行，也不容許其他人使用她的空間</li>
+        <li>區塊可以正常使用width htight margin padding</li>
+    </ul>
+    <div style="background: gold; width:300px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+    <div style="background: gold; width:1000px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+    <div style="background: gold; width:500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+    <div style="background: gold; width:100px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sapiente!</div>
+
+    <div style="width:800px; background:lightblue">
+        <p style="background:darkorange; width: 300px;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, veritatis!
+        </p>
+    </div>
+    <hr>
+    <h2>行內盒(行內元素)</h2>
+    <p>例子:span a em strong...</p>
+    <ul>
+        <li>只能擁有自己內容的空間,逐一由左至右,由上而下排列</li>
+        <li>前後不斷行</li>
+        <li>可以被父元素的text-align影響 以及本身可以使用vertical-align 屬性(行內專用屬性,block不行)</li>
+        <li>寬高無法設定 例如第一個設定10000px也沒用</li>
+    </ul>
+    
+    <span style="background: pink; width: 10000px ; height: 10000px;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+    <span style="background: pink;">保存把我尤其聯繫方式財富，演唱故意，回。</span>
+
+    <h2>display 轉型,可以將盒子轉型成其他類型</h2>
+    <p>用display:inline-block 製作橫向選單。</p>
+    <p>inline-block,拆成兩部分來看,inline是指排列方式,block可以設定盒模型屬性</p>
+    <ul class="menu">
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+        <li><a href="#">link</a></li>
+    </ul>
+</body>
+</html>

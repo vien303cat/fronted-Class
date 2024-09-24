@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+每一個銷售員的銷售總金額
+每一項產品的銷售總金額 
+-->
+<body>
+    <script>
+        // 
+        const data = [
+            [33, 32, 56, 45, 33],
+            [77, 33, 68, 45, 23],
+            [43, 55, 43, 67, 65]
+        ]
+        const priceArr  = [12,16,10,14,15];
+        let memberSale  = [0,0,0];
+        let itemTotal   = [0,0,0,0,0];
+
+        document.write(`<table border='1'><caption> ABCDE單價分別為 12、16、10、14、15 元 </caption>`);
+        document.write(`<tr><td></td><td>產品 A</td><td>產品 B</td><td>產品 C</td><td>產品 D</td><td>產品 E</td></tr>`);
+
+        for (member in data) {
+            document.write(`<tr><td>銷售員${member+1}</td>`);
+            for (item in data[member]) {
+                document.write(`<td> ${data[member][item]} </td>`);
+                memberSale[member] += data[member][item] * priceArr[item]; 
+                itemTotal[item]    += data[member][item] * priceArr[item]; 
+            }
+            document.write(`</tr>`);
+        }
+        document.write(`</table>`);
+
+
+        document.write(
+            `<table border='1' style='width:50%'>
+                    <tr>
+                        <td>1總金額</td>
+                        <td>2總金額</td>
+                        <td>3總金額</td>
+                        <td>A總金額</td>
+                        <td>B總金額</td>
+                        <td>C總金額</td>
+                        <td>D總金額</td>
+                        <td>E總金額</td>
+                    </tr>
+                    <tr>
+                        <td>${memberSale[0]}</td>
+                        <td>${memberSale[1]}</td>
+                        <td>${memberSale[2]}</td>
+                        <td>${itemTotal[0]}</td>
+                        <td>${itemTotal[1]}</td>
+                        <td>${itemTotal[2]}</td>
+                        <td>${itemTotal[3]}</td>
+                        <td>${itemTotal[4]}</td>
+                    </tr>
+                </table>`);
+
+    </script>
+</body>
+
+</html>

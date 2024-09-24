@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const vtubers = [
+            {name:'aqua',sub:228},
+            {name:'himehina',sub:95.1},
+            {name:'kaf',sub:100},
+        ];
+        console.log(vtubers);
+        console.table(vtubers);
+        document.write('<ul>');
+        for(let i = 0 ; i < vtubers.length ; i++){
+            document.write(`<li>第 ${i+1} 個 VTuber是 ${vtubers[i].name} ,訂閱數 ${vtubers[i].sub} 萬 </li>`);
+        }
+        document.write('<ul>');
+
+
+        const store ={
+            name:'PCHome',
+            url:'https://24h.pchome.com.tw/',
+            products:[
+                {name:'iPhone 16 Pro Max (1TB)' , price:58900 },
+                {name:'Dyson 戴森HD16 Supersonic Nural' , price:12900 },
+                {name:'TAISUN 泰山強氣泡水 500ml(24入X2箱)' , price:809 },
+            ],
+        }
+        document.write('<br> <table border="1" > ');
+            document.write(' <caption> ');
+                document.write(` <a href="${store.url}" target="_blank"> ${store.url} </a>`);
+            document.write(' </caption> ');
+            for(let i = 0 ; i < store.products.length ; i++){
+                document.write('<tr>');
+                    document.write(`<td>${store.products[i].name}</td>`);
+                    document.write(`<td>${store.products[i].price}</td>`);
+
+                document.write('</tr>');
+            }
+        document.write(' </table> ');
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .container{
+            width: 960px;
+            margin: auto;
+            padding: 0;
+            font-size: 0;
+            background: rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .col{
+            float: left;
+            width:270px;
+            padding: 10px;
+            margin: 10px;
+            border: 5px solid black;
+            color: gray;
+            background: lightblue;
+            font-size: 1rem;
+        }
+        
+        
+        .col h2{
+            font-size: 24px;
+        }
+
+        img{
+            width:100%;
+        }
+
+        /* 使用偽元素after來清除浮動 */
+        .clearix::after{
+            content: '';
+            display: block;
+            clear:   both;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col">
+            <img  src="https://picsum.photos/300/300/?random=1">
+            <h2>title1</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/300/?random=2">
+            <h2>title2</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/300/?random=3">
+            <h2>title3</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+        <div class="col">
+            <img  src="https://picsum.photos/300/300/?random=4">
+            <h2>title1</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/300/?random=5">
+            <h2>title2</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/300/?random=6">
+            <h2>title3</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil officia quas obcaecati quos amet.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

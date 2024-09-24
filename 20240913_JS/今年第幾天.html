@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let yy = parseInt(prompt("請輸入年份"));
+        let mm = parseInt(prompt("請輸入月份"));
+        let dd = parseInt(prompt("請輸入日期"));
+        
+        //判斷是否閏年且月份大於二月
+        let runYear = ( yy % 4 == 0 )?1:0;
+        
+        let mDay = 0; 
+        for(let i = 1 ; i < mm ; i++){
+
+            //7月以前單數月是大月 雙數月是小月
+            if( i <= 7 ){
+
+                if(i == 2 ){
+                    mDay += 28;
+                }else if(i % 2 == 1){
+                    mDay += 31;
+                }else{
+                    mDay += 30;
+                }
+
+            //7月以後雙數月是大月 單數月是小月
+            }else if( i <= 12){
+                if(i % 2 == 0){
+                    mDay += 31;
+                }else{
+                    mDay += 30;
+                }
+            }
+
+        }
+        
+        document.write("您輸入的是該年的第" , mDay + dd + runYear , "天");
+
+    </script>
+</body>
+</html>

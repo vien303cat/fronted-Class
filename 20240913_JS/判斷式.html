@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判斷式</title>
+</head>
+<body>
+    <script>
+        const lang = prompt('請問您是用哪種語言','zh-tw');
+
+
+        console.log(lang);
+        let myLang = '';
+        if( lang == 'zh-tw' ){
+            myLang = '灣灣';
+        }else if( lang == 'ja-jp' ){
+            myLang = '摳泥機挖';
+        }else if( lang == 'ko-kr' ){
+            myLang = '撒郎黑唷';
+        }else if( lang == 'en' || lang == 'en-us' ){
+            myLang = '以死古德對';
+        }else{
+            myLang = '你還是說中文吧bro';
+        }
+        document.write(myLang , "<hr>");
+
+
+        switch(lang){
+            case 'zh-tw':
+                myLang = '灣灣';
+                break;
+            case 'ja-jp':
+                myLang = '空幫挖';
+                break;
+            case 'ko-kr':
+                myLang = '阿尼阿誰唷';
+                break;
+            case 'en-us':
+            case 'en':
+                myLang = '灣灣';
+                break;
+            default:
+                myLang = 'Corporis voluptas aliquam quisquam excepturi pariatur odio sunt quia nulla eos!';
+                break;
+
+        }
+        document.write(myLang , "<hr>");
+
+
+        
+
+    </script>
+</body>
+</html>

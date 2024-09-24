@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let a = 100 , b = '100' ;
+        if(a == b){
+            document.write('a == b');
+        }else{
+            document.write('a != b');
+        }
+        document.write('<br>');
+        if(a === b){
+            document.write('a === b');
+        }else{
+            document.write('a !== b');
+        }
+        
+        document.write('<br>');
+
+        let c = 100 , d = 50 ;
+        if(c > d){
+            document.write('c > d');
+        }else{
+            document.write('c <= d');
+        }
+        document.write('<br>');
+
+
+        const ok = false
+        // if (ok) ---> if (ok === true)
+        if (ok) {
+            console.log('ok');
+        }
+        // if (!ok) ---> if (ok === false)
+        if (!ok) {
+            console.log('not ok');
+        }
+        document.write('<br>');
+
+        //confirm(信息)
+        //跳出確認視窗，收到true false
+        let css ="style ='font-size:60px'";
+        const sleep = confirm('中午有沒有睡覺~?');
+        if(sleep){
+            document.write('<h1>讚啦</h1>');
+        }else{
+            document.write(`<h1 ${css} >你在幹嘛老哥?</h1>`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .taichi{
+        width:  500px;
+        height: 500px;
+        background: white;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        border: 1px solid #000;
+        background: linear-gradient(to right,
+            #fff 50%,
+            #000 51% 
+        );
+        z-index: 1;
+        box-shadow: 0 0 20px rgba(0,0,0,1);
+
+        /* 另一種水平置中的方法 */
+        /* top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto; */
+    }
+    .taichi::before{
+        content: "";
+        width:  250px;
+        height: 250px;
+        background: white;
+        /* border: 1px solid #000; */
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%);
+        z-index: 2;
+    }
+    .taichi::after{
+        content: "";
+        width:  250px;
+        height: 250px;
+        background: black;
+        /* border: 1px solid #000; */
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%);
+        z-index: 2;
+    }
+
+    .yinyan{
+        width:  500px;
+        height: 500px;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 3;
+    }
+    .yinyan::before{
+        content: "";
+        width:  75px;
+        height: 75px;
+        background: black;
+        /* border: 1px solid #000; */
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%,-50%);
+        z-index: 3;
+    }
+    .yinyan::after{
+        content: "";
+        width:  75px;
+        height: 75px;
+        background: white;
+        /* border: 1px solid #000; */
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        bottom: 25%;
+        transform: translate(-50%,50%);
+        z-index: 3;
+    }
+
+</style>
+<body>
+    <div class="taichi">
+        <div class="yinyan">
+        </div>
+    </div>
+</body>
+</html>

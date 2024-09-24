@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        width  : 1024px;
+        height : 768px;
+        margin : auto ;
+        margin-left: 50% ;
+        background: lightgray;
+        position: relative;
+        align-items: center; 
+        float: left;
+        transform:translate(-50%,0);
+    }
+    .dice{
+        
+        float: left;
+        width :150px;
+        height:150px;
+        margin:7px ;
+        /* display : inline-block; */
+        margin-top:300px ;
+        background: white;
+        border: 0.08cm solid rgba(0, 0, 0, 1);
+        position: relative;
+        border-radius: 10% ;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+        
+        background: linear-gradient(to right top,
+        gray 0%,
+        white 50%,);
+        background: linear-gradient(45deg,gray,lightgray,white);
+        
+    }
+    .point1{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 18px;
+        left: 18px;
+        border-radius: 50% ;
+    }
+    .point2{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 18px;
+        left: 58px;
+        border-radius: 50% ;
+    }
+    .point3{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 18px;
+        left: 98px;
+        border-radius: 50% ;
+        
+    }
+    .point4{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 58px;
+        left: 18px;
+        border-radius: 50% ;
+        
+    }
+    .point5{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50% ;
+        transform:translate(-50%,-50%);
+        
+    }
+    .point6{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 58px;
+        left: 98px;
+        border-radius: 50% ;
+        
+    }
+    .point7{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 98px;
+        left: 18px;
+        border-radius: 50% ;
+        
+    }
+    .point8{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 98px;
+        left: 58px;
+        border-radius: 50% ;
+        
+    }
+    .point9{
+        background: black;
+        width:35px;
+        height:35px;
+        position:absolute;
+        top: 98px;
+        left: 98px;
+        border-radius: 50% ;
+        
+    }
+</style>
+<body>
+    <div class="container">
+        
+        <!-- 
+        <div class="point1"></div>
+        <div class="point2"></div>
+        <div class="point3"></div>
+        <div class="point4"></div>
+        <div class="point5"></div>
+        <div class="point6"></div>
+        <div class="point7"></div>
+        <div class="point8"></div>
+        <div class="point9"></div> 
+        -->
+
+        <div class="dice">
+            <div class="point5" style="background: red;"></div>
+        </div>
+        <div class="dice">
+            <div class="point3"></div>
+            <div class="point7"></div>
+        </div>
+        <div class="dice">
+            <div class="point3"></div>
+            <div class="point5"></div>
+            <div class="point7"></div>
+        </div>
+        <div class="dice">
+            <div class="point1" style="background: red;"></div>
+            <div class="point3" style="background: red;"></div>
+            <div class="point7" style="background: red;"></div>
+            <div class="point9" style="background: red;"></div>
+        </div>
+        <div class="dice">
+            <div class="point1"></div>
+            <div class="point3"></div>
+            <div class="point5"></div>
+            <div class="point7"></div>
+            <div class="point9"></div>
+        </div>
+        <div class="dice">
+
+            <div class="point1"></div>
+            <div class="point3"></div>
+            <div class="point4"></div>
+            <div class="point6"></div>
+            <div class="point7"></div>
+            <div class="point9"></div>
+        </div>
+    </div>
+</body>
+</html>

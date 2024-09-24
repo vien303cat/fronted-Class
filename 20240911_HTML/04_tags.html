@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>標籤使用</title>
+    <style>
+        body{
+            padding-bottom: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    
+<h1> 常用標籤 </h1>
+<h1> 段落文字 </h1>
+<p> Lorem ipsum dolor sit amet. </p>
+<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa delectus aliquid modi, debitis sed. </p>
+<p> 感覺到祝福我現在，沒有文件大小成立穩定男生體力有了我在強調，屬於十分這場國有生。</p>
+<hr>
+<h2>h1~h6標題</h2>
+<h6>標題1</h6>
+<h5>標題2</h5>
+<h4>標題3</h4>
+<h3>標題4</h3>
+<h2>標題5</h2>
+<h1>標題6</h1>
+<hr>
+<h2>起飛</h2>
+<a href="https://www.gamer.com.tw/" target="_blank"><button id="btn">按鈕</button></a><br><br>
+<a href="./01_intro.html" ><button id="btn">今日01</button></a><br><br>
+<a href="./02_old.html"   ><button id="btn">今日02</button></a><br><br>
+<a href="./03_html5.html" ><button id="btn">今日03</button></a><br><br>
+<hr>
+<h2>ul無序清單</h2>
+<ul>
+    <li>上網</li>
+    <li>看廢片</li>
+    <li>看文件</li>
+    <li>寫程式</li>
+</ul>
+
+<h2>ol有序清單</h2>
+<!-- emmet語法 ol>li*數字 : 自動新增指定數量的巢狀結構 -->
+<ol>
+    <li>總算公路版本老人治療家裡演員百萬東西一段收費關鍵，實用玩家可以用財富你有第二章分配，制定還有，留言。</li>
+    <li>總算公路版本老人治療家裡演員百萬東西一段收費關鍵，實用玩家可以用財富你有第二章分配，制定還有，留言。</li>
+    <li>總算公路版本老人治療家裡演員百萬東西一段收費關鍵，實用玩家可以用財富你有第二章分配，制定還有，留言。</li>
+    <li>總算公路版本老人治療家裡演員百萬東西一段收費關鍵，實用玩家可以用財富你有第二章分配，制定還有，留言。</li>
+</ol>
+
+<h2>HTML巢狀結構</h2>
+<ul>
+    <li>
+        <h3>前端三個技術</h3>
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+
+    </li>
+    <li>
+        <h3>影像處理技術</h3>
+        <ol>
+            <li>PhotoShop</li>
+            <li>Illustrator</li>
+        </ol>
+        
+    </li>
+</ul>
+
+<hr>
+<!-- 圖片最好只設定寬或高，瀏覽器會自己縮放 -->
+<h2>img圖片</h2>
+<!-- 絕對路徑去別人家裡拿東西 -->
+<h3>絕對路徑</h3>
+<img width="300" alt="圖片失效" title="泰山職業訓練局" src="https://www.niusnews.com/upload/imgs/default/2022_06ARENA06/spoon/5rtagjpjxzocwo8gkcw8ockswqtsrvr.jpeg">
+<!-- 相對路徑在自己家裡拿東西 -->
+<!-- ./當前層開始搜尋 ../往前一層開始搜尋 -->
+<h3>相對路徑</h3>
+<img id="touhou" hight="200" alt="圖片失效" title="指我幹嘛 去看東方" src="../images/itouhouenter.jfif">
+<a href="https://www.gamer.com.tw/" target="_blank">
+    <img hight="200" alt="圖片失效" title="指我幹嘛 去看東方2" src="/images/itouhouenter2.jfif">
+</a>
+<a href="./others/others.html" >
+    <img hight="200" alt="圖片失效" title="指我幹嘛 去看東方3" src="/images/itouhouenter3.jfif">
+</a>
+
+<hr>
+
+<h2>各種字體標籤</h2>
+<!-- bold -->
+<b>粗體</b>
+<br>
+<!-- 語義化標籤 -->
+<strong>也是粗體</strong>
+<br>
+
+<!-- italic -->
+<i>斜體</i>
+<br>
+<em>也是斜體</em>
+<br>
+
+<!-- strike -->
+<s>刪除線</s>
+<br>
+<del>也是刪除線</del>
+<br>
+
+<!-- underline -->
+<u>底線</u>
+<br>
+<ins>也是底線</ins>
+<br>
+
+<!-- 上標 -->
+X<sup>2</sup>
+<br>
+<!-- 下標 -->
+CO<sub>2</sub>
+
+<hr>
+
+
+<!-- iframe 在該文件挖一個洞，可以將文件引入進去 -->
+
+<h2>iframe頁框</h2>
+<a href="./others/others.html" target="teachWeb">頁面轉換</a><br>
+<!-- 預設頁面main.html -->
+<iframe src="./others/others.html" frameborder="1" name="teachWeb" width="800" height="400"></iframe><br>
+
+
+<a href="https://www.google.com.tw/maps/place/%E5%8F%B0%E5%8C%97/@25.0480123,121.5144864,17z/data=!4m15!1m8!3m7!1s0x3442a9727e339109:0xc34a31ce3a4abecb!2z5Y-w5YyX!8m2!3d25.0480075!4d121.5170613!10e1!16s%2Fg%2F1tfk23p1!3m5!1s0x3442a9727e339109:0xc34a31ce3a4abecb!8m2!3d25.0480075!4d121.5170613!16s%2Fg%2F1tfk23p1?hl=zh-TW&entry=ttu&g_ep=EgoyMDI0MDkwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">切換地圖</a><br>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.5891775409223!2d121.51448637542697!3d25.04801233772714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9727e339109%3A0xc34a31ce3a4abecb!2z5Y-w5YyX!5e0!3m2!1szh-TW!2stw!4v1726032372730!5m2!1szh-TW!2stw" width="600" height="450" style="border: 1px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<hr>
+
+<h2>table 表格</h2>
+<h3>表格完整結構</h3>
+<table border="1" width="600" cellspacing="5" cellpadding="50">
+    <!-- 頭 -->
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>網頁設計</th>
+            <th>程式設計</th>
+        </tr>
+    </thead>
+    <!-- 身體 -->
+    <tbody>
+        <tr align="center">
+            <td>小明</td>
+            <td>60</td>
+            <td>80</td>
+        </tr>
+        <tr align="right" >
+            <td>小王</td>
+            <td>90</td>
+            <td>30</td>
+        </tr>
+        <tr align="left">
+            <td>小白</td>
+            <td>80</td>
+            <td>70</td>
+        </tr>
+    </tbody>
+    <!-- 腳 -->
+    <tfoot>
+        
+        <tr>
+            <th>總結算</th>
+            <th style="color:blue">合格</th>
+            <th style="color:red">不合格</th>
+        </tr>
+    </tfoot>
+</table>
+
+<!-- 3x3的一般表格 -->
+<table border="1" align="center" width="100" height="100">
+    <tr align="center">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr align="center">
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr align="center">
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>
+
+<!-- 建立一個6x6的表格每列是1、2、3、4、5、6 -->
+<!-- table>tr*6>td{$}*6 -->
+<h2>表格合併</h2>
+<p>colspan(欄合併):左吃右,右消失,colspan="吃幾個+自己"</p>
+<p>rowspan(列合併):上吃下,下消失,colspan="吃幾個+自己"</p>
+<table border="1" width="300" height="300" align="center">
+    <tr align="center">
+        <td colspan="5">1</td>
+        <!-- <td>2</td> -->
+        <!-- <td>3</td> -->
+        <!-- <td>4</td> -->
+        <!-- <td>5</td> -->
+        <td rowspan="5">6</td>
+    </tr>
+    <tr align="center">
+        <td rowspan="5">1</td>
+        <td colspan="3">2</td>
+        <!-- <td>3</td> -->
+        <!-- <td>4</td> -->
+        <td rowspan="3">5</td>
+        <!-- <td>6</td> -->
+    </tr>
+    <tr align="center">
+        <!-- <td>1</td> -->
+        <td rowspan="3">2</td>
+        <td rowspan="2" colspan="2">3</td>
+        <!-- <td>4</td> -->
+        <!-- <td>5</td> -->
+        <!-- <td>6</td> -->
+    </tr>
+    <tr align="center">
+        <!-- <td>1</td> -->
+        <!-- <td>2</td> -->
+        <!-- <td>3</td> -->
+        <!-- <td>4</td> -->
+        <!-- <td>5</td> -->
+        <!-- <td>6</td> -->
+    </tr>
+    <tr align="center">
+        <!-- <td>1</td> -->
+        <!-- <td >2</td> -->
+        <td colspan="3">3</td>
+        <!-- <td>4</td> -->
+        <!-- <td>5</td> -->
+        <!-- <td>6</td> -->
+    </tr>
+    <tr align="center">
+        <!-- <td>1</td> -->
+        <td colspan="6">2</td>
+        <!-- <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td> -->
+    </tr>
+</table>
+
+<hr>
+
+<form action="#" method="get">
+    <table width="50%" border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <td >帳號:</td>
+            <td><input type="text" name="getAcc"></td>
+        </tr>
+        <tr>
+            <td >密碼:</td>
+            <td><input type="password" name="getPass"></td>
+        </tr>
+        <tr>
+            <td >確認密碼:</td>
+            <td><input type="password" name="getPassCheck"></td>
+        </tr>
+        <tr>
+            <td>性別</td>
+            <td><input type="radio" value="1" name="getGender" checked>男 <input type="radio" value="2" name="getGender">女</td>
+        </tr>
+        <tr>
+            <td>最高學歷:</td>
+            <td>
+                <select name="getGradu" id="getGradu">
+                    <option value="1">國小</option>
+                    <option value="2">國中</option>
+                    <option value="3">高中高職</option>
+                    <option value="4">學士</option>
+                    <option value="5">碩士</option>
+                    <option value="6">博士</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>興趣</td>
+            <td>
+                <input type="checkbox" value="1" name="getHabbit"> 極限高空跳傘 
+                <input type="checkbox" value="2" name="getHabbit"> 飛機駕駛
+                <input type="checkbox" value="3" name="getHabbit"> 自由搏擊
+                <input type="checkbox" value="4" name="getHabbit"> 南極冰釣
+                <input type="checkbox" value="5" name="getHabbit"> 吃東西
+                <input type="checkbox" value="6" name="getHabbit"> 考古研究
+            </td>
+        </tr>
+        <tr>
+            <td>出生年月日</td>
+            <td><input type="date" name="getBornDate"></td>
+        </tr>
+        <tr>
+            <td>備註信息</td>
+            <td><textarea name="getNote" rows="3" cols="30"></textarea>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="reset" name="重置">&nbsp;<input type="submit" name="提交"></td>
+        </tr>
+    </table>
+    <h3><a href="#touhou">看東方</a></h1>
+</form>
+
+</body>
+
+</html>

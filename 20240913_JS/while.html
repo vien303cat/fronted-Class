@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判斷式</title>
+</head>
+<body>
+    <script>
+
+        let input = false;
+        let count = 0;
+        while(!input){
+            input = confirm("你聽過東方嗎?"); 
+            count++;
+        }
+        document.write(`你總共花了${count}次 成為了東方廚<br>`);
+
+        
+        let hobbit ="";
+        count = 0;
+        do{
+            hobbit = prompt("你喜歡什麼?"); 
+            count++;
+        }while(hobbit != '東方')
+        document.write(`東方過氣了${count-1}次`, (count-1==0)? ",好耶!" : "") ;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 
+    將陣列內容印出成表格
+    每日的平均溫度
+    時段一、時段二、時段三的平均氣溫
+    溫度最高的日子與時段
+    溫度最低的日子與時段
+-->
+
+    <script>
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7],
+        ];
+
+        const chineseArr = ['一','二','三','四'];
+        let avgDayTemp   = [0,0,0,0];
+        let avgTimeTemp  = [0,0,0];
+        //1.初始值可以直接設比較陣列的第一個元素data[0][0] 就可以防止初始值問題 2.可以記成物件來存(少個變數) 3.可以利用儲存兩點座標的方法來從data取值 不用直接存最大最小值
+        let maxDay = 0 , maxTime = 0 ;
+        let minDay = 0 , minTime = 0 ;
+        let maxVal = 0 , minVal  = 0 ;
+        
+        document.write(`<table border='1'> <caption> 今天天氣晴 好想要吃蛋餅</caption> `);
+        document.write(`<tr><td></td><td>星期一</td><td>星期二</td><td>星期三</td><td>星期四</td></tr>`);
+        for( time in data ){
+            document.write(`<tr><td>時段${chineseArr[time]}</td>`);
+            for(day in data[time]){
+                document.write(`<td> ${data[time][day]} </td>`);
+                avgDayTemp[day]   += data[time][day];
+                avgTimeTemp[time] += data[time][day];
+
+                if (maxVal == 0 || maxVal < data[time][day]){
+                    maxDay  = day;
+                    maxTime = time;
+                    maxVal  = data[time][day];
+                }
+                if (minVal == 0 || minVal > data[time][day]){
+                    minDay  = day;
+                    minTime = time;
+                    minVal  = data[time][day];
+                }
+            }
+            document.write(`</tr>`);
+        }
+        document.write(`</table><br>`);
+        document.write(
+            `<table border='1'>
+                <tr>
+                    <td>週一平均溫度</td><td>${avgDayTemp[0] / avgTimeTemp.length}</td>
+                </tr>
+                    <td>週二平均溫度</td><td>${avgDayTemp[1] / avgTimeTemp.length}</td>
+                </tr>
+                    <td>週三平均溫度</td><td>${avgDayTemp[2] / avgTimeTemp.length}</td>
+                </tr>
+                    <td>週四平均溫度</td><td>${avgDayTemp[3] / avgTimeTemp.length}</td>
+                </tr>
+                    <td>時段一平均氣溫</td><td>${avgTimeTemp[0] / avgDayTemp.length}</td>
+                </tr>
+                    <td>時段二平均氣溫</td><td>${avgTimeTemp[1] / avgDayTemp.length}</td>
+                </tr>
+                    <td>時段三平均氣溫</td><td>${avgTimeTemp[2] / avgDayTemp.length}</td>
+                </tr>
+                    <td>溫度最高的日子與時段</td><td>星期${chineseArr[maxDay]} 時段${chineseArr[maxTime]}</td>
+                </tr>
+                    <td>溫度最低的日子與時段</td><td>星期${chineseArr[minDay]} 時段${chineseArr[minTime]}</td>
+                </tr>
+                
+            </table>`);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = [1,2,3];
+        const obj1  = { a: 1, b: 2, c: 3 };
+        arr1[0] = 111;
+        obj1.a  = 111;
+        console.log(arr1);
+        console.log(obj1);
+        // ============================
+
+        // Pass by reference 傳址
+        const a = [1,2,3];
+        const b = a;
+        b[0] = 100;
+        console.log('a:',a);
+        console.log('b:', b);
+        console.log('a===b?', (a === b));
+
+        c = { a: 1, b: 2, c: 3 };
+        const d = c ;
+        d.a = 100 ;
+        console.log('c:', c);
+        console.log('d:', d);
+        console.log('c===d?', (c === d));
+
+        //除了陣列 物件以外的變數類型都是傳值類型因此不會改變
+        let e = 1;
+        let f = e;
+        f = 100;
+        console.log('e:', e);
+        console.log('f:', f);
+
+        
+        // ===========================
+        // 這時就不會改變因為h已經是一個數字變數了
+        let g = [1,2,3];
+        let h = g[0];
+        h = 100;
+        console.log('g:', g);
+        console.log('h:', h);
+
+        // ===========================
+        // 這個情況也是因為再存值時該元素已經是數字類型了因此不是傳址而是傳值
+        // 但是j.d由於是 = 陣列 因此該keyval是傳址類型的所以會改變
+        let i = { a: 1, b: 2, c: 3 , d:[1,2,3]};
+        let j = { a: i.a, b: i.b, c: i.c , d: i.d};
+        j.a    = 100;
+        j.d[0] = 500;
+        console.log('i:', i);
+        console.log('j:', j);
+    </script>
+</body>
+</html>

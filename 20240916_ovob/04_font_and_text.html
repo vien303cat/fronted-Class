@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 設定google font 字型的link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+    /* 整個網頁的css 常用作預設值 html{}跟:root{}一樣 但是:root較常用 */
+    html{
+        font-size:16px ;
+    }
+    :root{
+        font-size:16px ;
+        padding-bottom: 300px;
+    }
+
+
+    body{
+        /* 頁面預設的字型 */
+        font-family: "微軟正黑體";
+    }
+
+    .font-style{
+        /* 字型 */
+        font-family: 'Times New Roman', Times, serif;
+        /* 字體大小 */
+        font-size:30px;
+        /* 斜體 */
+        font-style: italic;
+        /* 粗體 */
+        font-weight: bold;
+    }
+
+    /* 定義字型,需要字型檔案 */
+    @font-face{
+        font-family: 'myFont';
+        /* 指到自定義的字型:加逗號代表備用的 若是前面的無法使用則往後使用 */
+        src:(url('./waltograph42.otf'),url('./Antro_Vectra_Bolder.otf'),url('./Adine\ Kirnberg.ttf'))
+    }
+    .font-set{
+        font-family: 'myFont';
+        font-size: 50px;
+    }
+
+    .google-font{
+        font-family: "Protest Guerrilla", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 52px;
+    }
+    .google-font-TraditionalChinese{
+        
+        font-family: "Protest Guerrilla", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 36px;
+        
+    }
+    
+    .text-style{
+        /* 設定文字的水平對齊 inlint、inline-block 靠齊  left、right、center */
+        text-align: left;
+        /* text-decoration 網頁的文字內容上有時需要劃線以標示重點等等
+        常見的設定值有
+        none：無底線，為預設值
+        underline：文字下的底線。
+        overline：文字上的線。
+        line-through：穿過文字的線，可以看做是刪除線。
+        */
+        text-decoration: underline;
+        /* 縮排 */
+        text-indent: 32px;
+        /* 大小寫 uppercase、lowercase、capitalize */
+        text-transform: capitalize;
+        /* 文字陰影 */
+        /* 水平位移(+為右 -為左) 垂直位移(+為下 -為上) 陰影模糊半徑 顏色 */
+        text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
+        /* 單字之間的間隔 */
+        word-spacing: 16px;
+        /* 字母之間的間隔 */
+        letter-spacing: 8px;
+        /* 行高 */
+        line-height: 64px;
+        line-height: 2; /* 倍數 */
+    }
+
+    /* 連結初始狀態 */
+    a:link{
+        color:chartreuse;
+    }
+    /* 連結拜訪過後狀態 */
+    a:visited{
+        color:gray;
+    }
+    /* 連結滑過的狀態 */
+    a:hover{
+        color:red;
+        font-size: 30px;
+    }
+    /* 連結點擊時的狀態 */
+    a:active{
+        color:greenyellow;
+        font-size: 60px;
+    }
+
+
+</style>
+<body>
+    <h1>1.Font樣式</h1>
+    <p class="font-style">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam at nulla excepturi beatae fuga eveniet modi dignissimos placeat nihil, dolore voluptatibus eaque tenetur voluptatem quis ratione impedit laboriosam velit explicabo!
+    </p>
+    <h2>自訂字型</h2>
+    <p class="font-set">一部站點鮮花對待有。, Iste harum atque temporibus quibusdam magnam pariatur.</p>
+
+    <h2>Google Font</h2>
+    <p class="google-font">缺乏下載快速專題關。, VienCat creator.</p>
+    <h2>Google Font TraditionalChinese</h2>
+    <p class="google-font-TraditionalChinese">有一從而功夫風情這次雖然豐原我在均為一樣本月同學是以功夫風情這次雖然豐原我在功夫風情這次雖然豐原我在功夫風情這次雖然豐原我在法人會。</p>
+
+    <hr>
+    <h1>2.Text 樣式設定</h1>
+    <div class="text-style">
+        宣佈忘記陽明山，我來一定會當我事實，輸。
+    </div>
+    
+    <h1>2.Text 樣式設定</h1>
+    <div class="text-style">
+        Numquam at nulla excepturi beatae fuga eveniet modi dignissimos
+    </div>
+
+    <h1>3.連結</h1>
+    <div>
+        <a href="https://ithelp.ithome.com.tw/articles/10243882" target="_blank">李連杰</a>
+    </div>
+
+    <h1>4.rem 與 em 兩個單位的差異</h1>
+    <ui>
+        <li>文件字體預設大小為 16px,也就是1rem</li>
+        <li>:root指的是html根元素</li>
+    </ui>
+
+    <h2>rem</h2>
+    <p>rem為root font-size的倍數</p>
+    <div style="font-size: 1rem;">
+        FONT
+        <div style="font-size: 2rem;">
+            FONT
+            <div style="font-size: 3rem;">
+                FONT
+            </div>
+        </div>
+    </div>
+
+    
+    <h2>em</h2>
+    <p>em需要找父層或祖先層 font-size的倍數</p>
+    <div style="font-size: 1em;">
+        FONT
+        <div style="font-size: 2em;">
+            FONT
+            <div style="font-size: 3em;">
+                FONT
+            </div>
+        </div>
+    </div>
+</body>
+</html>

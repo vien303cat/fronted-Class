@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width:75%;
+        margin:  auto;
+        padding: 1rem;
+        border: 1px solid #333;
+    }
+    .wrap{
+        margin:  50px;
+        padding: 50px 0;
+        border: 5px dashed #333;
+    }
+    .box{
+        width:100px;
+        height:100px;
+        background-color: #000;
+        color:white;
+        line-height: 100px;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    /* 建立動畫 */
+    /* 
+        步驟一，建立一組關鍵影格(keyframes)
+        動畫名稱自取,範例animation
+        form(0%)
+        to(100%)
+    */
+    @keyframes animationName{
+        from{
+            transform:translate(0,0);
+            background-color: red;
+        }
+        to{
+            transform:translate(50vw,0);
+            background-color: blue;
+        }
+    }
+
+    /* 步驟二 建立一個專用的class */
+    .animation{
+        /* 設定動畫名稱 */
+        animation-name: animationName;
+        /* 設定持續時間ms(毫秒) s */
+        animation-duration: 2s;
+        /* 設定播放次數 預設1.無限 infinite */
+        animation-iteration-count: infinite;
+        /* 設定播放速率 */
+        animation-timing-function: linear;
+        /* 
+            播放的方向 
+            normal
+            reverse
+            alternate
+            alternate-reverse
+        */
+        animation-direction: alternate;
+        
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>動畫(animation)</h1>
+        <p>動畫與轉場的差異:</p>
+        <h2>animation</h2>
+        <ul>
+            <li>可以設定關鍵影格(keyframes)控制動畫進度的狀態,產生更複雜的動畫</li>
+            <li>網頁仔入時自動發生,也可以觸發(新增.刪除 class),還可以循環重複</li>
+        </ul>
+        <h2>transition</h2>
+        <p>藉由狀態觸發,是一次性且沒有循環效果,亦須重新再觸發一次.</p>
+        <div class="wrap">
+            <div class="box animation"></div>
+        </div>
+    </div>
+</body>
+</html>

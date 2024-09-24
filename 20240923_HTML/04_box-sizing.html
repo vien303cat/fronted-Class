@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box1{
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        border: 10px solid black;
+        background: lightcoral;
+    }
+    
+    /* box-sizing: border-box 指padding border 都算在width內 */
+    .box2{
+        box-sizing: border-box;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        border: 10px solid black;
+        background: lightblue;
+    }
+</style>
+<body>
+    <h1>原始的合模型計算</h1>
+    <div class="box1"></div>
+    
+    <h1>有box-sizing的盒模型計算</h1>
+    <div class="box2"></div>
+</body>
+</html>

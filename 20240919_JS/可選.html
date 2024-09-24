@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const userA = {
+            name:'AAA',
+            info:{
+                email: 'aaa@gmail.com',
+                // address:{
+                //     city:'',
+                //     postcode:'',
+                // }
+            }
+        };
+        const userB = {
+            name:'AAA',
+            info:{
+                email: 'aaa@gmail.com',
+                address:{
+                    city: '新北市泰山區',
+                    postcode: 243,
+                }
+            }
+        };
+        console.log(userA.name,userA.info.email);
+        console.log(userA.info.adress);
+        console.log(userA.info.adress?.city);
+        console.log(userA.info.adress?.postcode);
+
+
+        const games = [
+            { 
+                name:'FFXVI' , 
+                price:1490 ,
+            },
+            { 
+                name:'FFVII' , 
+                price:995 ,
+                dev:{
+                    name:'SE',
+                }
+            },
+            {
+                name: 'KINGDOM HEARTS',
+                price: 2990,
+                dev: {
+                    name: 'SE',
+                }
+            }
+        ];
+
+        for(let i = 0 ; i < games.length ; i++){
+            document.write(`
+                <p>
+                ${games[i].name} , 價格: ${games[i].price} , 開發商為 ${games[i].dev?.name || '????' } 
+                </p>
+            `);
+        }
+
+    </script>
+</body>
+</html>

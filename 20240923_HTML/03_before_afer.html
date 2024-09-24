@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' />
+    <style>
+        * {
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: white;
+            background: #000;
+            margin: 2rem 0 0 0;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 75%;
+            margin: 1% auto;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #333;
+            color: white;
+            margin: 20px auto;
+            position: relative;
+            text-align: center;
+            line-height: 100px;
+
+        }
+
+
+        .box::before {
+            /* content一定要寫 */
+            content: "\1F64F";
+            width: 100px;
+            height: 100px;
+            border: 5px, solid, yellow;
+            /* absolute fixed 都會讓元素轉型成block */
+            position: absolute;
+            left: -100%;
+            top: 0;
+            font-size: 50px;
+            transition: 0.5s 0.5s;
+
+        }
+
+        .box::after {
+            /* content一定要寫 */
+            content: "\1F64F";
+            width: 100px;
+            height: 100px;
+            border: 5px, solid, yellow;
+            /* absolute fixed 都會讓元素轉型成block */
+            position: absolute;
+            right: -100%;
+            top: 0;
+            font-size: 50px;
+            transition: 0.5s 0.5s;
+        }
+
+        .box:hover::before{
+            transform: rotate(360deg);
+        }
+        .box:hover::after{
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>偽元素 ::before、::after</h1>
+        <p>偽元素主使用於裝飾本體元素，讓主元素擁有兩個分身來做事情。</p>
+        <div class="box">
+            <div class="content">Hello</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>啟動條件</h1>
+        <ul>
+            <li>1.要有 content 才會有作用,content 可以放內容。</li>
+            <li>2.誕生時為 inline。</li>
+            <li>3.在結構上,before被建立在內容的前方,after在內容的後方</li>
+            <li>4.一般偽元素都會使用到定位去做轉型(absolute) 成 block,記住父元素需要有定位點產生。</li>
+            <li>5.無法使用在 img、input、iframe、br</li>
+            <li>6.before 與 after 定位時，依舊遵循後蓋前(after 會蓋住 before)，可以用 z-index 改變上下層的關係</li>
+            <li>7.偽元素不能再建立偽元素 例如::before::before是不行的</li>
+        </ul>
+    </div>
+
+    <style>
+        .box2{
+            width:  500px;
+            height: 500px;
+            background: deepskyblue;
+            position: relative;
+        }
+        .box2::after{
+            content: "after";
+            position: absolute;
+            width:  100px;
+            height: 100px;
+            border: 5px solid yellow;
+            background: darkorange;
+            left: 0;
+            top: 0;
+            /* z-index: 3; */
+        }
+        .box2::before{
+            content: "before";
+            position: absolute;
+            width:  300px;
+            height: 300px;
+            border: 5px solid yellow;
+            background: lightgreen;
+            left: 0;
+            top: 0;
+            /* z-index: 2; */
+        }
+        .inside{
+            width:  200px;
+            height: 200px;
+            background: darkred;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* z-index: 1; */
+        }
+    </style>
+
+    <div class="container">
+
+        <div class="box2">
+            <div class="inside">內容區</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
