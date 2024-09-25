@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // const person1 = {
+        //     firstName: "chen",
+        //     lastName:  "uhsuan",
+        //     fullName:  function(){
+        //         //this 指的是現在這個物件
+        //         return this.lastName + this.lastName;
+        //     },
+        //     hi(){
+        //         return '你好我是'+ this.fullName ;
+        //     },
+        //     hi2: () => {
+        //         return '你好我是'+ this.fullName ;
+        //     },
+        // } ;
+        // console.log(person1.firstName);
+        // console.log(person1.lastName);
+        // console.log(person1.fullName());
+        // console.log(person1.hi());
+        // console.log(person1.hi2());
+
+        class Person {
+            // 物件建立時執行的東西
+            constructor(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName  = lastName;
+            }
+            fullName(){
+                //this 指的是現在這個物件
+                return this.firstName + this.lastName;
+            }
+        }
+        const person1 = new Person('Chen','Hsuan');
+        console.log(person1.fullName());
+        const person2 = new Person('Flandre','Scarlet');
+        console.log(person2.fullName());
+    </script>
+</body>
+</html>

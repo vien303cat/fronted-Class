@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = [1,2,3,4,5];
+        numbers.forEach(function(value,index,array){
+            console.log(value , index , array);
+            //不能直接修改value 
+            // value *= 2 ;
+            // 若要修改的話需要透過索引來修改
+            array[index]  *= 2;
+            numbers[index] *= 2;
+        })
+        console.log(numbers);
+
+        // .join(連接文字)  把陣列用連接文字組成文字
+        console.log(numbers.join('-'));
+        
+
+
+        let fruits = ['蘋果','香蕉','西瓜'];
+
+        // .push(資料)      將資料新增進陣列後面 
+        // fruits.push('草莓');
+        // fruits.push('芭樂','柳丁');
+        let fruit2 = ['草莓','芭樂','柳丁'];
+        fruits.push(...fruit2); // 將陣列加進陣列時push的語法 需+ ...
+        console.log(fruits);
+
+        // .unshift(資料)   將資料新增進陣列前面
+        // fruits.unshift('橘子');
+        // fruits.unshift('葡萄', '檸檬');
+        const fruits3 = ['橘子', '葡萄', '檸檬'];
+        fruits.unshift(...fruits3);
+        console.log(fruits);
+
+        // .pop(資料)       刪除陣列最後一個並回傳
+        fruits.pop();
+        console.log(fruits);
+        // .shift(資料)     刪除陣列第一個並回傳
+        fruits.shift();
+        console.log(fruits);
+
+        // .splice(開始索引 , 刪除數量 , 插入資料1 , 插入資料2 ...)
+        const games = ['魔物獵人','FF16','原神','FF14','幻獸帕魯','特戰英豪'];
+        // games.splice(1,2,'洛克人','VRCHAT','黑神話悟空');
+        const game2 = ['洛克人','VRCHAT','黑神話悟空'];
+        games.splice(1,2,...game2);
+        console.log(games);
+
+        // .slice(開始位置,結束位置)
+        // 產生切割後的新陣列,不會修改原始陣列
+        const game3 = games.slice(1,3);
+        console.log(games,game3);
+
+        // .concat(陣列1, 陣列2...)
+        // 陣列連接產生新陣列，不會修改原始陣列
+        const array = games.concat(numbers, fruits)
+        console.log(array)
+
+        // .reverse()
+        // 反轉陣列
+        array.reverse()
+        console.log(array)
+        
+    </script>
+</body>
+</html>

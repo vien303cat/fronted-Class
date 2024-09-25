@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let text = 'abcdefg';
+
+        // .substr(開始位置,長度(選填) )
+        //  從開始位置取指定長度的文字
+        //  開始位置可以放負數,代表倒數, -1 = 倒數第一個字
+        //  長度不寫會取到結尾
+        console.log(text.substr(3,1));
+        console.log(text.substr(3));
+        console.log(text.substr(-3,2));
+
+        
+        // .substring(開始位置,結束位置)
+        // 從開始位置取到結束位置，不包含結束位置
+        // 結束位置不寫會取到結尾
+        // 不能用負數
+        console.log(text.substring(2,5));
+        
+        
+        // .slice(開始位置,結束位置)
+        //  從開始位置取到結束位置，不包含結束位置
+        //  結束位置不寫會取到結尾
+        //  位置可以放負數
+        console.log(text.slice(2,5));
+        console.log(text.slice(-4,-2));
+    </script>
+</body>
+</html>
