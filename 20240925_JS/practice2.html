@@ -10,11 +10,29 @@
         // 挑戰
         // 將 prompt() 輸入的英文文字大寫轉小寫，小寫轉大寫後顯示在網頁上
 
-        let input  = prompt("請輸入文字").trim();
+        let input = 'AAaBcvGFDSssTT';
+        // let input  = prompt("請輸入文字").trim() || '';
         let output = '';
-        for(let i = 0 ; i < input.length ; i++){
 
+        for(const val of input){
+
+            // 一開始想到是正則
+            // if(val.match(/^[A-Z]$/)){
+            //     output += val.toLowerCase();
+            // }else{
+            //     output += val.toUpperCase();
+            // }
+
+            // 後來想到有更簡單的(應該說比較省效能? 吧>_>)
+            if(val == val.toLowerCase()){
+                output += val.toUpperCase();
+            }else{
+                output += val.toLowerCase();
+            }
         }
+
+
+        document.write(`${input} 字母翻轉  ${output} <br> 好棒ㄛ`);
     </script>
 </body>
 </html>
