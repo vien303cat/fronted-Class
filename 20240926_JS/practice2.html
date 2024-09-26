@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 練習
+        // 製作隨機數字 function，提供最小整數和最大整數，回傳一個區間內的隨機整數
+
+        const randNum = (min, max , cnt) => {
+            let num = [];
+            cnt = (max-min) > cnt ? cnt: (max-min);
+            while(num.length < cnt){
+                let rand = min + Math.round( Math.random() * ( max - min ) );
+                if( num.includes(rand) ){
+                    continue;
+                }
+                num.push(rand);
+            }
+            return num ;
+        }
+        
+        document.write(randNum(0,50,20));
+        
+    </script>
+</body>
+</html>

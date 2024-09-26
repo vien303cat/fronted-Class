@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // .map(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 將每個東西執行funcion的return值變成新的陣列
+        const numbers = [100,200,300];
+        const numbersDouble = numbers.map(value =>{
+            return value * 2 ;
+        })
+        console.log(numbers,numbersDouble);
+
+        //  .reduce((累計值,現在值) => {} , 初始值)
+        // 迴圈陣列，每個東西都執行提供的 function 
+        // 將每個東西執行 function 的 return 值累加
+        // 初始值預設是陣列內第一個東西
+        const numbers2 = [100,200,300,400,500];
+        const numbers2Total = numbers2.reduce((total, value) => {
+            console.log(total,value);
+            return total + value;
+        })
+        console.log(numbers2Total);
+
+        // .sort((a,b) => {})
+        // 倆倆比較 , a = 後面的值 , b = 前面的值
+        const numbers3 = [1,100,50,114514,1919810,123456789,1234];
+        numbers3.sort((a,b) =>{
+            console.log (a,b);
+            // return 0 ;   //順序不變
+            // return < 0   //a 在前
+            // return > 0   //b 在前
+            // return a - b //正序 通常使用的方式
+            return b - a //倒序 通常使用的方式
+        }) 
+        console.log(numbers3);
+
+        const cn = ['零', ,'h','一', '二', 't','三', 'A','四', 'a','五'];
+        cn.sort((a, b) => {
+            // a.localeCompare(b,語言名稱) 比較文字的編碼順序
+            // a 在前 -> -1
+            // b 在前 -> 1
+            // 相等   -> 0
+            return a.localeCompare(b)
+        });
+        console.log(cn);
+    </script>
+</body>
+</html>

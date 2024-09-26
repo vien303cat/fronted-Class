@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setInterval 延遲一段時間後執行一次 function 內的程式碼 跟setTimeout不同的是setInterval會重複執行直到停止
+
+        // 基本語法和 setTimeout() 一樣，使用 clearInterval() 清除
+        // 延遲單位為毫秒，1000 代表 1 秒
+        // 使用 clearInterval() 取消
+        // 計時器為同時進行
+
+        const timer = setInterval(function () {
+            document.write("時間快到囉<br>");
+        },1000);
+        clearInterval(timer);
+        
+        
+
+    </script>
+</body>
+</html>

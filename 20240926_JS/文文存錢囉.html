@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const decrypt = (text) => {
+            getArr = [];
+            tempNum = 0;
+            for(let i = 0 ; i <text.length-1 ; i++){
+                getArr.push( Math.abs(text.charCodeAt(i+1) - text.charCodeAt(i)) );
+            }
+            return getArr ;
+            console.log(getArr);
+        }
+
+        const input = prompt('輸入文字')
+        console.log("文文的密碼是:" +  decrypt(input).join(''))
+    </script>
+</body>
+</html>

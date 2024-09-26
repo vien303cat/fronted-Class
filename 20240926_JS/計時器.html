@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setTimeout 延遲一段時間後執行一次 function 內的程式碼
+
+        // 語法為 setTimeout(function, 延遲)
+        // 延遲單位為毫秒，1000 代表 1 秒
+        // 使用 clearTimeout() 取消
+        // 計時器為同時進行
+
+        // setTimeout(function () {})
+        // setTimeout(() => {})
+        // const func = () => {}
+        // setTimeout(func)
+        
+        // setTimeout(() => {
+        //   document.write('三秒鐘')
+        // }, 3000)
+
+        // const write = () => {
+        //   document.write('三秒鐘')
+        // }
+        // setTimeout(write, 3000)
+
+        // setTimeout(function, 毫秒, 傳入 function 的參數)
+        // const write = (ms, text) => {
+        //   document.write(`過了 ${ms} 毫秒，${text}`)
+        // }
+        // setTimeout(write, 3000, 3000, 'abc')
+        // setTimeout(write, 5000, 5000, 'abc')
+
+        // const write = (ms, text) => {
+        //   setTimeout(() => {
+        //     document.write(`過了 ${ms} 毫秒，${text}`)
+        //   }, ms)
+        // }
+        // write(3000, 'abc')
+        // write(5000, 'abc')
+
+        const timer = setTimeout(function () {
+            document.write("時間快到囉");
+        },3000);
+        clearTimeout(timer);
+        
+        
+
+    </script>
+</body>
+</html>
