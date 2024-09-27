@@ -30,20 +30,19 @@
             
             let again = confirm("還需要下一次取數字嗎?") ;
             num.push(again);
-            // console.log(num);
             return num ;
         }
         
         let area = 0;
         let re   = true;
         do{
-            let min = prompt("請輸入最小值") | 1  ;
-            let max = prompt("請輸入最大值") | 38 ;
-            let cnt = prompt("請輸入多少個") | 1  ;
+            let min = prompt("請輸入最小值") || 1  ;
+            let max = prompt("請輸入最大值") || 38 ;
+            let cnt = prompt("請輸入多少個") || 1  ;
             
-            const numbers = randNum(parseInt(min),parseInt(max),parseInt(cnt));
+            let numbers = randNum(parseInt(min),parseInt(max),parseInt(cnt));
             re = numbers.pop();
-            // console.log(numbers , re);
+            // console.log(numbers,min,max);
             area++ ;
             document.write(`第${area}區 (由${min}到${max}取${cnt}個數字) : ${numbers} <br> `);
         }while(re);
