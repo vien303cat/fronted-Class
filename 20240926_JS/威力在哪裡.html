@@ -32,8 +32,8 @@
             num.push(again);
             return num ;
         }
-        
         let area = 0;
+        
         let re   = true;
         do{
             let min = prompt("請輸入最小值") || 1  ;
@@ -42,9 +42,9 @@
             
             let numbers = randNum(parseInt(min),parseInt(max),parseInt(cnt));
             re = numbers.pop();
-            // console.log(numbers,min,max);
+            // console.log("A".charCodeAt(0));  // 65
+            document.write(`第${String.fromCharCode(65+area)}區 (由${min}到${max}取${cnt}個數字) : ${numbers} <br> `);
             area++ ;
-            document.write(`第${area}區 (由${min}到${max}取${cnt}個數字) : ${numbers} <br> `);
         }while(re);
         
     </script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        vertical-align 對 block 沒有作用
+        只能對 display:inline-block;或 inline 元素使用
+        span , a , img , iframe 都是 inline 元素
+    -->
+        <div style="background: deeppink;">
+            <img src="https://picsum.photos/100/100/?random=10" style="vertical-align:middle ;">
+            <img src="https://picsum.photos/300/200/?random=10" style="vertical-align:middle ;">
+        </div>
+        <hr>
+        <!-- 不用  vertical-align 圖片下方會有小空白 -->
+        <div style="background: deeppink;">
+            <img src="https://picsum.photos/100/100/?random=10" >
+            <img src="https://picsum.photos/300/200/?random=10" >
+        </div>
+
+        <!-- float具有區塊化的特性 所以 vertical-align會失效-->
+        <div style="background: deeppink; overflow:hidden">
+            <img src="https://picsum.photos/100/100/?random=10" style="float: left;vertical-align:middle ;">
+            <img src="https://picsum.photos/300/200/?random=10" style="float: left;vertical-align:middle ;">
+        </div>
+</body>
+</html>

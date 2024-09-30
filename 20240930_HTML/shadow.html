@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box-shadow,
+    .drop-shadow{
+        font-size: 5rem;
+        width: 500px;
+    }
+    img{
+        width: 100%;
+    }
+    
+    /* 可以inset 有第四個參數 */
+    .box-shadow{
+        box-shadow: 
+        0 0 10px 3px rgba(0,0,0,0.5),
+        0 0 10px 3px rgba(0,0,0,0.5);
+    }
+
+    .drop-shadow{
+        filter:
+        drop-shadow(0 0 10px rgba(0,0,0,0.5))
+        drop-shadow(0 0 20px rgba(0,0,0,0.5));
+    }
+</style>
+<body>
+    <h1>box-shadow</h1>
+    <div class="box-shadow">
+        <img src="./street_fighter_素材/images/logo.png" alt="慢打旋風">
+    </div>
+    
+    <h1>filter:drop-shadow</h1>
+    <div class="drop-shadow">
+        <img src="./street_fighter_素材/images/logo.png" alt="慢打旋風">
+    </div>
+</body>
+</html>
