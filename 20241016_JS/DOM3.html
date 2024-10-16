@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        outline: 1px solid black;
+    }
+</style>
+<body>
+    <div id="div1">
+        <p>此生無悔入東方，來世願入幻想鄉</p>
+    </div>
+    <div id="div2">
+        <p>我只是看到東方就進來了</p>
+    </div>
+    <div id="div3">
+        <p>東方是東方神起嗎?</p>
+    </div>
+    <div id="div4">
+        <p>div4</p>
+    </div>
+    <div id="div5">
+        <p>div5</p>
+    </div>
+
+    <ul id="list1">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        const div1 = document.getElementById('div1');
+        div1.innerHTML += '<p>+=innerHTML</p>';
+        // .insertAdjacentHTML(位置,HTML)
+        div1.insertAdjacentHTML('beforebegin','<p>beforebegin</p>');
+        div1.insertAdjacentHTML('afterbegin','<p>afterbegin</p>');
+        div1.insertAdjacentHTML('beforeend','<p>beforeend</p>');
+        div1.insertAdjacentHTML('afterend','<p>afterend</p>');
+
+        const div2 = document.getElementById('div2');
+        const p2 = document.createElement('p');
+        p2.innerText = '再戰十年';
+        div2.insertAdjacentElement('afterbegin',p2);
+        
+        const div3 = document.getElementById('div3');
+        const p3 = document.createElement('p');
+        p3.innerText = '起你妹';
+        const a3 = document.createElement('a');
+        a3.innerText = '幻想鄉';
+        a3.href = 'https://forum.gamer.com.tw/B.php?bsn=10039';
+        // .append() 下一層的後面 可以一次放多個元素,用,分隔
+        // .prepend() 下一層的前面 可以一次放多個元素,用,分隔
+        // .appendChild() 下一層的後面 只能放一個
+        // 如果東西不在DOM會放上去,已經存在的東西會移動位置
+        
+        div3.append(p3,a3);
+        div3.prepend(a3);
+        
+        const div4 = document.getElementById('div4');
+        // .remove() 刪除
+        // div4.children[0].remove();
+
+        // .removeChild() 一次刪一個
+        // () 內的東西一定要是裡面東西
+        // return 被刪掉的東西
+        // div4.removeChild(div4.firstElementChild);
+        
+        // 清除所有內層元素
+        // 1.while
+        // while(div4.firstElementChild){
+        //     // div4.firstElementChild.remove()
+        //     div4.removeChild(div4.firstElementChild);
+        // }
+
+        // 2. children
+        // const div4children = div4.children;
+        // for(const element of div4children){
+        //     element.remove();
+        // }
+
+        // 3.innerHTML
+        div4.innerHTML = '';
+
+
+        const div5 = document.getElementById('div5');
+        const img5 = document.createElement('img');
+        img5.src   = 'https://github.com/wdaweb.png';
+        img5.width = 200 ;
+
+        //  .replaceChild(新,舊) 
+        // 新的取代元素內舊的
+        // 如果新的東西不在DOM會放上去 , 已經存在的東西會移動位置
+        // 舊的一定要在元素內
+        div5.replaceChild(img5,div5.firstElementChild);
+        
+
+
+        const list1 = document.getElementById('list1')
+        const list2 = document.getElementById('list2')
+        // .insertBefore(A, B)
+        // A 放到 B 元素前面
+        // B 一定要在元素內
+        // 如果新的東西不在 DOM 會放上去，已經存在的東西會移動位置
+        list1.insertBefore(list2.firstElementChild, list1.lastElementChild)
+
+        // B 如果是 null，會被放在最後面
+        // list1.insertBefore(list2.firstElementChild, null)
+
+    </script>
+</body>
+</html>

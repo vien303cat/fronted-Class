@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: black;
+    }
+</style>
+<body>
+
+
+    <!-- 
+    
+    練習
+
+    製作倒數計時器
+    
+    使用者用 prompt() 輸入秒數數字
+    在網頁只能有一行字顯示 剩餘 X 秒，秒數不能變負數，顏色為藍色
+    時間到時文字變成紅色的 時間到
+
+    -->
+
+    <h1 id="num" style="color: white;">倒數開始囉:3</h1>
+
+    <script>
+
+        let totalTime = prompt("需要倒數幾秒呢");
+        
+        const display = document.getElementById('num');
+        const getBody = document.body; //body可以這樣取
+
+        const begin = () => { 
+            display.innerText   = `剩餘 ${totalTime} 秒`;
+            display.style.color = 'blue'; 
+            totalTime--;
+            if(totalTime < 0){
+                display.innerText   = `時間到 下課囉`;
+                display.style.color = 'red'; 
+                getBody.style.background = 'white';
+                clearInterval(timer);
+            }
+        };
+
+        //利用這種呼叫方法可以解決一開始空白的秒數
+        const timer = setInterval( begin , 1000);
+        begin();
+        
+        // 沒看上禮拜計時器直接做出來的(錯惹QQ)
+        // console.log(display,(totalTime != 0) , totalTime-=1);
+        // if(totalTime > 0){
+        //     display.innerText   = `剩餘 ${totalTime} 秒`;
+        //     display.style.color = 'blue'; 
+        //     totalTime = oneSecondCD(totalTime);
+            
+        //     console.log(totalTime)
+        // }
+
+        // function oneSecondCD (time) {
+        //     setTimeout(() => {
+        //         time-=1 ;
+        //         console.log(time);
+        //     }, 1000);
+
+        //     return time ;
+        // }
+
+    </script>
+
+</body>
+</html>

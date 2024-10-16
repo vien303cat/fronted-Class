@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .outline{
+        outline: 1px solid black;
+    }
+    .text-blue{
+        color: blue;
+    }
+</style>
+<body>
+    <div id="links">
+        <a href="https://www.youtube.com/">YT</a>
+        <a href="https://www.gamer.com.tw/">BAHAMUT</a>
+    </div>
+
+    <ul id="list1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+        <li id="list2li3">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        // .children 下一層的所有元素
+        const links = document.getElementById('links').children;
+        // for(const element of links){
+        //     element.setAttribute('href','https://www.google.com/');
+        //     element.href = 'https://www.google.com/';
+        //     console.log(element.href,element);
+        //     element.innerText = 'Google'; 
+        // }
+
+        const timer = setTimeout(function () {
+            for(const element of links){
+                element.href = 'https://www.google.com/';
+                element.innerText = 'Google'; 
+                console.log(element.href,element);
+            }
+        },5000);
+        // clearTimeout(timer);
+
+        const list1 = document.querySelector('#list1');
+        // .firstElementChild 下一層的第一個
+        // .classList.add() 新增class
+        list1.firstElementChild.classList.add('text-blue');
+        // .lastElementChild 下一層的最後一個
+        // list1.lastElementChild.classList.add('text-blue' , 'outline');
+        const classes = ['text-blue','outline'];
+        list1.lastElementChild.classList.add(...classes);
+
+        // .className 取得所有 class 空白分隔
+        console.log(list1.lastElementChild.className);
+        console.log(list1.lastElementChild.classList);
+        console.log(list1.lastElementChild.classList[0]);
+        console.log(list1.lastElementChild.classList[1]);
+        console.log(list1.lastElementChild.classList.length);
+        console.log(list1.lastElementChild.classList.value);  
+        
+        
+        const list2li3 = document.getElementById('list2li3');
+        // .previousElementSibling 同一層的前一個
+        list2li3.previousElementSibling.classList.add('text-blue');
+        // .classList.remove()   移除 class
+        list2li3.previousElementSibling.classList.add('border');
+        list2li3.previousElementSibling.classList.remove('border');
+
+        // .nextElementSibling 同一層的後一個
+        // list2li3.nextElementSibling.nextElementSibling.classList.toggle('text-blue')
+        let el = list2li3;
+        for (let i = 0; i < 2; i++) {
+            el = el.nextElementSibling;
+        }
+        // .classList.toggle()  沒有就新增，有就移除
+        el.classList.toggle('text-blue');
+        // .classList.contains()  有沒有包含
+        console.log(el.classList.contains('text-blue'));
+
+        // .parentElement() 上一層
+        list2li3.parentElement.style.background = 'gray';
+    </script>
+</body>
+</html>

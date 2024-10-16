@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .text-blue {
+      color: blue;
+    }
+    .text-blue::before {
+      content: '藍色';
+      color: skyblue;
+    }
+    .text-blue:active {
+      color:aqua;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">ABCDEFG</h1>
+  <h2>
+    <i>111</i>
+  </h2>
+  <h2>
+    <i>222</i>
+  </h2>
+  <h3 class="text-red">aaa</h3>
+  <h3 class="text-red">bbb</h3>
+  <h3 class="text-center">aaa</h3>
+  <h3 class="text-center">bbb</h3>
+  <h3 class="text-blue">aaa</h3>
+  <h3 class="text-blue">bbb</h3>
+  <script>
+    // .getElementById()
+    // 用 id 名稱抓取元素
+    const title = document.getElementById('title')
+    // .innerText = 元素內的文字
+    console.log(`title 的文字是 ${title.innerText}`)
+    title.innerText = '123456'
+
+    // .getElementsByTagName()
+    // 用標籤名稱抓取元素
+    const h2 = document.getElementsByTagName('h2')
+    // .innerHTML = 元素內的 HTML 的文字
+    console.log(h2[0].innerHTML.trim())
+    console.log(h2[0].innerText)
+    console.log(h2)
+    // 取下來的 HTMLCollection 不能用 array.forEach
+    // h2.forEach(element => {
+    //   console.log(element.innerHTML.trim())
+    // })
+    for (const element of h2) {
+      console.log(element.innerHTML.trim())
+    }
+
+    const red = document.getElementsByClassName('text-red')
+    for (const element of red) {
+      // .style.樣式名稱
+      // 取得或是修改行內樣式
+      element.style.color = 'red'
+      console.log(element.style.color)
+    }
+
+    // .querySelectorAll() 用選擇器取符合的全部東西
+    // .querySelector()    用選擇器取符合的第一個東西
+    const center = document.querySelectorAll('.text-center')
+    for (const element of center) {
+      element.style.textAlign = 'center'
+      element.style['text-align'] = 'center'
+    }
+
+    const blue = document.querySelectorAll('.text-blue')
+    for (const element of blue) {
+      console.log(element.style.color)
+      // getComputedStyle()
+      // 取得元素的最終樣式，唯讀
+      console.log(getComputedStyle(element).color)
+      // 可以取 ::before, ::after, ::first-letter
+      console.log(getComputedStyle(element, '::before').color)
+      // 取不到 :hover, :active
+      console.log(getComputedStyle(element, ':active').color)
+    }
+  </script>
+</body>
+</html>
