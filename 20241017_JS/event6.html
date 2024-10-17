@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #out{
+        width: 200px;
+        height: 200px;
+        background: lightblue;
+    }
+    #in{
+        width: 100px;
+        height: 100px;
+        background: lightgreen;
+    }
+</style>
+<body>
+    <a href="https://x.com" id="link"> X </a>
+    <div id="out">
+        <div id="in"></div>
+    </div>
+    <script>
+        const link = document.getElementById('link');
+        link.onclick = function(event){
+            //預設動作 (例如form會跳頁 可以用這個擋)
+            event.preventDefault();
+        }
+
+        const divOut = document.getElementById('out');
+        const divIn = document.getElementById('in');
+        divOut.onclick = function(event){
+            // console.log(event);
+            console.log('out',event.target);
+        }
+        divIn.onclick = function(event){
+            // console.log(event);
+            console.log('in',event.target);
+            // 停止冒泡 所以點擊後不會往上找 (沒加的話會點了in他還會去外層找是否有其他元素)
+            // event.stopPropagation();
+        }
+    </script>
+</body>
+</html>

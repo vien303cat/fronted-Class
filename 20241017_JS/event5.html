@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+    <p id ='key'></p>
+    <input type="range" id="range" min="0" max="100" value="20" step="20">
+    <p id="range-value">20</p>
+    <hr>
+    <input type="email" id="email">
+    <script>
+        const div = document.getElementById('div');
+        // div.onclick = (event) => {};
+        div.addEventListener('click', function(event){
+            // console.log(event);
+        })
+        const key = document.getElementById('key');
+        // 鍵盤類的事件都要加document
+        document.onkeydown = (event) => {
+            // console.log(event);
+            key.innerText = (event.key == " ") ? "Space":event.key; 
+        }
+
+
+        const range  = document.getElementById('range');
+        const rangeValue = document.getElementById('range-value');
+        range.addEventListener('input' , () => {
+            // console.log('range input');
+            rangeValue.innerText = range.value;
+        })
+        range.addEventListener('change' , () => {
+            // console.log('range change');
+            // rangeValue.innerText = range.value;
+        })
+
+
+
+        const email = document.getElementById('email');
+        email.addEventListener('focus' , () => {
+            console.log('focus');
+        })
+        // 模糊
+        email.addEventListener('blur' , () => {
+            console.log('blur');
+        })
+        email.addEventListener('change' , () => {
+            console.log('change');
+        })
+        email.addEventListener('input' , () => {
+            console.log('input');
+            if(email.value.includes('@')){
+                email.style.outline = '3px green solid';
+            }else{
+                email.style.outline = '2px red solid';
+            }
+        })
+        
+    </script>
+</body>
+</html>

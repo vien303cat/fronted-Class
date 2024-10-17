@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="剪刀" onclick="play(0)" > 
+    <input type="button" value="石頭" onclick="play(1)" > 
+    <input type="button" value="布"   onclick="play(2)" > 
+    <hr>
+    贏:<span id="win">0</span> 
+    輸:<span id="lose">0</span> 
+    平手:<span id="draw">0</span><br>
+    <ul id="myList"></ul>
+    <script>
+        const btnArr = document.getElementsByTagName('input');
+        const txtArr = ['剪刀','石頭','布'];
+
+        const spanGet = document.getElementsByTagName('span');
+        const ulGet = document.getElementById('myList');
+        
+        const play = function(use){
+            const rand = Math.round( Math.random() * 2);
+            let result = use - rand ;
+            let liPlus = document.createElement('li');
+            console.log(use,rand,result);
+            switch(result){
+                //贏
+                case -2: {
+                    const outputTxt = `你出${txtArr[use]}，電腦出${txtArr[rand]}，贏`;
+                    liPlus.innerText = outputTxt;
+                    ulGet.prepend(liPlus);
+                    spanGet[0].innerText++;
+                    break;
+                }
+                //輸
+                case -1: {
+                    const outputTxt = `你出${txtArr[use]}，電腦出${txtArr[rand]}，輸`;
+                    liPlus.innerText = outputTxt;
+                    ulGet.prepend(liPlus);
+                    spanGet[1].innerText++;
+                    break;
+                }
+                //平手
+                case 0 : {
+                    const outputTxt = `你出${txtArr[use]}，電腦出${txtArr[rand]}，平手`;
+                    liPlus.innerText = outputTxt;
+                    ulGet.prepend(liPlus);
+                    spanGet[2].innerText++;
+                    break;
+                }
+                
+                //贏
+                case 1: {
+                    const outputTxt = `你出${txtArr[use]}，電腦出${txtArr[rand]}，贏`;
+                    liPlus.innerText = outputTxt;
+                    ulGet.prepend(liPlus);
+                    spanGet[0].innerText++;
+                    break;
+                }
+                //輸
+                case 2: {
+                    const outputTxt = `你出${txtArr[use]}，電腦出${txtArr[rand]}，輸`;
+                    liPlus.innerText = outputTxt;
+                    ulGet.prepend(liPlus);
+                    spanGet[1].innerText++;
+                    break;
+                }
+            }
+        }
+
+
+        // 可以改用addListener做做看
+        
+        // const obj = {
+        //     '0' : {
+        //         plus : "draw" ,
+        //         txt  : "平手" ,
+        //         meme : "../images/GaBpF7laoAASfkf.png"
+        //     },
+        //     '1' : {
+
+        //     },
+        //     '-1' : {
+
+        //     }
+        // }; 
+        
+
+        // console.log(btnArr);
+        // for(const index in btnArr){
+        //     console.log(btnArr[index]);
+        //     btnArr[index].addEventListener('click', function(event){
+        //         console.log(event);
+        //     });
+        // }
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@
         const display = document.getElementById('num');
         const getBody = document.body; //body可以這樣取
 
-        const begin = () => { 
+        const begin = function(){ 
             display.innerText   = `剩餘 ${totalTime} 秒`;
             display.style.color = 'blue'; 
             totalTime--;

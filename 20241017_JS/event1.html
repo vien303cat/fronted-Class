@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="點我" onclick="alert('好耶')">
+    <input type="button" value="0" onclick="this.value++;alert('++')">
+    <input type="button" value="不要點我" onclick="onBtnClick()">
+    <input type="button" value="onBtnClick2()" onclick="onBtnClick2(this.value)">
+    <input type="button" value="onBtnClick3()" onclick="onBtnClick3(this,'ABCD')">
+    <script>
+        const onBtnClick = function(){
+            alert('你這是在玩火');
+        };
+        const onBtnClick2 = (text) => {
+            alert(text);
+        };
+        const onBtnClick3 = function(element,text){
+            element.value = text ;
+            alert(text);
+        };
+    </script>
+</body>
+</html>

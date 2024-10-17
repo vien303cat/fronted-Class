@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="unbind" id="unbind">
+
+    <script>
+        const myBtn = document.querySelectorAll('.my-btn');
+
+        const hi = function(){
+            alert('123456');
+        };
+
+        for(const element of myBtn){
+            // 可以直接寫func進去 但是因為後面解綁需要指定func名稱因此這邊額外命名 func hi 來使用
+            // element.addEventListener('click', function(){
+            //     alert('123456');
+            // })
+
+            //增加事件('動作',函式)
+            element.addEventListener('click', hi);
+        }
+
+        const unbind = document.querySelector('#unbind');
+        unbind.addEventListener('click', function(){
+            for(const element of myBtn){
+                //移除事件('動作',函式)
+                element.removeEventListener('click',hi);
+            }
+        })
+    </script>
+</body>
+</html>

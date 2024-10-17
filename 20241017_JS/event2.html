@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="不要點我" id="btn1">
+    <input type="button" value="解救蒼生" id="unbind">
+    <hr>
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <script>
+
+        const getBody = document.body;
+
+        const btn1 = document.getElementById('btn1');
+        // btn.onclick = () => {};
+        // btn.onclick = abc;
+        // function abc (){}
+        btn1.onclick = function(){
+            alert('你這是在玩火');
+            btn1.value = '喜內';
+
+            getBody.style.background = 'red';
+        };
+
+        const unbind = document.getElementById('unbind');
+        unbind.onclick = () => {
+
+            alert('有人叫醫生嗎');
+            // btn1.onclick = null ; //解除事件
+            btn1.onclick = () => { //更改事件
+                alert('點的好');
+            }
+            btn1.value = "不許你壞壞";
+
+            getBody.style.background = 'white';
+        }
+
+        const myBtn = document.getElementsByClassName('my-btn');
+        for(const index in myBtn){
+            myBtn[index].onclick = function(){
+                alert('hi'+index);
+            }
+        }
+
+        // 無效,因為是getElements 他拿到的是一個陣列因此必須跑回圈來改
+        // myBtn.onclick = () =>{
+        //     alert('hi');
+        // }
+
+        
+    </script>
+</body>
+</html>
