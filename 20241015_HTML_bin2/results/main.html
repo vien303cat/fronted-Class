@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #news{
+        width: 280px;
+        height: 460px;
+        border: 1px solid #999;
+        float: left;
+    }
+    #news h1{
+        font-size: 16px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    #news th{
+        background: #3399FF;
+        font-size: 14px;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    #news td{
+        font-size: 12px;
+        line-height: 2;
+        /* text-align: center; */
+    }
+    #news tr:nth-child(odd) {
+        background: #FFFFCC;
+    }
+    #news tr:nth-child(even) {
+        background: #DDDDDD;
+    }
+
+
+    #photo{
+        width: 590px;
+        height: 460px;
+        border: 1px solid #999;
+        float: right;
+        background: #333;
+        color: #ff0;
+        font-size: 14px;
+        text-align: center;
+
+    }
+    
+    /* 紙本沒跟我們說尺寸，要記一下尺寸 */
+    #big{
+        width: 578px;
+        height: 340PX;
+    }
+
+</style>
+<body>
+    <div id="news">
+        <h1>最新消息</h1>
+        <table  style="border-collapse: collapse; width: 90%;">
+            <tr>
+                <th>主題</th>
+                <th>發布日期</th>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告全國技能競賽相關事宜</td>
+                <td>113/10/15</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告即測即評及發證相關事宜</td>
+                <td>113/10/15</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告網頁設計修題相關事宜</td>
+                <td>113/10/15</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告網路架設應檢相關事宜</td>
+                <td>113/10/15</td>
+            </tr>
+        </table>
+    </div>
+    <div id="photo">
+        <table>
+            <tr>
+                <td colspan="4">
+                    <img id="big" src="../images/0202A.png"  alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="small" src="../images/0202B.png"  alt="">
+                </td>
+                <td>
+                    <img class="small" src="../images/0203B.png"  alt="">
+                </td>
+                <td>
+                    <img class="small" src="../images/0204B.png"  alt="">
+                </td>
+                <td>
+                    <img class="small" src="../images/0205B.png"  alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>第30屆倫敦奧運</td>
+                <td>許淑淨奪舉重銀牌</td>
+                <td>第26屆深圳世大運</td>
+                <td>第27屆喀山世大運</td>
+            </tr>
+        </table>
+    </div>
+    
+<script src="../others/jquery-2.1.4.min.js"></script>
+<script>
+
+    // 第一個方法 原生 js
+    // 1. 先抓大圖、小圖元素
+    const big = document.querySelector('#big')
+    const imgs = document.querySelectorAll('.small')
+    // console.log(big, imgs)
+
+    console.log(imgs)
+
+    // 2. 對小圖做循環迭代的動作
+    // [img.small, img.small, img.small, img.small]
+    imgs.forEach(function (img, index) {
+        // console.log(img, index)
+        // 3. 點小圖抽換大圖的路徑
+        img.onclick = function () {
+            big.src = `../images/020${index + 2}A.png`
+        }
+    })
+
+    // *****************************************
+
+    // 第二種方法 JQUERY
+    
+    $('.small').each(function (index,img){
+        $(img).on('click',function(){
+            $('#big').attr('src',`../images/020${index + 2}A.png`);
+        });
+    })
+
+</script>
+</body>
+</html>

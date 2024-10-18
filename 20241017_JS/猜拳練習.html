@@ -6,13 +6,26 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- 
+    
+    練習
+    
+    製作猜拳遊戲，網頁有三個按鈕，分別是剪刀、石頭和布
+    按鈕點下去後電腦隨機出拳，將電腦出拳和勝負結果用 alert() 顯示
+    最後在按鈕下方用 ul 和 li 清單列出勝負紀錄
+    
+    -->
+
     <input type="button" value="剪刀" onclick="play(0)" > 
     <input type="button" value="石頭" onclick="play(1)" > 
     <input type="button" value="布"   onclick="play(2)" > 
     <hr>
-    贏:<span id="win">0</span> 
-    輸:<span id="lose">0</span> 
-    平手:<span id="draw">0</span><br>
+    <p>
+        贏:<span id="win">0</span> 
+        輸:<span id="lose">0</span> 
+        平手:<span id="draw">0</span>
+    </p>
     <ul id="myList"></ul>
     <script>
         const btnArr = document.getElementsByTagName('input');

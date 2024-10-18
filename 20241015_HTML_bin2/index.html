@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: #42413C;
+    }
+    #main{
+        margin:     auto;
+        width:      1024px;
+        height:     768px;
+        background: white;
+    }
+    #top{
+        height: 90px;
+        width:  1024px;
+        background: #00B0F0;
+    }
+    
+    #logo{
+        width: 180px;
+        height: 90px;
+        text-align: left;
+    }
+
+    #title{
+        font-size: 52px;
+        color: #FFFFFF;
+        font-family: "標楷體";
+        text-shadow: 10px 10px 15px #333333;
+        text-align: center;
+    }
+
+    table{
+        width: 100% ;
+        text-align: center;
+        border-collapse: collapse;
+    }
+    table td{
+        padding: 0;
+    }
+
+    #menu{
+        height: 25px;
+        width:  1024px;
+    }
+    #menu a{
+        color: #000000;
+        text-decoration: none;
+        display: block;
+
+    }
+    #menu a:hover{
+        width: 100%;
+        background: #FF0;
+        font-size: 14px;
+        color: #F00;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    iframe{
+        width: 100%;
+        height: 100%;
+        /* background: lightcoral; */
+    }
+    #content{
+        /* box-sizing可以讓padding算在width裡面 */
+        box-sizing: border-box;
+        width: 1024px;
+        height: calc(768px - 90px - 25px - 45px);
+        padding: 20px;
+        background: #FFF;
+        font-size: 14px;
+        color: #000;
+    }
+    #footer{
+        height: 45px;
+        width:  1024px;
+        background: #CCCCCC;
+        color: #FFFFFF;
+        font-size: 14px;
+        text-align: center;
+    }
+
+</style>
+<body>
+    <div id="main">
+        <div id="top">
+            <table >
+                <tr >
+                    <td id="logo"><a href="./index.html">
+                        <img src="./images/logo.png" alt="運動廣場連結網-回首頁" title="運動廣場連結網-回首頁">
+                    </a></td>
+                    <td id="title">運動廣場連結網</td>
+                </tr>
+            </table>
+        </div>
+        <div id="menu">
+            <table style="table-layout: fixed;">
+                <tr>
+                    <td><a href="./index.html">首頁    </a></td>
+                    <td><a href="./results/health.html" target="iframe" >健康天地</a></td>
+                    <td><a href="./results/basketball.html" target="iframe" >籃球介紹</a></td>
+                    <td><a href="./results/baseball.html" target="iframe" >棒球介紹</a></td>
+                    <td><a href="./results/swimming.html" target="iframe" >游泳介紹</a></td>
+                    <td><a href="./results/msgboard.html" target="iframe" >訪客留言</a></td>
+                    <td><a href="./results/reference.html" target="iframe" >資料來源</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="content">
+            <iframe src="./results/main.html" frameborder="0" name="iframe" style="border: 1px solid #999;"></iframe>
+        </div>
+        <div id="footer">
+            網頁設計及維護：20陳昱瑄<br>
+            最近更新日期：2024/10/15
+        </div>
+    </div>
+</body>
+</html>

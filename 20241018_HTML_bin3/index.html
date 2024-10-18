@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國家公園介紹網</title>
+</head>
+<style>
+    #container{
+        width:  1024px;
+        height: 768px;
+        margin: auto;
+        /* background: lightslategray */
+    }
+    #top{
+
+        margin: auto;
+        width: 1000px;
+        height: 65px;
+        background: #0000FF;
+        text-align: center;
+    }
+    #left{
+        width: 200px;
+        height: calc(768px - 65px - 20px);
+        margin-left: 12px;
+        float: left;
+        background: lightgray;
+    }
+    .menu{
+        width: 100%;
+        text-align: center;
+    }
+    .menu img{
+        width: 120px;
+        height: 40px;
+    }
+    .menu img:hover{
+        filter: hue-rotate(120deg);
+    }
+
+    /* 
+        雖然題目沒要求但是這樣可能會太醜
+        有兩種方式 :
+        1. 一個可以加上a類別去增加2.4.6高度
+        2.替2.4.6加上&nbsp;空白
+    */
+    .a{
+        height: 20px;
+    }
+
+    #right{
+        width: 800px;
+        height: calc(768px  - 65px - 20px);
+        float: right;
+        background: lightgray;
+        margin-right: 12px;
+    }
+    #footer{
+        width: 1000px;
+        height: 20px;
+        clear: both;
+        background: white;
+        margin: auto;
+        text-align: center;
+        font-family: "標楷體";
+        color: #000000;
+        font-size: 16px;
+    }
+    
+    marquee{
+        width: 800px;
+        height: 29px;
+        background: white;
+        /* 題目沒要求 但是可以處理掉marquee下方空白 */
+        vertical-align: middle;
+        /* 題目沒要求 文字居中 */
+        line-height: 29px;
+
+    }
+
+    iframe{
+        width:  800px;
+        height: calc(768px  - 65px - 20px - 29px);
+    }
+    .download{
+        text-align: center;
+    }
+    
+</style>
+<body>
+    <div id="container">
+        <div id="top">
+            <a href="index.html"><img src="./images/gif.gif" alt=""></a>
+        </div>
+        <div id="left">
+            <table class="menu">
+                <tr>
+                    <td>
+                        <a href="./park/yangmingshan.html" target="iframe">
+                            <img src="/images/park0302.jpg" alt="陽明山國家公園" title="陽明山國家公園">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="./park/sheipa.html" target="iframe">
+                            <img src="/images/park0303.jpg" alt="雪霸國家公園" title="雪霸國家公園">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/park0304.jpg" alt="太魯閣國家公園" title="太魯閣國家公園">
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="/images/park0305.jpg" alt="玉山國家公園" title="玉山國家公園">
+                    </td>
+                </tr>
+            </table>
+            <p class="download">
+                <a href="./others/park.mp3" download>
+                    檔案下載
+                </a>
+            </p>
+        </div>
+        <div id="right">
+            <marquee behavior="" direction=""> 歡迎進入國家公園介紹網，本網站有詳細的國家公園介紹哦！ </marquee>
+            <iframe src="./others/main.html" frameborder="0" name="iframe"></iframe>
+            
+        </div>
+        <div id="footer">網頁設計及維護：20陳昱瑄、最近更新日期：1994/09/16</div>
+    </div>
+</body>
+</html>
