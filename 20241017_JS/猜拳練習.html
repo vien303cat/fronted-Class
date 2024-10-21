@@ -28,8 +28,8 @@
     <hr>
     <p>
         贏:<span id="win">0</span> 
-        輸:<span id="lose">0</span> 
         平手:<span id="draw">0</span>
+        輸:<span id="lose">0</span> 
     </p>
     <ul id="myList"></ul>
     <script>
@@ -98,14 +98,12 @@
         const txtArr    = ['剪刀','石頭','布'];
         const resultArr = ['贏','平手','輸'];
 
-        const rand = txtArr[Math.round( Math.random() * 2)];
-
         let resultCode = 2;
-        console.log(inputGet);
+        console.log(spanGet);
         for(let i = 0 ; i < inputGet.length ; i++){
-
             inputGet[i].addEventListener('click', function(event){
-                console.log(inputGet[i].value,event);
+                //對手出拳
+                const rand = txtArr[Math.round( Math.random() * 2)];
                 if( (inputGet[i].value == '剪刀' && rand == '布')   ||   //贏
                     (inputGet[i].value == '布'   && rand == '石頭') ||
                     (inputGet[i].value == '石頭' && rand == '剪刀')
@@ -114,8 +112,8 @@
                 }else if(inputGet[i].value == rand){  //平手
                     resultCode = 1 ;
                 }else{} //輸  直接用預設值
-
-                ulGet.innerHTML+= `<li></li>`;
+                ulGet.innerHTML+= `<li>你出${inputGet[i].value},對手出${rand},${resultArr[resultCode]}了</li>`;
+                spanGet[resultCode].innerHTML++;
             });
         }
 

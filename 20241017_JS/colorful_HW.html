@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #square{
+        width: 128px;
+        height: 128px;
+        background: rgb(0,0,0);
+        border: 1px solid #000;
+        box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+        transition-duration: 0.5s;
+    }
+</style>
+<body>
+    <div id="square"></div><br>
+    <input type="range" min="0" max="255" value="0" step="1">&nbsp; <span>0</span>&nbsp;&nbsp;<button>隨機</button>
+    <br>
+    <input type="range" min="0" max="255" value="0" step="1">&nbsp; <span>0</span>&nbsp;&nbsp;<button>隨機</button>
+    <br>
+    <input type="range" min="0" max="255" value="0" step="1">&nbsp; <span>0</span>&nbsp;&nbsp;<button>隨機</button>
+    <br>
+    <button>隨↗機↘派↗對↘♂</button>
+</body>
+<script>
+    const inputGet  = document.getElementsByTagName('input');
+    const buttonGet = document.getElementsByTagName('button');
+    
+    // 想法:一次只會變動一個值
+    // 方塊變動事件
+    const square = function(index,val){
+        const squareGet = document.getElementById('square');
+        const inputGet  = document.getElementsByTagName('input');
+        squareGet.style.background = `rgb(${inputGet[0].value},${inputGet[1].value},${inputGet[2].value})`;
+    }
+    // 拉條事件
+    for(let i = 0 ; i < 3 ; i++){
+        inputGet[i].addEventListener('input' , function(){
+            const spanGet   = document.getElementsByTagName('span');
+            const inputGet  = document.getElementsByTagName('input');
+            spanGet[i].innerText = inputGet[i].value;
+            square();
+        })
+    }
+    // 按鈕事件
+    for(let i = 0 ; i < 3 ; i++){
+        buttonGet[i].addEventListener('click' , function(){
+            const spanGet   = document.getElementsByTagName('span');
+            const inputGet  = document.getElementsByTagName('input');
+            const randNum = Math.round( Math.random() * 255);
+            spanGet[i].innerText = randNum;
+            inputGet[i].value    = randNum;
+            square();
+        })
+
+    }
+
+    buttonGet[3].addEventListener('click' , function(){
+        const spanGet   = document.getElementsByTagName('span');
+        const inputGet  = document.getElementsByTagName('input');
+        let randNum = 0 ;
+        for(let i = 0 ; i < 3 ; i++){
+            randNum = Math.round( Math.random() * 255);
+            spanGet[i].innerText = randNum;
+            inputGet[i].value    = randNum;
+        }
+        square();
+    })
+    
+</script>
+</html>
