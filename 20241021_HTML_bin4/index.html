@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路行銷購物網</title>
+</head>
+<style>
+    #main{
+        width: 1024px;
+        height: 768px;
+        margin: auto;
+    }
+    #top{
+        width: 1024px;
+        height: 120px;
+        background: url(./images/0401.jpg);
+        text-align: center;
+    }
+    #top a{
+        font-size: 52px;
+        font-family: '標楷體';
+        color: #FFFFFF;
+        text-shadow: 10px 10px 15px #333;
+        line-height: 120px;
+        display: block;
+        text-decoration: none;
+
+    }
+    #marquee{
+        width: 1024px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 19px;
+        font-family: '標楷體';
+        color: #0000FF;
+        background: url(./images/0402.jpg);
+    }
+    #content{
+        width: 1024px;
+        height: calc(768px - 120px - 30px - 78px);
+        background: url(./images/0402.jpg);
+    }
+    iframe{
+        
+        width: 1024px;
+        height: calc(768px - 120px - 30px - 78px);
+        border: none;
+    }
+    #footer{
+        width: 1024px;
+        height: 78px;
+        background: #666600;
+        font-family: '標楷體';
+        color: #FFFFFF;
+        line-height: 2;
+        text-align: left;
+    }
+    #footer a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    /* 側這個可以用清除網頁瀏覽紀錄 */
+    #footer a:visited{
+        color: #FF9999;
+        
+    }
+</style>
+<body>
+    <!-- 背景音樂 -->
+    <!-- 記得加上autoplay 以及對回首頁點一下 分頁的頁簽會顯示喇叭-->
+    <audio src="./music/0401.mp3" autoplay></audio>
+    <div id="main">
+        <div id="top"><a href="./index.html">流行精品購物網站</a></div>
+        <div id="marquee"><marquee>大家來購物網！精品商品特價大拍賣！要買要快！</marquee></div>
+        <div id="content">
+            <iframe src="./main.html" name="iframe"></iframe>
+        </div>
+        <div id="footer">
+            <a href="./results/message.html" target="iframe">訪客留言版</a><br>
+            網頁設計及維護：20陳阿瑄、最近更新日期：1994/09/16
+        </div>
+    </div>
+
+</body>
+</html>

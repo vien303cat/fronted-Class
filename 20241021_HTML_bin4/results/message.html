@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #t1{
+        margin: auto;
+        background: #FFDDDD;
+        /* 儲存格合併 可以讓table border框線減少 但題目沒要求 */
+        border-collapse: collapse;
+        
+    }
+    #t1 tr td{
+        height: 32px;
+        text-align: center;
+    }
+    #t1 tr td:nth-child(1){
+        width: 150px;
+    }
+    #t1 tr td:nth-child(2){
+        width: 350px;
+    }
+
+    #t2{
+        margin: auto;
+        background: #FFFF99;
+        /* 儲存格合併 可以讓table border框線減少 但題目沒要求 */
+        border-collapse: collapse;
+        
+    }
+    #t2 tr td{
+        height: 32px;
+    }
+    #t2 tr td:nth-child(1){
+        text-align: center;
+        width: 150px;
+    }
+    #t2 tr td:nth-child(2){
+        text-align: left;
+        width: 350px;
+    }
+    span{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    /* 消除input.txtearea 下方空白讓他們垂直置中*/
+    input,
+    textarea{
+        vertical-align: middle;
+    }
+</style>
+<body>
+    <table id="t1" border="1">
+        <tr>
+            <td>公司名稱</td>
+            <td>大家來購物有限公司</td>
+        </tr>
+        <tr>
+            <td>公司電子信箱</td>
+            <td>service@test.labor.gov.tw</td>
+        </tr>   
+        <tr>
+            <td>服務項目</td>
+            <td>網路購物服務</td>
+        </tr>
+    </table>
+    <br><br>
+    <form>
+        <table id="t2" border="1">
+            <tr>
+                <td>客戶姓名</td>
+                <td><input type="text" size="20" ></td>
+            </tr>
+            <tr>
+                <td>電子信箱</td>
+                <td><input type="text" size="20"></td>
+            </tr>   
+            <tr>
+                <td>意見留言</td>
+                <td><textarea rows="5" cols="30"></textarea></td>
+            </tr>
+        </table>
+        <br>
+        <span>
+            <input type="submit" onclick="alert('歡迎蒞臨本網站，您的寶貴意見我們會儘速處理與回覆，謝謝！')">
+            <input type="reset" >
+        </span>
+    </form>
+
+
+</body>
+</html>
