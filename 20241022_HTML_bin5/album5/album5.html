@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+
+        text-align: center;
+        
+    }
+    table{
+        margin: auto;
+    }
+    h1{
+        font-size: 20px;
+        font-family: "標楷體";
+        font-weight: bolder;
+        margin: auto;
+        text-decoration: underline;
+        color: #0000FF;
+    }
+
+    .miniImg{
+        width: 60px;
+        height: 45px;
+        border: #00F solid medium;
+    }
+    .miniImg:hover{
+        cursor: pointer;
+        border: #0FF solid medium;
+
+    }
+
+    #bigImg{
+        width: 400px;
+        height: 300px;
+        border: 5px #00F solid;
+    }
+</style>
+<body>
+    
+    <table>
+        <tr>
+            <td colspan="5"><h1>蘭嶼賞魚去</h1></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="5"><img id="bigImg" src="../images/0551.jpg" alt=""></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <br>
+        <tr>
+            <td><img class="miniImg" src="../images/0551.jpg"></td>
+            <td><img class="miniImg" src="../images/0552.jpg"></td>
+            <td><img class="miniImg" src="../images/0553.jpg"></td>
+            <td><img class="miniImg" src="../images/0554.jpg"></td>
+            <td><img class="miniImg" src="../images/0555.jpg"></td>
+        </tr>
+    </table>
+
+    <script src="../jquery-2.1.4.min.js"></script>
+    <script>
+
+
+        // JQ
+        $('.miniImg').each(function(index,val){
+            $(val).click(function(){
+                $('#bigImg').attr('src',`../images/055${index+1}.jpg`);
+            })
+        });
+
+
+        // JS
+        // const miniGet = document.getElementsByClassName('miniImg');
+
+        // for(let i = 0 ; i < miniGet.length ; i++){
+        //     miniGet[i].addEventListener('click',function(){
+        //         const bigGet  = document.getElementById('bigImg');
+        //         bigGet.src = `../images/055${i+1}.jpg`;
+        //     });
+        // };
+
+    </script>
+</body>
+</html>
