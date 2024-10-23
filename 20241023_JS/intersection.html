@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .padding {
+      height: 2000px;
+    }
+    #target {
+      height: 100px;
+      background: pink;
+      outline: 100px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="padding"></div>
+  <div id="target"></div>
+  <div class="padding"></div>
+  <script>
+    const target = document.getElementById('target')
+
+    // entries = 發生互動的元素
+    // owner = IntersectionObserver 的設定
+    const observer = new IntersectionObserver((entries, owner) => {
+      console.log(owner)
+      for (const entry of entries) {
+        console.log(entry)
+      }
+    }, {
+      // https://stackoverflow.com/questions/75525458/setting-the-div-as-the-root-element-in-intersection-observer-api#answer-75527648
+      // 基準，觀察目標碰到基準時會觸發，null = 瀏覽器視窗
+      root: null,
+      // 範圍偵測
+      // 0.5 元素出現一半、元素離開一半時有反應
+      // threshold: [0.5, 0.75]
+      // 計算邊界，100px = 上下左右擴張 100px，設定值寫法跟 css 的 margin 一樣
+      rootMargin: '100px'
+    })
+
+    observer.observe(target)
+  </script>
+</body>
+</html>

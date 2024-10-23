@@ -28,39 +28,29 @@
 <script>
     const inputGet  = document.getElementsByTagName('input');
     const buttonGet = document.getElementsByTagName('button');
+    const squareGet = document.getElementById('square');
+    const spanGet   = document.getElementsByTagName('span');
     
-    // 想法:一次只會變動一個值
     // 方塊變動事件
-    const square = function(index,val){
-        const squareGet = document.getElementById('square');
-        const inputGet  = document.getElementsByTagName('input');
+    const square = function(){
         squareGet.style.background = `rgb(${inputGet[0].value},${inputGet[1].value},${inputGet[2].value})`;
     }
-    // 拉條事件
     for(let i = 0 ; i < 3 ; i++){
+        // 拉條事件
         inputGet[i].addEventListener('input' , function(){
-            const spanGet   = document.getElementsByTagName('span');
-            const inputGet  = document.getElementsByTagName('input');
             spanGet[i].innerText = inputGet[i].value;
             square();
         })
-    }
-    // 按鈕事件
-    for(let i = 0 ; i < 3 ; i++){
+        // 按鈕事件
         buttonGet[i].addEventListener('click' , function(){
-            const spanGet   = document.getElementsByTagName('span');
-            const inputGet  = document.getElementsByTagName('input');
             const randNum = Math.round( Math.random() * 255);
             spanGet[i].innerText = randNum;
             inputGet[i].value    = randNum;
             square();
         })
-
     }
 
     buttonGet[3].addEventListener('click' , function(){
-        const spanGet   = document.getElementsByTagName('span');
-        const inputGet  = document.getElementsByTagName('input');
         let randNum = 0 ;
         for(let i = 0 ; i < 3 ; i++){
             randNum = Math.round( Math.random() * 255);

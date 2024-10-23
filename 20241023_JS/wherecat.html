@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #game{
+        width: 1500px;
+        height: 800px;
+        position: relative;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+    #cat{
+        position: absolute;
+        width: 200px;
+        /* 取消範圍選取 */
+        user-select: none; 
+        -webkit-user-select: none;
+    }
+</style>
+<body>
+    <input type="button" value="開始遊戲" id="start">
+    <span id="time">0</span>
+    <hr>
+    <div id="game">
+        <img src="./cat.jpg" alt="" id="cat">
+    </div>
+    <audio src="./meow.mp3" volume="0" id="audio" ></audio>
+    <script>
+        const elStart   = document.getElementById('start');
+        const elTime    = document.getElementById('time');
+        const elGame    = document.getElementById('game');
+        const elCat     = document.getElementById('cat');
+        const elAudio   = document.getElementById('audio');
+
+        // 設定計時
+        let time = 0 ; //經過時間
+        let timer = 0 ; //計時器
+
+        // 貓中心點{
+        const catPos = {
+            x : 0 ,
+            y : 0 ,
+        }
+
+        // #game 對角線長度就是區域內最長的線
+        const elGameMaxDistance = Math.sqrt(
+            Math.pow(elGame.offsetWidth , 2) + 
+            Math.pow(elGame.offsetHeight , 2)
+        );
+
+        elStart.addEventListener('click',function(){
+            // 停用開始按鈕
+            elStart.disabled = true;
+            // 重置
+            time = 0;
+            elTime.innerText = time;
+            elAudio.volume = 0;
+            elCat.style.opacity = 0 ; //貓的透明度
+
+            // 隨機擺放貓
+            elCat.style.top  = Math.round(Math.random() * 80) + '%';
+            elCat.style.left = Math.round(Math.random() * 80) + '%';
+
+            // 記錄貓中心點座標 
+            // offsetLeft,offsetTop : 圖片開始位置,就是該圖片最左上角(left top) 
+            // offsetWidth,offsetHeight : 圖片的寬跟高 
+            // 這樣配合可以抓到中心點座標
+            catPos.x = elCat.offsetLeft + (elCat.offsetWidth / 2 );
+            catPos.y = elCat.offsetTop + (elCat.offsetHeight / 2 ); 
+
+            // 開始計時 因為要記錄毫秒因此每10毫秒 跑一次function
+            timer = setInterval(function(){
+                // 修改時間
+                time++
+                // 因為要記錄毫秒因此除100
+                elTime.innerText = time / 100 ;
+
+                elCat.style.opacity = time / 100 / 100 ; //貓的透明度
+
+                //  每2秒撥放一次 
+                if(time % 200 == 0 ){
+                    elAudio.play();
+                }
+            },10)
+
+        })
+
+        elGame.addEventListener('mousemove', (event) => {
+            // 抓滑鼠座標
+            const mousePos = {
+                x: event.offsetX ,
+                y: event.offsetY ,
+            }
+            // 如果滑到貓 事件座標就會變成是貓圖片的相對座標 就會從0.0開始 因此需要手動調整座標
+            if(event.target === elCat){
+
+                // 貓圖片上的位置加上貓圖距離起點位置 因此可以跳過圖片計算距離 (但這邊目前沒用到)
+                // mousePos.x = elCat.offsetLeft + event.offsetX ;
+                // mousePos.y = elCat.offsetTop + event.offsetY  ;
+
+                // 如果滑鼠在貓上面座標位置直接當作在貓上面
+                mousePos.x = catPos.x ;
+                mousePos.y = catPos.y ;
+            }
+
+            //計算滑鼠與貓圖的距離 sqrt開根號  pow次方
+            const distance = Math.sqrt(
+                Math.pow(mousePos.x - catPos.x , 2) + 
+                Math.pow(mousePos.y - catPos.y , 2)
+            );
+            // console.log(distance,elGameMaxDistance);
+
+            // 音量要跟貓的距離distance成反比 
+            elAudio.volume = 1 - distance / elGameMaxDistance ;
+
+        })
+
+        elCat.addEventListener('click', () => {
+            if(!elStart.disabled) return ; 
+            elCat.style.opacity = 1 ;
+            clearInterval(timer);
+            elStart.disabled = false;
+        })
+
+    </script>
+</body>
+</html>

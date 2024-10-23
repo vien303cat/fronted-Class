@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- NES 樣式 -->
+    <!-- minify -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <!-- core style only -->
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
+    <!-- Noto Sans字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<style>
+    body{
+        font-family: "Noto Sans", sans-serif;
+        background: url(./clockimage/touhou_wallpapers___flandre_scarlet_by_virtlux_dafguel-fullview.jpg) no-repeat;
+        background-size: cover;
+    }
+    #clock{
+        width:  300px;
+        height: 300px;
+        background: rgba(255,255,255,0.9);
+        border: 5px solid #333333;
+        border-radius: 50%;
+        position: relative;
+        margin: auto;
+        margin-top: 13% ;
+    }
+    #hour{
+        width: 20%;
+        height: 10px;
+        background-color: skyblue;
+        border-radius: 5px;
+        position: absolute;
+        left: 30%;
+        top: calc(50% - 5px);
+        transform: rotate(180deg);
+        /* 設定選轉的起始點 */
+        transform-origin: right center;
+    }
+    #minute{
+        /* 寬度以及position加起來要50% */
+        width: 40%;
+        height: 8px;
+        background-color: lightcoral;
+        border-radius: 5px;
+        position: absolute;
+        left: 10%;
+        top: calc(50% - 5px);
+        transform: rotate(240deg);
+        /* 設定選轉的起始點 */
+        transform-origin: right center;
+    }
+    #second{
+        /* 寬度以及position加起來要50% */
+        width: 45%;
+        height: 4px;
+        background-color: lightgreen;
+        border-radius: 5px;
+        position: absolute;
+        left: 5%;
+        top: calc(50% - 2px);
+        transform: rotate(90deg);
+        /* 設定選轉的起始點 */
+        transform-origin: right center;
+    }
+    #textArea{
+        background: rgba(255,255,255,0.8);
+        width: 30%;
+        margin: auto;
+        margin-top: 3% ;
+    }
+</style>
+<body>
+    <!-- Flandre Style ? -->
+    
+
+    <div id="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <div id="textArea" class="nes-container with-title is-centered">
+        <p class="title">現在時間</p>
+        <p id="textTime">Good morning. Thou hast had a good night's sleep, I hope.</p>
+    </div>
+
+    <script>
+        // 函式	說明
+        // getFullYear()	西元日期
+        // getMonth()	月份，從 0 開始
+        // getDate()	日
+        // getDay()	星期，從星期天 0 開始
+        // getHours()	小時，0 到 23
+        // getMinutes()	分鐘，0 到 59
+        // getSeconds()	秒鐘，0 到 59
+        // getMilliseeonds()	毫秒， 0 到 999
+        // getTime()	從 1970/1/1 00:00:00 到現在的毫秒數 (其他語言是秒 JS是毫秒因此用的時候可以*1000)
+        // toDateString()	轉換成日期字串
+        // toTimeString()	轉換成時間字串
+        // toLocalDateString()	依語言格式化日期
+        // toLocalTimeString()	依語言格式化時間
+        // toLocaleString(語言)	依語言格式化輸出
+        
+        const elClock   = document.getElementById('clock');
+        const elHour    = document.getElementById('hour');
+        const elMinute  = document.getElementById('minute');
+        const elSecond  = document.getElementById('second');    
+
+        const eltextTime  = document.getElementById('textTime');    
+
+        const clock = () => {
+            const date = new Date();
+            const h = date.getHours();
+            const m = date.getMinutes();
+            const s = date.getSeconds();
+            elHour.style.transform      = `rotate(${h * 30 + 90}deg)`;
+            elMinute.style.transform    = `rotate(${m * 6 + 90}deg)`;
+            elSecond.style.transform    = `rotate(${s * 6 + 90}deg)`;
+
+            eltextTime.innerText = date.toTimeString();
+            // `;
+        }
+        setInterval(clock,1000);
+        clock();
+
+    </script>
+</body>
+
+
+</html>
