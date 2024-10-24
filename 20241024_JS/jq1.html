@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="#">
+</head>
+<style>
+    .text-red{
+        color:red;
+    }
+    .text-center{
+        text-align:center
+    }
+    .bg-gray{
+        background: gray;
+    }
+</style>
+<body>
+
+    <h1 id="title">111AAA</h1>
+    <p class="text">111</p>
+    <p class="text">222</p>
+    <div id="div">
+        <p>報名文本數字評分問道作品三個，角度不足專題別人辦法文章溫度，引起根據你就工商新聞大型只見字元他說網域名稱，學歷人力親自在那裡屏東，一口一段時間大人道德，財產對她之類女朋友先進教育興趣你是哪個，萬元收購選單天下感動博士你自己變得字元妹妹廣泛，我都遭遇，排行。</p>
+    </div>
+
+    <a href="https://fb.com" class="link">FB</a>
+    <a href="https://x.com" class="link">X</a>
+
+    <ul id="list1">
+        <li>111</li>
+        <li>222</li>
+    </ul>
+    <ul id="list2">
+        <li class="a">a</li>
+        <li class="b">b</li>
+        <li class="c">c</li>
+        <li class="d">d</li>
+    </ul>
+    <!-- CDN -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <!-- 去官網copy之後內部引用 -->
+    <script src="./jquery.js"></script>
+    <script>
+        
+        // .text() = .innerText
+        // () 有東西 = 修改
+        // () 沒東西 = 取值
+        console.log($('title').text());
+        $('#title').text('222BBB');
+
+        // 如果有多個,取到的文字會連在一起,修改會一起改
+        console.log($('.text').text());
+        $('.text').text('222BBB');
+
+        // .html() = innerHTML 
+        // () 有東西 = 修改
+        // () 沒東西 = 取值
+        console.log($('#div').html().trim());  //.trim() 清除空白
+        $('#div').html('<i>AAABBBCCCC</i>');
+
+        // [0] 是JS的陣列寫法 要在JQ裡面取陣列值得用eq(次序)  否則後面只能接著寫JS 不能再連.text
+        console.log($('.link')[0].innerText);
+        console.log($('.link').eq(0).text());
+        
+        // .attr(屬性,值) 修改屬性
+        // .attr(屬性) 取屬性
+        console.log($('.link').eq(0).attr('href'));
+        $('.link').eq(0).attr('target','_blank');
+        // 修改多個屬性用{}
+        $('.link').eq(1).attr({href:'https://forum.gamer.com.tw/' , target: '_blank'});
+        $('.link').eq(1).text('Bahamut');
+
+        // .first = .eq(0)
+        // .last  = 最後一個
+        // .css(樣式,值)  修改樣式
+        // .css(樣式) 取樣式
+        $('#list1 li').first().css('color','red');
+        console.log($('#list1 li').first().css('color'));
+        $('#list1 li').last().css({textAlign:'center' , color:'blue' , 'background-color':'gray'});
+
+
+        // .filter(選擇器) 篩選符合條件的元素
+        // .not(選擇器)    篩選不符合條件的元素
+        // .addClass()      新增Class   ,用空白分隔多個   
+        // .removeClass()   移除Class   ,用空白分隔多個   
+        // .hasClass()      有沒有Class ,用空白分隔多個 
+        // .toggleClass()   切換Class   ,用空白分隔多個   
+
+        $('list2 li').filter('.a').addClass('text-red text-center bg-gray').removeClass('text-center');
+        console.log($('#list2 li').filter('.b').hasClass('text-red'));
+        $('#list2 li').not('.a').addClass('text-center');
+    </script>
+</body>
+</html>

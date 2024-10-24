@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按鈕" id="btn">
+    <hr>
+    <input type="text" name="" id="input-text">
+    <input type="button" name="" value="解除" id="input-text-off">
+    <p id="text"></p>
+    <hr>
+    <input type="button" id="btn-add" value="新增">
+    <div id="target">
+        <p>aaaaa</p>
+    </div>
+    <hr>
+    <div id="btns">
+        <input type="button" value="按鈕" class="btn">
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        // .click(function)             綁定事件
+        // .click()                     觸發事件
+        // .on(事件名稱,function)       綁定事件
+        // .one(事件名稱,function)      綁定事件_只執行一次
+        // .off(事件名稱,function)      解除綁定事件,沒有指定function就是全部解除
+        $('#btn').click(function(event){
+            // this 代表觸發事件的東西
+            // .val() 輸入欄位的value
+            //  () 有東西 = 修改
+            //  () 沒東西 = 取值
+            $(this).val('點過了');
+        })
+        
+        function setText(){
+            $('#text').text($(this).val());
+        }
+        $('#input-text').on('input',setText);
+        $('#input-text-off').on('click',function(){
+            $('#input-text').off('input',setText);
+        });
+
+        $('#btn-add').click(function(){
+            // .append()        裡面後面
+            // .prepend()       裡面前面
+            // .insertBefore()  外面前面
+            // .insertAfter()   外面後面
+            // HTML 文字是新增,現有東西是移動
+            const target = $('#target');
+            target.append('<p>append</p>');
+            target.prepend('<p>prepend</p>');
+            $('<p>insertBefore</p>').insertBefore(target);
+            $('<p>insertAfter</p>').insertAfter(target);
+        })
+
+        // 只對網頁一開始存在的元素綁定 新增的無效
+        // $('.btn').click(function(){
+        //     $('<input type="button" value="按鈕" class="btn">').insertAfter($(this));
+        // })
+
+        // ^^^^^上面的解法 再給一次事件^^^^^
+
+        $('.btn').click(add);
+        function add(){
+            const newBtn = $('<input type="button" value="按鈕" class="btn">');
+            newBtn.insertAfter($(this));
+            newBtn.click(add);
+        }
+
+        // 點到 #btns 而且是點到.btn才有反應(過濾)
+        // $('#btns').on('click','.btn',function(){
+            // $('<input type="button" value="按鈕" class="btn">').insertAfter($(this));
+        // })
+    </script>
+</body>
+</html>

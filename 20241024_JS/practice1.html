@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="txtVal" > <input type="button" value="新增" id="insertBtn">
+        <ul id="theUl"></ul>
+    </form>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        $('#insertBtn').on('click',function(){
+            if($('#txtVal').val() != ''){
+                //新寫法 在按鈕生成時各自直接賦值
+                const newli = $(`<li> ${$('#txtVal').val()} <input type="button" value="x"></li> `);
+                newli.on('click','input[type="button"]',delItem);
+                $('#theUl').prepend(newli);
+
+                // 原寫法 在每個按鈕生成時會再賦予每個已存在按鈕事件(有點多餘)
+                // $('#theUl').prepend(`<li >${$('#txtVal').val()} <input type="button" value="x" class="delItem"></li> `);
+                // delItem();
+                
+                $('#txtVal').val('');
+            }
+        })
+        function delItem(){
+            //新寫法
+            $(this).parent().remove();
+
+            // 原寫法
+            // $('.delItem').on('click',function(){
+            //     $(this).parent().remove();
+            // })
+        }
+
+        // 打完字按下enter會送出表單
+        // JQ事件的return false
+        // preventDefault + stopPropagation
+        $('#form').submit(function(){
+            $('#insertBtn').click();
+            return false;
+        });
+    </script>
+</body>
+</html>
