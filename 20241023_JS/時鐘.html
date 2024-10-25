@@ -71,11 +71,34 @@
         /* 設定選轉的起始點 */
         transform-origin: right center;
     }
+    #center{
+        width: 20px;
+        height: 20px;
+        left: calc(50% - 10px);
+        top: calc(50% - 10px);
+        background: black;
+        border-radius: 50%;
+        position: absolute;
+
+    }
     #textArea{
         background: rgba(255,255,255,0.8);
         width: 30%;
         margin: auto;
         margin-top: 3% ;
+    }
+
+    
+
+    .tick {
+        width: 4px;
+        height: 18px;
+        background-color: #333333;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        /* 將刻度的旋轉中心設置在圓的外圍 */
+        transform-origin: center -130px; 
     }
 </style>
 <body>
@@ -83,14 +106,29 @@
     
 
     <div id="clock">
+        <!--  -->
+        <div class="tick" style="transform: rotate(0deg);"></div>
+        <div class="tick" style="transform: rotate(30deg);"></div>
+        <div class="tick" style="transform: rotate(60deg);"></div>
+        <div class="tick" style="transform: rotate(90deg);"></div>
+        <div class="tick" style="transform: rotate(120deg);"></div>
+        <div class="tick" style="transform: rotate(150deg);"></div>
+        <div class="tick" style="transform: rotate(180deg);"></div>
+        <div class="tick" style="transform: rotate(210deg);"></div>
+        <div class="tick" style="transform: rotate(240deg);"></div>
+        <div class="tick" style="transform: rotate(270deg);"></div>
+        <div class="tick" style="transform: rotate(300deg);"></div>
+        <div class="tick" style="transform: rotate(330deg);"></div>
+        <!--  -->
         <div id="hour"></div>
         <div id="minute"></div>
         <div id="second"></div>
+        <div id="center"></div>
     </div>
 
     <div id="textArea" class="nes-container with-title is-centered">
         <p class="title">現在時間</p>
-        <p id="textTime">Good morning. Thou hast had a good night's sleep, I hope.</p>
+        <p id="textTime"></p>
     </div>
 
     <script>
@@ -122,12 +160,11 @@
             const h = date.getHours();
             const m = date.getMinutes();
             const s = date.getSeconds();
-            elHour.style.transform      = `rotate(${h * 30 + 90}deg)`;
+            elHour.style.transform      = `rotate(${h * 30 + (m / 59 * 30) + 90 }deg)`;
             elMinute.style.transform    = `rotate(${m * 6 + 90}deg)`;
             elSecond.style.transform    = `rotate(${s * 6 + 90}deg)`;
 
             eltextTime.innerText = date.toTimeString();
-            // `;
         }
         setInterval(clock,1000);
         clock();

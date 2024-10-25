@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #carousel{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    #imgs{
+        width:  1000px;
+        height: 200px;
+        position: absolute;
+    }
+    #imgs > img{
+        float: left;
+    }
+</style>
+<body>
+    <div id="carousel">
+        <div id="imgs">
+            <img src="https://picsum.photos/200/?random=1">
+            <img src="https://picsum.photos/200/?random=2">
+            <img src="https://picsum.photos/200/?random=3">
+            <img src="https://picsum.photos/200/?random=4">
+            <img src="https://picsum.photos/200/?random=5">
+        </div>
+    </div>
+    <input type="button" value="&lt;" id="btn-prev">
+    <input type="button" value="&gt;" id="btn-next">
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+        // 紀錄目前圖片索引
+        let now = 0;
+        $('#btn-next').click(function(){
+            if(now + 1 < 5){
+                now++;
+                console.log(now);
+                $('#imgs').stop(true,true).animate({left: now * 200 * -1 - 25}).animate({left: now * 200 * -1 });
+            } 
+        });
+        $('#btn-prev').click(function(){
+            if(now - 1 >= 0){
+                now--;
+                console.log(now);
+                $('#imgs').stop(true,true).animate({left: now * 200 * -1 + 25}).animate({left: now * 200 * -1 });
+            } 
+        });
+    </script>
+
+</body>
+</html>
