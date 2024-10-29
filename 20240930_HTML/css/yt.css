@@ -121,6 +121,11 @@ hr{
     display: inline-block;
     position: fixed;
 }
+#mic{
+    position: absolute;
+    top: 25px;
+    left: 600px;
+}
 
 #searchBar{
     content: "搜尋";
@@ -161,6 +166,7 @@ hr{
     top:50%;
     transform: translate(0,-50%);
     left:10%;
+    font-size: 16px;
     width: 80%;
     height: 90%;
 }
@@ -223,8 +229,8 @@ hr{
 
 .rightIcon, 
 .rightIcon img{
-    width: 50px ;
-    height: 50px ;
+    width: 45px ;
+    height: 45px ;
     border-radius: 80% ;
     display: inline-block;
     text-align: center;
@@ -233,8 +239,8 @@ hr{
     font-size: 20px;
     vertical-align: middle;
 }
-.rightIcon:hover{
-    background: rgba(0, 0, 0, 0.2);
+.rightIcon img:hover{
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 

@@ -31,16 +31,18 @@
         </div>
 
         <div id="middleBar">
-            <div id="searchBar">
-                <input id="textIn" type="text">
-                <div class="clickSearch"> <i class="fa-solid fa-magnifying-glass"></i> </div>
-                    <div id="clickBtn">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-            </div>
-            <div>
-                <i class="fa-solid fa-microphone mic"></i>
-            </div>
+            <form id="form">
+                <div id="searchBar">
+                    <input id="textIn" type="text">
+                    <div class="clickSearch"> <i class="fa-solid fa-magnifying-glass"></i> </div>
+                        <div id="clickBtn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                </div>
+                <div id="mic">
+                    <i class="fa-solid fa-microphone mic"></i>
+                </div>
+            </form>
         </div>
         <div id="rightBar">
             <div class="rightIcon">
@@ -50,7 +52,7 @@
                 <i class="fa-regular fa-bell "></i>
             </div>
             <div class="rightIcon">
-                <img src="https://picsum.photos/45/45/?random=10">
+                <img src="https://picsum.photos/40/40/?random=10">
             </div>
 
         </div>
@@ -123,7 +125,7 @@
                 <div class="videoDown">
                     <div><img src="https://yt3.ggpht.com/NNTqTn6wd5CWh4-ZgeNx9ai-Rv-S80FG3qfEp8fvONN3IeKjchXzt3H_6Bw8_YvrZiJSjCOC7w=s68-c-k-c0x00ffffff-no-rj" alt=""></div>
                     <div>
-                        <span>
+                        <span class="tp2">
                             《刀劍神域Alicization + WOU》✨馬拉松直播
                         </span>
                         <span>Muse木棉花-TW<br>577 人正在觀看</span>
@@ -458,8 +460,7 @@
             <a href="https://www.youtube.com/watch?v=X8z23t428kU">
                 <div class="videoTop">
                         <img class="videoImg" src="
-                        https://i.ytimg.com/vi/X8z23t428kU/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDpfOHVSTwILf5eoE9dQjPTU3L3rQ
-                        ">
+                        https://i.ytimg.com/vi/X8z23t428kU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD_M4BOahpFPKOygsT3k-wZcxQqpQ                        ">
                 </div>
                 <div class="videoDown">
                     <div><img src="
@@ -474,5 +475,41 @@
             </a>
         </div>
     </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <script>
+
+        // JS
+        // const webTxt = document.getElementById('textIn');
+        // const searchGet = document.getElementById('clickBtn');
+        // const formGet = document.getElementById('form');
+
+        // searchGet.onclick = function(){
+        //     if( webTxt.value != ''){
+        //         window.location.href = `https://www.youtube.com/results?search_query=${webTxt.value}`;
+        //     }
+        // };
+
+        // formGet.addEventListener('submit',function(event){
+        //     const searchGet = document.getElementById('clickBtn');
+        //     searchGet.click();
+        //     console.log('enter');
+        //     event.preventDefault(); // 阻止表單的默認提交
+        // })
+
+        // JQ
+
+        $('#clickBtn').on('click',function(){
+            const webTxt = $('#textIn').val();
+            if(webTxt != ''){
+                window.location.href = `https://www.youtube.com/results?search_query=${webTxt}`;
+            }
+        })
+
+        $('#form').submit(function(){
+            $('#clickBtn').click();
+            return false;
+        });
+    </script>
 </body>
 </html>
