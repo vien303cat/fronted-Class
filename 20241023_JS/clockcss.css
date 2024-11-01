@@ -26,6 +26,7 @@ body{
     transform: rotate(180deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
+    transition: 0.5s;
 }
 #minute{
     /* 寬度以及position加起來要50% */
@@ -39,6 +40,7 @@ body{
     transform: rotate(240deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
+    transition: 0.5s;
 }
 #second{
     /* 寬度以及position加起來要50% */
@@ -52,6 +54,7 @@ body{
     transform: rotate(90deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
+    transition: 0.5s;
 }
 #center{
     width: 20px;
