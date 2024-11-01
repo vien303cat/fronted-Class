@@ -57,14 +57,19 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
     <script>
         // 產生卡片 
-        for(let i = 0 ; i < 20 ; i++){
+        for(let i = 0 ; i < 26 ; i++){
             const card = $(`
                 <div class="card ">
                     <div class="card-front"></div>
                     <div class="card-back"></div>
                 </div>
             `);
-            const number = i % 10 + 1;
+            const cardIndex = i % 13 ;
+            const letterArr = [
+                "1","2","3","4","5","6","7","8","9","10","J","Q","K"
+            ];
+            const number = letterArr[cardIndex];
+            
             card.find('.card-front').css('background-image',`url(./images/cards/${number}H.jpg)`);
             card.attr('data-number',number + "H");
             $('#game').append(card);
@@ -89,11 +94,12 @@
         }
 
         // 打亂
-        for( let i = 0 ; i < 80 ; i++){
-            const randA = Math.round(Math.random() * 79);
-            const randB = Math.round(Math.random() * 79);
+        for( let i = 0 ; i < 100 ; i++){
+            const randA = Math.round(Math.random() * 103);
+            const randB = Math.round(Math.random() * 103);
             // 提問 為啥這不會重複? (本來的沒消失)  A: insertAfter() 如果本來沒有就新增 有的話就移動位置
             $('.card').eq(randA).insertAfter($('.card').eq(randB))
+            console.log(randA,randB);
         }
 
         // 點擊翻牌
