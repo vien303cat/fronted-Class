@@ -93,7 +93,7 @@
     <div id="clear">
         <div class="clearFont">123</div>
     </div><br>
-    <button class="modeChange" value="easy">媽勒這卡片也太多了吧...要玩到民國幾年啊o_O</button>
+    <button class="modeChange">媽勒這卡片也太多了吧...要玩到民國幾年啊o_O</button>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
     <script>
@@ -103,10 +103,14 @@
             if (event.key === "F12") {
                 cheater = true ;
             }
+            if(event.key === "V"){
+                $('.card').removeClass('card-close');
+                pass();
+            }
         });
 
         begin();
-        function begin(mode = 'hard'){
+        function begin(){
         // 產生卡片 
             for(let i = 0 ; i < 26 ; i++){
                 const card = $(`
@@ -125,7 +129,7 @@
                 card.attr('data-number',number + "H");
                 $('#game').append(card);
                 
-                if(mode === 'hard'){
+                if($('.modeChange').prop('disabled') === false ){
 
                     const card2 = card.clone();
                     card2.find('.card-front').css('background-image',`url(./images/cards/${number}S.jpg)`);
@@ -146,7 +150,6 @@
 
             }
                 
-            console.log($('.card').length);
 
             // 打亂
             for( let i = 0 ; i < 100 ; i++){
@@ -192,27 +195,31 @@
                         }
                         // 已配對數量 = 卡片數量,過關
                         if($('.card-ok').length === $('.card').length){
-                            // 偷作弊
-                            if(cheater){
-                                $('#clear').css('background-image','url("./images/cards/cheater.jpg")');
-                                $('.clearFont').text('恭喜過關,但你484偷作弊');
-                            }else{
-                                if(mode == 'hard'){
-                                    $('#clear').css('background-image','url("./images/cards/hardpass.jpg")');
-                                    $('.clearFont').text('恭喜過關...兄弟你時間太多484,下次請你喝飲料');
-                                }else{
-                                    $('#clear').css('background-image','url("./images/cards/pass.jpg")');
-                                    $('.clearFont').text('恭喜過關!你是一個正直的人,祝福你^_^');
-                                }
-
-                            }
-                            $('#clear').hide().fadeIn(3000);
+                            pass();
                         }
 
                     },500)
 
                 }
             })
+        }
+
+        function pass(){
+            // 偷作弊
+            if(cheater){
+                $('#clear').css('background-image','url("./images/cards/cheater.jpg")');
+                $('.clearFont').text('恭喜過關,但你484偷作弊');
+            }else{
+                if( $('.modeChange').prop('disabled') === false ){
+                    $('#clear').css('background-image','url("./images/cards/hardpass.jpg")');
+                    $('.clearFont').text('恭喜過關...兄弟你時間太多484,下次請你喝飲料');
+                }else{
+                    $('#clear').css('background-image','url("./images/cards/pass.jpg")');
+                    $('.clearFont').text('恭喜過關!你是一個正直的人,祝福你^_^');
+                }
+
+            }
+            $('#clear').hide().fadeIn(3000);
         }
 
         $('.modeChange').click(function(){
@@ -236,7 +243,7 @@
                     $(this).attr('disabled',true);
                     $(this).text("請開始你的表演");
                     $('#game').empty();
-                    begin('easy');
+                    begin();
                 }
             });
         })
