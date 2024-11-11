@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const pass = confirm('有沒有過丙級');
+
+        // Promise 的邏輯
+        // new Promise((resolve,reject) => {})
+        //  resolve = 成功 = 執行 .then()
+        //  reject  = 失敗 = 執行 .catch()
+        const money = new Promise((resolve,reject) =>{
+            if(pass){
+                //resolve會跳到then
+                resolve('得到 5000');
+            }else{
+                //reject會跳到error
+                // reject('沒有 5000');
+                reject(new Error('沒有 5000'));
+            }
+        })
+        money.then(result=>{
+            console.log('result',result);
+        }).catch(error => {
+            console.log('error',error);
+        }).finally(()=>{
+            console.log('夾束');
+        })
+    </script>
+</body>
+</html>

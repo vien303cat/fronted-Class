@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js' integrity='sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==' crossorigin='anonymous'></script>
+    <script>
+        axios.get('https://kktix.com/events.json')
+            .then(response =>{
+                console.log(response);
+                console.log(response.data.entry[0].title);
+                // const iwantData = response.data.entry;  
+                // console.log(iwantData);
+                // console.log(response.data[0]);
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+
+        // const get = async() =>{
+        //     try{
+        //         const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        //         console.log(response);
+        //         const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        //         console.log(data[0]);
+        //     }catch(error){
+        //         console.log(error);
+        //     }
+        // }
+        // get();
+    </script>
+</body>
+</html>

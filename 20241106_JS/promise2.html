@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const wait = (ms,ok) =>{
+            return new Promise((resolve,reject) =>{
+                setTimeout(() =>{
+                    if(ok){
+                        resolve('ok');
+                    }else{
+                        reject(new Error('no ok'));
+                    }
+                },ms);
+            })
+        }
+
+        // setTimeout(()=>{
+        //     console.log('東方');
+        //     setTimeout(()=>{
+        //         console.log('再戰十年');
+        //     },2000)
+        // },1000);
+        // console.log(123456);
+        
+
+        // await 等待後面的程式執行完
+        // async function main(){}
+        const main = async () =>{
+            
+            // await 等待 Promise 有結果後才繼續
+            // await 後面只能接 Promise
+            // await 只能在 async function 使用
+            // async function 也是一種 Promise
+
+            // 變數 = await Promise
+            // 變數 = Promise 的 resolve 結果
+            // Promise reject 會直接跳到 catch
+            // catch 的 error 是 reject 的結果
+            
+            try{
+                console.log('main start');
+                const result1 = await wait(1000,true);
+                console.log('result1:'+result1);
+                // 因為第二個是false,看到wait()他會跑到else{ reject() } 因此在這行之後都會往catch走 因此 result3就不會接著跑了
+                // 程式邏輯: 41行之後不會往下執行會跳去45行    若是true則會照常往下等待執行(不會跑catch直到收到reject或是報錯)
+                const result2 = await wait(3000,false);
+                console.log('result2:'+result2);
+                const result3 = await wait(2000,true);
+                console.log('result3:'+result3);
+            }catch(error){
+                console.log('catch');
+                console.log(error);
+            }
+        }
+        main();
+    </script>
+</body>
+</html>

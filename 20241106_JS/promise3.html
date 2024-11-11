@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const wait = (ms,ok) =>{
+            return new Promise((resolve,reject) =>{
+                setTimeout(() =>{
+                    if(ok){
+                        resolve('ok' + ms);
+                    }else{
+                        reject(new Error('no ok' + ms));
+                    }
+                },ms);
+            })
+        }
+
+        // Promise.all(Promise陣列)
+        // 同時執行 Promise ,
+        // 所有東西都resolve才會 .then,
+        // 只要有一個 reject 就會 .catch
+        // Promise.all([
+        //     wait(1000,true),
+        //     wait(2000,true),
+        //     wait(3000,true),
+        //     // wait(4000,false),
+        // ])
+        //     .then(result =>{
+        //         console.log(result);
+        //     })
+        //     .catch(error =>{
+        //         console.log(error);
+        //     })
+
+            
+        // Promise.allSettled(Promise陣列)
+        // 同時執行 Promise ,
+        // 不管成功或失敗都是用.then展示  以 status 代表成功或失敗
+        //  fullfilled 成功 value 代表結果值
+        //  rejected 失敗 reason 代表原因
+        // Promise.allSettled([
+        //     wait(1000,true),
+        //     wait(2000,true),
+        //     wait(3000,true),
+        //     wait(4000,false),
+        // ])
+        //     .then(result =>{
+        //         console.log(result);
+        //     })
+
+        // Promise.any(Promise陣列)
+        // 取第一個resolve 的東西到 .then(),
+        // 如果失敗會到 .catch() 錯誤(全部失敗)回傳 all promises were reject
+        //  fullfilled 成功 value 代表結果值
+        //  rejected 失敗 reason 代表原因
+        // Promise.any([
+        //     wait(1000,false),
+        //     wait(2000,true),
+        //     wait(3000,false),
+        //     wait(4000,true),
+        // ])
+        //     .then(result =>{
+        //         console.log(result);
+        //     })
+        //     .catch(error =>{
+        //         console.log(error);
+        //     })
+
+        // Promise.race(Promise陣列)
+        // 取第一個有結果的
+        Promise.race([
+            wait(3000, true),
+            wait(2000, false),
+            wait(1000, false)
+        ])
+            .then(result => {
+            console.log(result)
+            })
+            .catch(error => {
+            console.log(error)
+            })
+    </script>
+</body>
+</html>

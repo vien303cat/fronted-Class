@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest()
+        xhr.open('get', 'https://jsonplaceholder.typicode.com/posts')
+        // 收到回覆的處理
+        // xhr.addEventListener('load', () => {})
+        xhr.onload = () => {
+        // console.log(xhr.responseText)
+        const data = JSON.parse(xhr.responseText)
+        console.log(data[0])
+        }
+        // 錯誤的處理
+        xhr.onerror = (error) => {
+        console.log(error)
+        }
+        // 送出
+        xhr.send()
+    </script>
+</body>
+</html>
