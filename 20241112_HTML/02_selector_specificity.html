@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            大老二遊戲
+            1.inline style(黑桃): 1,0,0,0
+            2.id 選擇器(愛心): 0,1,0,0
+            3.class 選擇器、屬性選擇器[]、偽類(方塊): 0,0,1,0
+            4.標籤、偽元素(梅花):0,0,0,1
+
+            連接符號, ex 空白(後代), >(子代), +(同層相鄰) , ~(同層全體)...
+            不算分數0,0,0,0
+        */
+
+
+        /* 0,1,0,1 */
+        #box1 p{
+            color:green;
+        }
+
+        /* 0,0,1,1 */
+        .box p{
+            color: red;
+        }
+        
+        /* 0,1,1,2 */
+        #box2 .box h1+p{
+            color:deeppink !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>選擇器權重計分</h1>
+    <div id="box1">
+        <div class="box" >
+            <h1>標題</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum doloribus voluptatibus ipsam est eius autem explicabo atque assumenda consequatur libero, rem aliquam natus laudantium esse dolores quae incidunt ipsa voluptatem.
+            </p>
+        </div>
+    </div>
+    
+    <div id="box2">
+        <div class="box" >
+            <h1>標題</h1>
+            <!-- 1,0,0,0 -->
+            <p style="color: deepskyblue;">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum doloribus voluptatibus ipsam est eius autem explicabo atque assumenda consequatur libero, rem aliquam natus laudantium esse dolores quae incidunt ipsa voluptatem.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

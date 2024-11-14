@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 這行是 RWD 必須的 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* 最外面 0~575px (xs size) */
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        transition: 1s;
+    }
+
+    :root {
+        /* css 原生變數，用 --variableName */
+        --primary: #ff0000;
+        --secondary: #00ff00;
+        --success: yellow;
+        --info: deeppink;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+    }
+
+    .container {
+        background: #fff;
+        width: 95%;
+        margin: 1rem auto;
+        padding: 15px;
+        border: 1px solid #000;
+    }
+
+    h1 {
+        color: var(--success);
+        background-color: var(--info);
+        margin-bottom: 1rem;
+    }
+
+    .container li {
+        font-size: 1.2rem;
+    }
+
+    .sidebar {
+        width: 150px;
+        color: white;
+        border-radius: 1rem;
+        padding: 1rem;
+        background: #000;
+        position: fixed;
+        left: 0;
+        display: none;
+    }
+
+    .isShow {
+        display: none;
+    }
+
+    /* 576px 尺寸以上 => 斷點(breakpoint) (sm size) */
+    /* 576 ~ 767px 的樣式 */
+    @media (min-width: 576px) {
+        body {
+        background: url("https://picsum.photos/1920/1080/?random=2") no-repeat center/cover;
+        }
+    
+        .container {
+        border: 3px dashed #000;
+        width: 75%;
+        }
+    
+        h1 {
+        color: deepskyblue;
+        background: darkorchid;
+        }
+    }
+
+    /* 768px 尺寸以上 => 斷點(breakpoint) (md size)*/
+    /* 768 ~ 991px 的樣式 */
+    @media (min-width: 768px) {
+        body {
+        background: url("https://picsum.photos/1920/1080/?random=3") no-repeat center/cover;
+        }
+    
+        .container {
+        outline: 10px dashed white;
+        border: 3px outset #000;
+        width: 60%;
+        }
+    }
+
+    /* 992px 尺寸以上 => 斷點(breakpoint) (lg size)*/
+    @media (min-width: 992px) {
+        :root {
+        font-size: 1.2rem;
+        }
+    
+        .container {
+        box-shadow: 0 0 50px 25px rgba(0, 0, 0, 0.7);
+        }
+    
+        .container li {
+        font-size: 24px;
+        }
+    
+        .sidebar {
+        display: block;
+        }
+    
+        .isShow {
+        display: block;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1>響應式網頁設計 <span class="isShow">(Responsive web design, RWD)</span></h1>
+    <ul>
+        <li>1.響應式網頁設計是讓內容如水般能適應各種形狀的容器，在每個裝置尺寸上能正常瀏覽。</li>
+        <li>2.媒體查詢(media query)負責響應式主要的工作。</li>
+        <li>3.設定斷點(breakpoint)為不同裝置尺寸設定通過的位置點，當通過該位置套用該尺寸的樣式。</li>
+        <li>4.使用單位設定寬高或大小(rem、%、vh、vw)</li>
+    </ul>
+    </div>
+    <div class="sidebar">
+    性感接口推坑大魔王屬性二級，開發輸出，職業我現在鎖定東方產生都會蘋果好了保障，抱著寶寶改善大小沒想到巨大居住緩緩大門下去連續政策，五年工人方便態度團隊事業損失，因為結果和他加入戰略有一種辦法俱樂部環節交易承諾全身練習改造，無關吃螺絲就在歐洲家裡以往卻是全。
+    </div>
+</body>
+
+</html>
