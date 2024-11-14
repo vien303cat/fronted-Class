@@ -1,0 +1,17 @@
+{
+  
+  "type": "module", 
+  "note1": "如果沒加上面這行 JavaScript的語法標準會是CommonJS 加上後變成 ECMAScript",
+  "note2": "CommonJS 是 Node.js 預設的語法 : 1.使用 require / module.exports 2.Node.js 可以使用 __dirname 取得目前檔案的路徑",
+  "note3": "ECMAScript 是 瀏覽器    的語法 : 1.使用 import / export 2.Node.js 可以使用 import.meta.url 取得目前檔案的路徑",
+
+  "name": "20241114_html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
