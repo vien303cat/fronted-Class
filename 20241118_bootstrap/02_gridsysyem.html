@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.使用bootstrap 的css -->
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+        .row{
+            margin-bottom: 1rem;
+        }
+        .row>*:nth-child(odd){
+            background: lightblue;
+        }
+        .row>*:nth-child(even){
+            background: lightgreen;
+        }
+        .row>*{
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>網格系統(Grid system) - 最核心重要</h1>
+        <div class="row">
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+        </div>
+        <hr>
+        <!-- 在最小尺寸開始,平均分配五欄寬度 -->
+        <h1>.col 後面沒有數字,代表平均分配欄寬</h1>
+        <div class="row">
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+        </div>
+
+        <!-- 在 md 尺寸開始,平均分配三欄寬度 -->
+        <div class="row">
+            <div class="col-md">col-md</div>
+            <div class="col-md">col-md</div>
+            <div class="col-md">col-md</div>
+        </div>
+
+        <h1>.col 後面加數字,代表佔"12等分"中的幾等分 ,總和是12 超過會換行</h1>
+        <div class="row">
+            <div class="col">col</div>
+            <div class="col-6">col</div>
+            <div class="col">col</div>
+        </div>
+
+        <div class="row">
+            <!-- col-1 ~ col-12 -->
+            <div class="col">1 of 3</div>
+            <div class="col-5">2 of 3 (wider)</div>
+            <div class="col">3 of 3</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">col-lg</div>
+            <div class="col-lg-5">col-lg</div>
+            <div class="col-lg-4">col-lg</div>
+        </div>
+
+        <h1>練習</h1>
+        <p>xs 1欄 , md 2欄 , lg 3欄 , xl 4欄</p>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">col</div>
+        </div>
+
+        <h1>例子1</h1>
+        <p>從 xs 到 sm 都會是六等分(兩欄),一直到 md 才會 4 等分(三欄)</p>
+        <div class="row">
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        </div>
+
+        <h1>例子2</h1>
+        <p>.col-auto 可變寬度內容(寬度會依據內容)</p>
+        <div class="row">
+            <div class="col-lg-2">col-lg-2</div>
+            <div class="col-lg-auto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, animi.</div>
+            <div class="col-lg-2">col-lg-2</div>
+        </div>
+        
+
+        <h1>混合匹配</h1>
+        <div class="row">
+            <div class="col-md-8">.col-md-8</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        </div>
+        </div>
+    
+        <div class="container">
+        <h1>列與欄</h1>
+        <p>row-cols 有支援 rwd 斷點，也有 row-cols-auto 指分配內容寬度</p>
+        <!-- 直接在父元素決定子元素的排列方式 -->
+        <div class="row row-cols-2 row-cols-lg-3">
+            <div>Column</div>
+            <div>Column</div>
+            <div>Column</div>
+            <div>Column</div>
+            <div>Column</div>
+            <div>Column</div>
+        </div>
+        </div>
+    
+        <div class="container">
+            <h1>巢狀</h1>
+            <div class="row">
+                <div class="col-sm-3 bg-dark text-white">
+                Level 1: .col-sm-3
+                </div>
+                <div class="col-sm-9 bg-danger">
+                    <div class="row mb-0">
+                        <div class="col-8 col-sm-6 mb-0">
+                        Level 2: .col-8 .col-sm-6
+                        </div>
+                        <div class="col-4 col-sm-6 mb-0">
+                        Level 2: .col-4 .col-sm-6
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- 2.使用bootstrap的js,可以讓我們使用元件進行互動 -->
+    <script src="./bootstrap.bundle.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

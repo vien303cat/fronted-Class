@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.使用bootstrap 的css -->
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+        .row{
+            margin-bottom: 1rem;
+            background: #eee;
+        }
+        /* 使用bs的原生變數 (在.css 查root可以查到) */
+        .row>*:nth-child(1){
+            background: var(--bs-cyan);
+        }
+        .row>*:nth-child(2){
+            background: var(--bs-teal);
+        }
+        .row>*:nth-child(3){
+            background: var(--bs-orange);
+        }
+        .row>*:nth-child(4){
+            background: var(--bs-indigo);
+        }
+        .row>*:nth-child(5){
+            background: var(--bs-red);
+        }
+        .row>*:nth-child(6){
+            background: var(--bs-pink);
+        }
+        .row>*{
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>欄(columns)</h1>
+        <p>.row是flexbox,因此.col欄位是flex-item,可以使用bs提供的彈性盒相關class來對齊</p>
+        <h2>次軸對齊</h2>
+        <h3>align-items-*</h3>
+        <div class="row align-items-start" style="height: 200px;">
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+        </div>
+        <div class="row align-items-center" style="height: 200px;">
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+        </div>
+        <div class="row align-items-end" style="height: 200px;">
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+            <div class="col">
+            One of three columns
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>align-self-*</h3>
+        <div class="row" style="height: 200px;">
+            <div class="col align-self-start" >
+            One of three columns
+            </div>
+            <div class="col align-self-center">
+            One of three columns
+            </div>
+            <div class="col align-self-end">
+            One of three columns
+            </div>
+        </div>
+    </div>
+
+    <!-- 2.使用bootstrap的js,可以讓我們使用元件進行互動 -->
+    <script src="./bootstrap.bundle.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
