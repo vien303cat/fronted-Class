@@ -31,7 +31,7 @@
             background: var(--bs-pink);
         }
         .row>*{
-            margin-bottom: 1rem;
+            /* margin-bottom: 1rem; */
         }
     </style>
 </head>
@@ -88,6 +88,127 @@
             <div class="col align-self-end">
             One of three columns
             </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <h2>主軸對齊</h2>
+        <div class="row justify-content-start justify-content-md-center justify-content-lg-end justify-content-xl-between">
+            <div class="col-4">
+                One of two columns
+            </div>
+            <div class="col-4">
+                One of two columns
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Column breaks</h2>
+        <div class="row">
+            <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+            <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+        
+            <!-- Force next columns to break to new line -->
+            <div class="w-100"></div>
+        
+            <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+            <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p>d-none 最小尺寸開始消失,四個欄位可以一起判斷</p>
+        <p>d-md-block md尺寸開始出現,由於div出現會切開上下,上方,下方要分開判斷</p>
+        <div class="row">
+            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        
+            <!-- Force next columns to break to new line at md breakpoint and up -->
+            <div class="w-100 d-none d-md-block"></div>
+        
+            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+            <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                none
+            </div>
+            <div class="col order-5">
+                5
+            </div>
+            <div class="col order-3">
+                3
+            </div>
+            <div class="col order-4">
+                4
+            </div>
+            <div class="col order-1">
+                1
+            </div>
+            <div class="col order-2">
+                2
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p>欄的推移</p>
+        <h3>offset-* 從左邊推多少等分</h3>
+
+        <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+            <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>用 Margin 推移</h3>
+        <p>ms-* margin-left  ,s表示start , 在BS4 margin-left 用 ml-*</p>
+        <p>me-* margin-right ,e表示end   , 在BS4 margin-right 用 mr-*</p>
+        <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+            <div class="col-md-3 ms-md-auto">.col-md-3 .ms-md-auto</div>
+        </div>
+        <div class="row">
+            <div class="col-auto me-auto">.col-auto .me-auto</div>
+            <div class="col-auto">.col-auto</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>獨立column class</h2>
+        <p>沒有與 row 配合 , col 可以只當作一般寬度使用</p>
+        <div class="clearfix">
+            <img src="https://picsum.photos/300/200/?random=10" class="col-md-6 float-md-end mb-3 ms-md-3">
+        
+            <p>
+                A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+            </p>
+        
+            <p>
+                As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+            </p>
+        
+            <p>
+                And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+            </p>
         </div>
     </div>
 
