@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.使用 bootstrap 的 css -->
+  <link rel="stylesheet" href="./css/bootstrap5.3.css">
+</head>
+
+<body style="--bs-body-color:gray">
+  <div class="container">
+    <h1 class="display-1">Display 1</h1>
+    <h1 class="display-2">Display 2</h1>
+    <h1 class="display-3">Display 3</h1>
+    <h1 class="display-4">Display 4</h1>
+    <h1 class="display-5">Display 5</h1>
+    <h1 class="display-6">Display 6</h1>
+  
+    <hr>
+    <h1>.img-fluid</h1>
+    <h2>max-width 有作用</h2>
+    <div style="width: 500px;height: 400px;border: 1px solid #333;" >
+      <img src="https://picsum.photos/800/400/?random=10">
+    </div>
+    <br>
+    <h2>max-width 沒有作用</h2>
+    <div  style="width: 500px;height: 400px;border: 1px solid #333;" >
+      <img class="img-fluid" src="https://picsum.photos/800/400/?random=10">
+    </div>
+    <hr>
+
+    <table class="table">
+      <thead>
+        <tr class="border-bottom border-dark">
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    
+  </div>
+
+
+  <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+  <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>

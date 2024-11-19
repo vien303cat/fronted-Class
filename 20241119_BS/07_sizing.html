@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.使用 bootstrap 的 css -->
+    <link rel="stylesheet" href="./css/bootstrap5.3.css">
+</head>
+
+<body>
+
+    <!-- 加上overflow-hidden : 觸發bfc -->
+    <!-- BFC 是一個獨立的渲染區域，裡面的元素會按照一定的規則進行布局，並且與外部的元素相互隔離。
+    這種隔離特性使得 BFC 在處理 浮動清除、外邊距重疊、容器高度塌陷 等問題時非常有用。 -->
+    <div class="container bg-primary text-white overflow-hidden py-3">
+        <h1>寬度 - 百分比相對於父元素</h1>
+        <div class="w-25 p-3 bg-light text-dark mb-3" style="background-color: #eee;">Width 25%</div>
+        <div class="w-50 p-3 bg-light text-dark mb-3" style="background-color: #eee;">Width 50%</div>
+        <div class="w-75 p-3 bg-light text-dark mb-3" style="background-color: #eee;">Width 75%</div>
+        <div class="w-100 p-3 bg-light text-dark mb-3" style="background-color: #eee;">Width 100%</div>
+        <div class="w-auto p-3 bg-light text-dark mb-3" style="background-color: #eee;">Width auto</div>
+        
+        <h1>高度</h1>
+        <div class="bg-success" style="height: 100px;">
+            <div class="h-25 w-20 fs-6 d-inline-block bg-danger" style="width: 120px;">Height 25%</div>
+            <div class="h-50 w-20 fs-6 d-inline-block bg-danger" style="width: 120px;">Height 50%</div>
+            <div class="h-75 w-20 fs-6 d-inline-block bg-danger" style="width: 120px;">Height 75%</div>
+            <div class="h-100 w-20 fs-6 d-inline-block bg-danger" style="width: 120px;">Height 100%</div>
+            <div class="h-auto w-20 fs-6 d-inline-block bg-danger" style="width: 120px;">Height auto</div>
+        </div>
+        <div class="d-flex bg-success" style="height: 100px;">
+            <div class="h-25 w-20 bg-danger" >Height 25%</div>
+            <div class="h-50 w-20 bg-danger" >Height 50%</div>
+            <div class="h-75 w-20 bg-danger" >Height 75%</div>
+            <div class="h-100 w-20 bg-danger" >Height 100%</div>
+            <div class="h-auto align-self-start w-20 bg-danger">Height auto</div>
+        </div>
+
+        <h1>.mw-100</h1>
+        <p>max-width 當該元素超過父元素寬度時,限制其寬度100%的意思</p>
+        <div class="col-6 bg-danger">
+            <img class="mw-100" src="https://picsum.photos/400/200/?random=10">
+        </div>
+
+    </div><br>
+    
+    <h1>vh-100 設定與瀏覽器高度一致</h1>
+    <div class="vh-100 bg-dark"></div>
+    <h1>vw-100 設定與瀏覽器寬度一致</h1>
+    <div class="vw-100 bg-danger"></div>
+    <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+    <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>

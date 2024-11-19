@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.使用 bootstrap 的 css -->
+  <link rel="stylesheet" href="./css/bootstrap5.3.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>文字換行</h1>
+    <p>容器需要有寬度</p>
+    <div class="badge bg-primary text-wrap" style="width: 6rem;">
+      This text should wrap.
+    </div>
+
+    <div class="badge bg-primary text-wrap" style="width: 6rem;">
+      說話穿著台南想要瀏覽次數，生活不好意思。
+    </div>
+
+    <h1>防止換行</h1>
+    <div class="text-nowrap bg-info" style="width: 8rem;">
+      This text should overflow the parent.
+    </div>
+
+    <h1>文字斷行</h1>
+    <p>避免過長的英文單字造成不會換行的現象，ex 火山矽肺病</p>
+    <p class="text-break bg-success w-25">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+
+    <h1>大小寫變換</h1>
+    <p class="text-lowercase">Lowercased text.</p>
+    <p class="text-uppercase">Uppercased text.</p>
+    <p class="text-capitalize">CapiTaliZed text.</p>
+
+    <h1>文字大小</h1>
+    <p class="fs-1">.fs-1 text</p>
+    <p class="fs-2">.fs-2 text</p>
+    <p class="fs-3">.fs-3 text</p>
+    <p class="fs-4">.fs-4 text</p>
+    <p class="fs-5">.fs-5 text</p>
+    <p class="fs-6">.fs-6 text</p>
+
+    <p class="h1">.fs-1 text</p>
+    <p class="h2">.fs-2 text</p>
+    <p class="h3">.fs-3 text</p>
+    <p class="h4">.fs-4 text</p>
+    <p class="h5">.fs-5 text</p>
+    <p class="h6">.fs-6 text</p>
+  </div>
+  <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+  <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>

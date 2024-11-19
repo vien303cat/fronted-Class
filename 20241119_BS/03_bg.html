@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.使用 bootstrap 的 css -->
+  <link rel="stylesheet" href="./css/bootstrap5.3.css">
+  <!-- 自己的樣式 -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>背景顏色、透明度設定</h1>
+    <p>顏色綴詞: primary、secondary、info、success、warning、danger、dark、light、white、transparent，可與其他屬性組合</p>
+    <p>ex:bg-primary、text-primary、border-primary、table-primary...</p>
+    <div class="bg-primary text-white bg-opacity-50">Lorem ipsum dolor sit amet.</div>
+    <div class="bg-primary text-white bg-opacity-85">Lorem ipsum dolor sit amet.</div>
+    <div class="bg-orange text-white">Lorem ipsum dolor sit amet.</div>
+
+    <hr>
+
+    <h1>漸層</h1>
+    <p>修改 root 的 --bs-gradient 值</p>
+    <div class="bg-primary bg-gradient display-5 text-white p-3 rounded-4 shadow-sm">Lorem ipsum dolor sit amet.</div>
+  </div>
+  <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+  <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>

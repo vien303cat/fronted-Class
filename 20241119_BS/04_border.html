@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.使用 bootstrap 的 css -->
+  <link rel="stylesheet" href="./css/bootstrap5.3.css">
+  <!-- 自己的樣式 -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <style>
+    .container {
+      margin-bottom: 1rem;
+    }
+
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+    }
+
+    .row>div {
+      height: 150px;
+      border: 1px dashed #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .row>div~div {
+      border-left: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Border</h1>
+    <h2>增加</h2>
+    <div class="row">
+      <div class="col"><span class="border"></span></div>
+      <div class="col"><span class="border-top"></span></div>
+      <div class="col"><span class="border-end"></span></div>
+      <div class="col"><span class="border-bottom"></span></div>
+      <div class="col"><span class="border-start"></span></div>
+    </div>
+
+    <h2>減少</h2>
+    <div class="row">
+      <div class="col"><span class="border border-0"></span></div>
+      <div class="col"><span class="border border-top-0"></span></div>
+      <div class="col"><span class="border border-end-0"></span></div>
+      <div class="col"><span class="border border-bottom-0"></span></div>
+      <div class="col"><span class="border border-start-0"></span></div>
+    </div>
+
+    <h2>邊框顏色</h2>
+    <div class="row">
+      <div class="col"><span class="border border-primary"></span></div>
+      <div class="col"><span class="border border-secondary"></span></div>
+      <div class="col"><span class="border border-info"></span></div>
+      <div class="col"><span class="border border-success"></span></div>
+      <div class="col"><span class="border border-danger"></span></div>
+      <div class="col"><span class="border border-dark"></span></div>
+      <div class="col bg-dark"><span class="border border-light"></span></div>
+      <div class="col"><span class="border border-warning"></span></div>
+    </div>
+
+    <h2>寬度</h2>
+    <div class="row">
+      <div class="col"><span class="border border-1"></span></div>
+      <div class="col"><span class="border border-2"></span></div>
+      <div class="col"><span class="border border-3"></span></div>
+      <div class="col"><span class="border border-4"></span></div>
+      <div class="col"><span class="border border-5"></span></div>
+      <!-- 自訂義 -->
+      <div class="col"><span class="border border-10"></span></div>
+    </div>
+
+
+    <h2>Border-radius</h2>
+    <div class="row">
+      <div class="col"><img class="rounded" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-top" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-end" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-bottom" src=" https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-start" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-circle" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-pill" src="https://picsum.photos/200/100/?random=10"></div>
+    </div>
+    <h2>Border-radius 的尺寸</h2>
+    <div class="row">
+      <div class="col"><img class="rounded-0" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-1" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-2" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-3" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-4" src="https://picsum.photos/100/100/?random=10"></div>
+      <div class="col"><img class="rounded-5" src="https://picsum.photos/100/100/?random=10"></div>
+    </div>
+  </div>
+
+
+
+  <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+  <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>
