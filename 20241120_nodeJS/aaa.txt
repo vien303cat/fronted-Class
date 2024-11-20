@@ -1,0 +1,5 @@
+npm init @eslint/config@latest -- --eslintrc --config eslint-config-standard
+
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+},

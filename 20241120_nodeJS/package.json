@@ -1,0 +1,36 @@
+{
+  "type": "module",
+  "note1": "如果沒加上面這行 JavaScript的語法標準會是CommonJS 加上後變成 ECMAScript",
+  "note2": "CommonJS 是 Node.js 預設的語法 : 1.使用 require / module.exports 2.Node.js 可以使用 __dirname 取得目前檔案的路徑",
+  "note3": "ECMAScript 是 瀏覽器    的語法 : 1.使用 import / export 2.Node.js 可以使用 import.meta.url 取得目前檔案的路徑",
+  "name": "20241120_nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "linebot": "^1.6.1"
+  },
+  "note4": "安裝時用npm i -D nodemon  -D代表是開發者用的 在開發環境才會有",
+  "note5": "nodemon 儲存時重整網頁的插件",
+  "note6": " 安裝eslint npm init @eslint/config@latest -- --eslintrc --config eslint-config-standard",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.15.0",
+    "eslint": "^8.57.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.6.0",
+    "nodemon": "^3.1.7"
+  }
+}
