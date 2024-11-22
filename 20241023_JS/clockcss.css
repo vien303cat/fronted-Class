@@ -5,6 +5,14 @@ body{
     background-size: 100% ;
     overflow-y: hidden;
 }
+#hat{
+    position: absolute;
+    top: 214px;
+    left: 909px;
+    width: 120px;
+    height: 50px;
+    background: url("./clockimage/hat.png") no-repeat ;
+}
 #clock{
     width:  300px;
     height: 300px;
@@ -16,45 +24,46 @@ body{
     margin-top: 13% ;
 }
 #hour{
-    width: 20%;
-    height: 10px;
+    width: 100px;
+    height: 40px;
     background-color: skyblue;
     border-radius: 5px;
     position: absolute;
-    left: 30%;
-    top: calc(50% - 5px);
+    left: calc(45px);
+    top: calc(43%);
     transform: rotate(180deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
     transition: 0.5s;
+    background: url('./clockimage/hour.png') no-repeat center;
 }
 #minute{
     /* 寬度以及position加起來要50% */
-    width: 40%;
-    height: 8px;
+    width: 120px;
+    height: 40px;
     background-color: lightcoral;
     border-radius: 5px;
     position: absolute;
-    left: 10%;
-    top: calc(50% - 5px);
+    left: calc(26px);
+    top: calc(43%);
     transform: rotate(240deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
     transition: 0.5s;
+    background: url('./clockimage/min.png') no-repeat center;
 }
 #second{
     /* 寬度以及position加起來要50% */
-    width: 45%;
-    height: 4px;
-    background-color: lightgreen;
-    border-radius: 5px;
+    width: 120px;
+    height: 40px;
     position: absolute;
-    left: 5%;
-    top: calc(50% - 2px);
+    left: calc(26px);
+    top: calc(43%);
     transform: rotate(90deg);
     /* 設定選轉的起始點 */
     transform-origin: right center;
     transition: 0.5s;
+    background: url('./clockimage/second2.png') no-repeat center;
 }
 #center{
     width: 20px;
@@ -102,11 +111,15 @@ body{
     clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
     transition: background-color 0.2s ease, transform 0.2s ease; /* 增加平滑過渡效果 */
     transform: rotate(40deg); /* 旋轉 45 度 */
-}
-/* 滑鼠滑入時的顏色變化和旋轉 */
-.d1:hover {
+
+    
     background-color: rgba(124, 250, 250, 0.61);  /* 滑入時的顏色 */
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+    display: none;
+}
+/* 滑鼠滑入時的顏色變化和旋轉 */
+.d1.active {
+    display: block;
 }
 .p1{
     top: 175px;
@@ -121,7 +134,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(35deg);
 }
-.d2:hover {
+.d2.active {
     background-color: rgba(110, 250, 152, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -137,7 +150,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(30deg);
 }
-.d3:hover {
+.d3.active {
     background-color: rgba(250, 253, 84, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -154,7 +167,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(25deg);
 }
-.d4:hover {
+.d4.active {
     background-color: rgba(252, 168, 59, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -163,6 +176,145 @@ body{
     left: -315px;
 }
 
+.d5 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(20deg);
+}
+.d5.active {
+    background-color: rgb(230 11 247 / 61%);  
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p5 {
+    top: 167px;
+    left: -204px;
+}
+
+.d6 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(13deg)
+}
+.d6.active {
+    background-color: rgb(161 52 247 / 61%);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p6 {    
+    top: 264px;
+    left: -141px;
+}
+
+.d7 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(10deg)
+}
+.d7.active {
+    background-color: color(a98-rgb 0.26 0.46 0.86 / 0.63);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p7 {    
+    top: 313px;
+    left: -52px;
+}
+
+.d8 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(5deg)
+}
+.d8.active {
+    background-color: rgb(24 245 243 / 61%);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p8 {    
+    top: 308px;
+    left: 37px;
+}
+
+
+.d9 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(355deg)
+}
+.d9.active {
+    background-color: rgb(24 245 243 / 61%);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p9 {    
+    top: 308px;
+    right: 37px;
+}
+
+
+.d10 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(350deg);
+}
+.d10.active {
+    background-color:  color(a98-rgb 0.26 0.46 0.86 / 0.63);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p10 {
+    top: 313px;
+    right: -52px;
+}
+
+
+.d11 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(347deg);
+}
+.d11.active {
+    background-color: rgb(161 52 247 / 61%);
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p11 {
+    top: 264px;
+    right: -141px;
+}
+
+
+.d12 {
+    width: 90px;
+    height: 120px;
+    /* background-color: #4CAF50; */
+    clip-path: polygon(50% 0%, 75% 30%, 50% 100%, 25% 30%);
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+    transform: rotate(340deg);
+}
+.d12.active {
+    background-color: rgb(230 11 247 / 61%);  
+    box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
+}
+.p12 {
+    top: 167px;
+    right: -204px;
+}
 
 .d13 {
     width: 90px;
@@ -172,7 +324,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(335deg);
 }
-.d13:hover {
+.d13.active {
     background-color: rgba(252, 168, 59, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -190,7 +342,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(330deg);
 }
-.d14:hover {
+.d14.active {
     background-color: rgba(250, 253, 84, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -208,7 +360,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(325deg);
 }
-.d15:hover {
+.d15.active {
     background-color: rgba(110, 250, 152, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -225,7 +377,7 @@ body{
     transition: background-color 0.2s ease, transform 0.2s ease; 
     transform: rotate(320deg);
 }
-.d16:hover {
+.d16.active {
     background-color: rgba(124, 250, 250, 0.61);  
     box-shadow:4px 4px 12px 4px rgba(255, 255, 255, 1);
 }
@@ -233,3 +385,4 @@ body{
     top: 175px;
     right: -652px;
 }
+

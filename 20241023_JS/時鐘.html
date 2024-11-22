@@ -24,8 +24,6 @@
 </style>
 <body>
     <!-- Flandre Style ? -->
-    
-
     <div id="clock">
         <!--  -->
         <div class="tick" style="transform: rotate(0deg);"></div>
@@ -41,7 +39,6 @@
         <div class="tick" style="transform: rotate(300deg);"></div>
         <div class="tick" style="transform: rotate(330deg);"></div>
         <!--  -->
-
         <div class="diamond-container p1">
             <div class="d1"></div>
         </div>
@@ -53,6 +50,30 @@
         </div>
         <div class="diamond-container p4">
             <div class="d4"></div>
+        </div>
+        <div class="diamond-container p5">
+            <div class="d5"></div>
+        </div>
+        <div class="diamond-container p6">
+            <div class="d6"></div>
+        </div>
+        <div class="diamond-container p7">
+            <div class="d7"></div>
+        </div>
+        <div class="diamond-container p8">
+            <div class="d8"></div>
+        </div>
+        <div class="diamond-container p9">
+            <div class="d9"></div>
+        </div>
+        <div class="diamond-container p10">
+            <div class="d10"></div>
+        </div>
+        <div class="diamond-container p11">
+            <div class="d11"></div>
+        </div>
+        <div class="diamond-container p12">
+            <div class="d12"></div>
         </div>
         <div class="diamond-container p13">
             <div class="d13"></div>
@@ -72,12 +93,27 @@
         <div id="second"></div>
         <div id="center"></div>
     </div>
+    <div id="hat"></div>
 
     <div id="textArea" class="nes-container with-title is-centered">
         <p class="title">現在時間</p>
         <p id="textTime"></p>
+          <div style="background-color:#212529; padding: 1rem 0; border: 3px solid white;">
+            <label>
+            <span style="color: white;">燈光類型：</span>
+              <input type="radio" class="nes-radio is-dark" value="0" name="answer-dark" id="radio0" style="margin-left: 30px;" />
+              <span>循環</span>
+            </label>
+            <label>
+              <input type="radio" class="nes-radio is-dark" value="1" name="answer-dark" checked id="radio1" style="margin-left: 15px;" />
+              <span>滑入</span>
+            </label>
+            <label>
+              <input type="radio" class="nes-radio is-dark" value="2" name="answer-dark" id="radio2" style="margin-left: 15px;"/>
+              <span>隨機</span>
+            </label>
+          </div>
     </div>
-
     <script>
         // 函式	說明
         // getFullYear()	西元日期
@@ -94,27 +130,110 @@
         // toLocalDateString()	依語言格式化日期
         // toLocalTimeString()	依語言格式化時間
         // toLocaleString(語言)	依語言格式化輸出
-        
+        let mode = 1
+        let repeatnow = 0
+
         const elClock   = document.getElementById('clock');
         const elHour    = document.getElementById('hour');
         const elMinute  = document.getElementById('minute');
         const elSecond  = document.getElementById('second');    
 
         const eltextTime  = document.getElementById('textTime');    
+        const diamonds = document.querySelectorAll('.diamond-container [class*=d]')
+        const radios = document.querySelectorAll('.nes-radio.is-dark')
+
+        for (const radio of radios) {
+            radio.onchange = () => {
+                mode = radio.value;
+                // 重設 active 狀態
+                for (const diamod of diamonds) {
+                    diamod.classList.remove('active');
+                }
+                // 如果是循環，重設從第一個開始
+                if (mode == 0) {
+                    repeatnow = 0;
+                    diamonds[0].classList.add('active');
+                    diamonds[diamonds.length - 1 ].classList.add('active');
+                }
+            }
+        }
+        for (const diamod of diamonds) {
+            diamod.onmouseenter = () => {
+                if (mode == 1) diamod.classList.add('active');
+            }
+            diamod.onmouseleave = () => {
+                if (mode == 1) diamod.classList.remove('active');
+            }
+        }
+
+        //隨機func
+        var randNum = (min, max , cnt) => {
+                let num = [];
+                cnt = (max-min) > cnt ? cnt: (max-min);
+                while(num.length < cnt){
+                    let rand = min + Math.round( Math.random() * ( max - min ) );
+                    if( num.includes(rand) ){
+                        continue;
+                    }
+                    num.push(rand);
+                }
+                return num ;
+        }
 
         const clock = () => {
             const date = new Date();
             const h = date.getHours();
             const m = date.getMinutes();
             const s = date.getSeconds();
+            
+            // 59秒時動畫時間變成0
+            if(s == 0){
+                elSecond.style.transition = '0s';
+            }else if(s == 1){
+                elSecond.style.transition = `0.5s`;
+            }
+            if(m == 59){
+                elMinute.style.transition = '0s';
+            }else if(s == 1){
+                elMinute.style.transition = `0.5s`;
+            }
             elHour.style.transform      = `rotate(${h * 30 + (m / 59 * 30) + 90 }deg)`;
             elMinute.style.transform    = `rotate(${m * 6 + 90}deg)`;
             elSecond.style.transform    = `rotate(${s * 6 + 90}deg)`;
 
             eltextTime.innerText = date.toTimeString();
+
+            // mode0:循環亮燈
+            if (mode == 0) {
+                diamonds[repeatnow].classList.remove('active');
+                diamonds[diamonds.length - 1 - repeatnow ].classList.remove('active');
+                console.log(repeatnow,diamonds);
+                repeatnow++;
+                if (repeatnow == diamonds.length / 2 ){
+                    repeatnow = 0;
+                }
+                diamonds[repeatnow].classList.add('active');
+                diamonds[diamonds.length - 1 - repeatnow ].classList.add('active');
+
+            }
+            // mode1:隨機亮燈
+            else if (mode == 2) {
+                const actived = document.querySelectorAll('.active');
+                for(const val of actived){
+                    val.classList.remove('active');
+                }
+                const leftLamp  = randNum(0,7,2);
+                const rightLamp = randNum(8,15,2);
+                for(let i = 0 ; i <= leftLamp.length - 1 ; i++){
+                    diamonds[leftLamp[i]].classList.add('active');
+                    diamonds[rightLamp[i]].classList.add('active');
+                }
+                // console.log(leftLamp,rightLamp);
+            }
         }
         setInterval(clock,1000);
         clock();
+        
 
     </script>
 </body>
