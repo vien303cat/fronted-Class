@@ -7,11 +7,12 @@ body{
 }
 #hat{
     position: absolute;
-    top: 149px;
-    left: 783px;
-    width: 450px;
+    top: 126px;
+    left: 851px;
+    width: 350px;
     height: 200px;
-    background: url("./clockimage/hat.png") no-repeat center/cover;
+    transform: rotate(14deg);
+    background: url("./clockimage/flan.png") no-repeat center/cover;
 }
 #clock{
     width:  300px;
