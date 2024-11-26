@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form @submit.prevent="insertClick">
+            <input type="text" v-model="input" :style="{border:inputborder}"> &nbsp;
+            <input type="submit" value="新增">
+            <hr>
+            <ul>
+                <li v-for="(val,index) in searchResult">
+                    <input type="checkbox" v-model="val.checkbox">
+                    <del v-if="val.checkbox">{{ val.content }}</del>
+                    <span v-else>{{ val.content }}</span> 
+                    &nbsp;<input type="button" value="X" @click="delClick(val.id)">
+                </li> 
+                <template v-if="searchResult.length > 0">
+                    <br>
+                    <input type="button" value="乂X絕愛Oo翔oO盡殺X乂" @click="checkboxDel()">
+                </template>
+            </ul>
+            <input type="text" v-model="search" placeholder="搜尋欄">
+
+        </form>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // const { createApp } = Vue
+        // vue起手式
+        Vue.createApp({
+            data () {
+                return {
+                    list:[],
+                    input:'',
+                    search:'',
+                    id:1,
+                }
+            },
+            computed:{
+                inputborder(){
+                    let borderStyle = "";
+                    if(this.input.length == 0 ){
+                        borderStyle = "6px solid black";
+                    }else if(this.input.length < 3){
+                        borderStyle = "6px solid red";
+                    }else{
+                        borderStyle = "6px solid blue";
+                    }
+                    return borderStyle;
+                },
+                searchResult(){
+                    const result = this.list.filter((val)=>{
+                        return val.content.includes(this.search);
+                    })
+                    console.log(result);
+                    return result;
+                }
+            },
+            methods:{
+                insertClick(){
+                    if(this.input.length < 3){
+                        return 0;
+                    }
+                    this.list.push({
+                        id : this.id,
+                        content: this.input,
+                        checkbox: false,
+                    }) ;
+                    this.id++;
+                    this.input = '';
+                },
+                delClick(id){
+                    const delId = this.list.findIndex((val)=>{
+                        return val.id == id ;
+                    })
+                    this.list.splice(delId,1);
+                },
+                checkboxDel(){
+                    for(let val of this.searchResult){
+                        // 先做土法煉鋼法一個一個刪(不曉得之後有沒有快速刪法)
+                        if(val.checkbox){
+                            const delId = this.list.findIndex((mainVal)=>{
+                                return mainVal.id == val.id ;
+                            })
+                            this.list.splice(delId,1);
+                        }
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
