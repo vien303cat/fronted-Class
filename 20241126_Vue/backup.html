@@ -7,14 +7,6 @@
 </head>
 <body>
     <div id="app">
-        <!-- {{ }} 、 v-text 用文字顯示資料 -->
-        <h1>123123{{ text }}</h1>
-        <h1 v-text="text"></h1>
-        <hr>
-        <!-- v-html 顯示 HTML -->
-        <h1 v-html="image"></h1>
-        <h1 v-text="image"></h1>
-        <h1>{{ image }}</h1>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -25,8 +17,6 @@
             data () {
                 // 放變數
                 return {
-                    text: 'abc',
-                    image: `<img src="https://picsum.photos/300/200/?random=10">`,
                 }
             }
         }).mount('#app')

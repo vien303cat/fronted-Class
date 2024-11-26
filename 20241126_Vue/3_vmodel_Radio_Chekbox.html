@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model 綁定使用者輸入的值 -->
+        <!-- trim 自動移除前後空白 -->
+        <!-- lazy 在 change 時才更新-->
+        <input type="text" v-model.trim.lazy="form.text">
+        <p>{{ form.text }}</p>
+        <!-- 
+            radio、checkbox 用 v-model 分組
+            v-model => 使用者輸入的值
+            value => 欄位本身的值 
+        -->
+        <input type="radio" v-model="form.radio1" value="1">
+        <input type="radio" v-model="form.radio1" value="2">
+        <input type="radio" v-model="form.radio1" value="3">
+        <input type="radio" v-model="form.radio1" value="true">
+        <input type="radio" v-model="form.radio1" value="false">
+        <input type="radio" v-model="form.radio1" value="'abc'">
+        <br>
+        <!-- value裡面用冒號才會對應資料型態 沒有使用冒號的都會式文字 -->
+        <input type="radio" v-model="form.radio2" :value="1">
+        <input type="radio" v-model="form.radio2" :value="2">
+        <input type="radio" v-model="form.radio2" :value="3">
+        <input type="radio" v-model="form.radio2" :value="true">
+        <input type="radio" v-model="form.radio2" :value="false">
+        <input type="radio" v-model="form.radio2" :value="'abc'">
+        <hr>
+        <template v-for="(val,index) in checkboxOptions">
+            <label :for="'check' + index "> {{val.label}} </label>
+            <input type="checkbox" :id="'check' + index" :value="val.value" v-model="form.checkbox">
+        </template>
+        <select v-model="form.select">
+            <option v-for="val in selectOptions" :value="val.value">{{val.label}}</option>
+        </select>
+        
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // const { createApp } = Vue
+        // vue起手式
+        Vue.createApp({
+            data () {
+                // 放變數
+                return {
+                    form:{
+                        text:'',
+                        radio1:undefined,
+                        radio2:undefined,
+                        checkbox:[],
+                        select:'a',
+
+                    },
+                    checkboxOptions:[
+                        {value:'50', label:"50嵐"},
+                        {value:'kbk', label:"可不可"},
+                    ],
+                    selectOptions:[
+                        {value:'v', label:"Vue"},
+                        {value:'a', label:"Angular"},
+                        {value:'r', label:"React"},
+                    ],
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

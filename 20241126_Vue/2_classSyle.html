@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-red{
+            color:red;
+        }
+        .text-center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <img v-bind:src="image" height="50" alt="">
+        <img :src="image" height="50" alt="">
+        <a :href="link.url">{{ link.text }}</a>
+        <!-- 綁定style -->
+        <p :style="textStyle">
+            貿易果然有點遠走了，推薦使用運行，廣播競爭力爸爸主任給我先進怎麼樣居住人力文明設定眼光圖文，目的考生是啊，義務事情避免開發者大會醫院神秘所以，市場價專欄人體利潤腦袋觀看你的，便宜力道考試買了生成，哈。
+        </p>
+        <p :style="{color:textColor, textAlign}">
+            貿易果然有點遠走了，推薦使用運行，廣播競爭力爸爸主任給我先進怎麼樣居住人力文明設定眼光圖文，目的考生是啊，義務事情避免開發者大會醫院神秘所以，市場價專欄人體利潤腦袋觀看你的，便宜力道考試買了生成，哈。
+        </p>
+        <!-- 綁定class -->
+        <p :class="textClassObject">不是這種十大群眾出去應該招商請在現代環節情節仍然，相互培訓名稱很容易男性生成軟體學會綜合，從而相機。</p>
+        <p :class="textClassArray">出去推廣目前變得看過出現在仍然信號做出完全味道快捷比賽因而，立即推薦使用供應商往往表示金屬，網域名。</p>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.13/vue.global.js' integrity='sha512-duCwoyZKaqdDFijBXbdn6Dfr55QWsN9dXMdsGHHPTj5dH3PmnV5HxpISOGhzvrZkPWeGa/9X2DQ+RrsBMo2KoA==' crossorigin='anonymous'></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    image:'https://github.com/vuejs.png',
+                    link:{
+                        url:'https://www.gamer.com.tw/',
+                        text:'哈哈姆特',
+                    },
+                    textStyle:{
+                        color: 'lightblue',
+                        textAlign: 'center',
+                        'background-color' : 'gray',
+                    },
+                    textColor:'pink',
+                    textAlign:'right',
+                    textClassObject: {
+                        'text-red': true,
+                        'text-center': false
+                    },
+                    textClassArray: ['text-center']
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

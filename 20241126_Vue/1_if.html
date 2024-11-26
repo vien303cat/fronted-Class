@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {{ }} 、 v-text 用文字顯示資料 -->
+        <h1>123123{{ text }}</h1>
+        <h1 v-text="text"></h1>
+        <hr>
+        <!-- v-html 顯示 HTML -->
+        <h1 v-html="image"></h1>
+        <h1 v-text="image"></h1>
+        <h1>{{ image }}</h1>
+        <hr>
+        <!-- 判斷式,符合才出現在DOM -->
+        <p v-if="number === 100" > number === 100 </p>
+        <p v-else-if="number > 100" > number > 100 </p>
+        <p v-else> number &lt; 100 </p>
+        <!-- 判斷式,不符合display:none -->
+        <p v-show="number === 100">number === 100 (v-show)</p>
+        <!-- 迴圈 -->
+        <ul>
+            <!-- v-for="值 in 陣列" -->
+            <li v-for="val in phones"> {{ val }} </li>
+        </ul>
+        <ul>
+            <!-- v-for="(值, 索引) in 陣列" -->
+            <li v-for="(val, index) in phones">{{ index + 1 }}: {{ val }}</li>
+        </ul>
+        <!-- 
+            v-if 和 v-for 不能同時在一個標籤上
+            必須使用template標籤輔助
+        -->
+        <ul>
+            <template v-for="(val , index) in phones">
+                <li v-if="index > 0">{{ val }}</li>
+            </template>
+        </ul>
+        <ul>
+            <template v-if="number > 100">
+                <li v-for="(val , index) in phones">{{ val }}</li>
+            </template>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // const { createApp } = Vue
+        // vue起手式
+        Vue.createApp({
+            data () {
+                // 放變數
+                return {
+                    text: 'abc',
+                    image: `<img src="https://picsum.photos/300/200/?random=10">`,
+                    number:100,
+                    phones:['Nothing','Apple','Google']
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

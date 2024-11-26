@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 id='title' ref='titleref'>
+            預測強調還可以部落方案各級造型寶寶生命，圖書考生臺灣人奇蹟高校天空成熟小組首頁會員情緒近期廣告收集，也可一生比如集體大盤，實踐台鐵到來歷史。
+        </h1>
+        <input type="button" value="取文字" @click="getText">
+        <input type="button" ref="btn" :value="number" @click="plus">
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // const { createApp } = Vue
+        // vue起手式
+        Vue.createApp({
+            data () {
+                // 放變數
+                return {
+                    number:0
+                }
+            },
+            methods:{
+                getText(){
+                    const h1 = document.getElementById('title');
+                    console.log(h1.innerText);
+                    // this.$refs.標籤ref
+                    console.log(this.$refs.titleref.innerText);
+                },
+                async plus(){
+                    this.number++;
+                    // 由於資料更新後不會立刻重新渲染HTML 所以還是舊資料
+                    console.log(this.$refs.btn.value);
+                    // $nextTick() 等待下一次渲染 因為是await所以function要加async 
+                    await this.$nextTick()
+                    console.log(this.$refs.btn.value);
+                }
+            },
+            // Vue 的 JS 和 HTML 都初始化時，可以取到 HTML
+            mounted () {
+                console.log(this.$refs.titleref)
+            },
+            // Vue 的 JS 初始化時，HTML 還沒渲染，所以不能取到 HTML
+            created () {
+                console.log(this.$refs.titleref)
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

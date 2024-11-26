@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="notify"  v-on:click="notify">
+        <input type="button" value="notify"  @click="notify">
+        <input type="button" value="notify2" @click="notify2('aaa')">
+        <input type="button" value="notify3" @click="notify3('aaa',$event)">
+
+        <hr>
+        <input type="text" v-model="input" @keydown.enter="add">
+        <ul>
+            <li v-for="val in list">{{ val }}</li>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // const { createApp } = Vue
+        // vue起手式
+        Vue.createApp({
+            data () {
+                return{
+                    input:'',
+                    list:[],
+                }
+            },
+            methods:{
+                notify (event) {
+                    console.log(event);
+                    alert(123);
+                },
+                notify2(text){
+                    alert(text);
+                },
+                notify3(text,event){
+                    console.log(event);
+                    alert(text);
+                },
+                add(){
+                    if(this.input.length === 0){
+                        return 0;
+                    }
+                    this.list.push(this.input);
+                    this.notify2(this.input);
+                    this.input='';
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

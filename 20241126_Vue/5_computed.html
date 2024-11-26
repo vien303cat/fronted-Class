@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" :value="number" @click="number++" >
+        <br>
+        姓:<input type="text" v-model="lastName"><br>
+        名:<input type="text" v-model="firstName"><br>
+        {{fullName}}<br>
+        {{fullNameMethod()}}<br>
+        {{num}}<br>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // vue起手式
+        Vue.createApp({
+            data () {
+                return {
+                    firstName:'',
+                    lastName:'',
+                    number: 0 ,
+                }
+            },
+            methods:{
+                fullNameMethod(){
+                    console.log('methods');
+                    return this.lastName + this.firstName;
+                }
+            },
+            // computed 動態資料 一定要有return
+            computed:{
+                fullName(){
+                    console.log('computed');
+                    return this.lastName + this.firstName;
+                },
+                num(){
+                    return this.number;
+                }
+            },
+            watch:{
+                firstName(newValue,oldValue){
+                    console.log('firstName',newValue,oldValue);
+                },
+                number(Nval,Oval){
+                    console.log('點擊次數由'+Oval+'到'+Nval)
+                }
+            }
+            
+        }).mount('#app')
+    </script>
+</body>
+</html>
