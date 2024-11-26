@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.使用 bootstrap 的 css -->
+    <link rel="stylesheet" href="./css/bootstrap5.3.css">
+    <style>
+        :root{
+            --bs-coffee-rgb: 150, 79, 21;
+        }
+        .bg-coffee{
+            --bs-bg-opactity: 1;
+            background-color:rgba(var(--bs-coffee-rgb), var(--bs-bg-opactity)) ;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    .navbar-expand-* 旨通過某個斷點展開導覽列內容,若沒有這個class,會永遠處於摺疊狀態(漢堡選單)
+    .bavbar-light 指導覽列的背景色,淺色模式,會搭配淺色背景
+    .bavbar-dark  指導覽列的背景色,深色模式,會搭配深色背景
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-coffee fixed-top">
+        <!-- 可以使用.container固定寬度容器 -->
+        <div class="container-fluid">
+            <!-- logo -->
+          <a class="navbar-brand" href="#"><img src="https://picsum.photos/100/50/?random=10"></a>
+            <!-- aria-屬性:只是說明標籤的意思 不影響功能 -->
+            <!-- 漢堡按鈕,沒展開才會出現 -->
+            <!-- 
+                data-bs-toggle = "collapse" 指觸發一個collapse摺疊的功能
+                data-bs-target = "#kaifu" 指定要摺疊的目標是id為kaifu的元素
+            -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#kaifu" aria-controls="kaifu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- .navbar-collapse是flexbox -->
+          <div id="kaifu" class="collapse navbar-collapse" >
+            <!-- 利用 me-auto 將 form 推到右邊去 -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- pe-none=> pninter-events:none;可以讓滑鼠穿透過去與下層元素互動 -->
+       <div class="animation vh-100 vw-100 position-fixed pe-none" style="z-index: 9999;"></div>
+
+      <div class="container">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quibusdam eaque et, corporis eos error eligendi delectus aspernatur temporibus magni tempora tempore eius beatae porro maiores aut id natus rerum officia placeat hic numquam incidunt. Labore cumque rerum voluptatibus harum perspiciatis possimus reprehenderit facere fugiat tempore nesciunt, aliquam nisi sequi, commodi veniam pariatur. Voluptates iste ea id voluptas, porro quasi tempore sequi beatae nostrum libero consequuntur ipsa, praesentium quos ut dolore. Provident deleniti, necessitatibus quo ducimus at nihil incidunt, temporibus suscipit quaerat ipsum tempora pariatur. Aspernatur sit omnis recusandae sed fuga. Temporibus autem fuga aperiam qui deleniti deserunt consequuntur, commodi possimus repellat sit in libero magnam, explicabo vero repellendus vitae illum laborum eius dolor? Minus alias voluptatibus dicta, cupiditate quisquam, libero minima pariatur velit deleniti sit error consectetur temporibus repudiandae doloribus. Eius maxime hic autem voluptate atque aspernatur optio quas, excepturi inventore enim unde repellat perspiciatis doloribus rem sunt vero, blanditiis saepe, laborum qui quos quo similique! Repudiandae nesciunt fugiat eligendi deleniti obcaecati, odio nostrum unde quibusdam atque nulla assumenda labore natus sed a aperiam, sunt molestiae ipsum perferendis error similique pariatur neque asperiores voluptates perspiciatis. Laudantium beatae ea corporis aperiam consequuntur, itaque excepturi, cupiditate minus eligendi doloremque autem repellendus officiis, ipsa veniam consequatur debitis? Fugiat nemo hic amet quibusdam doloremque ex voluptate, maxime officiis, impedit a nihil id soluta? Vel ut delectus unde accusantium aliquam tempora incidunt repudiandae corporis, quasi odit dolore aut ratione quis aspernatur possimus placeat? Vero, quidem repellat sunt reprehenderit temporibus vitae. Est consequatur temporibus impedit, eaque harum, in tempora excepturi inventore nostrum velit, alias tenetur repellendus illum accusantium corrupti molestias pariatur fuga quia dolor non atque veniam! Tenetur quam voluptatem labore, eveniet nisi voluptas possimus quae molestiae. Optio nisi cum qui minus molestias, dignissimos nobis consequuntur nam reiciendis! Hic repellendus fugiat doloremque ullam assumenda dicta dolorum magni delectus voluptatem quas! Amet, fugiat. Ipsum ipsam laudantium veritatis placeat excepturi earum voluptatum labore illo doloremque, accusamus quisquam molestias distinctio reprehenderit, porro soluta hic quis? Consequuntur sequi ipsam qui architecto, facere quod perferendis distinctio itaque? At dolorem nesciunt velit fuga quisquam ullam, nulla, perferendis numquam officiis facilis, inventore porro laboriosam. Iusto tenetur dicta dignissimos. Optio id voluptatibus dignissimos provident magnam quis sequi minima, impedit delectus, deserunt atque itaque similique dolorum? Sapiente repellendus animi temporibus accusamus autem nisi doloribus at molestias tenetur dolorum tempore inventore, libero illo quo iure voluptas quam enim eligendi laborum eveniet! Error eligendi est ad vitae molestiae quis reiciendis possimus, fugiat quae? Voluptate molestias numquam dolores earum eos vero error minima. Beatae ab reiciendis iure tempora nulla consequuntur perferendis quam nostrum iste laborum inventore nesciunt animi eum asperiores, labore molestias maxime vitae provident cum! Numquam voluptatibus sequi necessitatibus eum quasi hic inventore! Dolorem earum minus eum voluptates, autem hic? Beatae aliquid amet harum sint nulla vero? Similique aut nihil officiis repellendus enim ea quas id vel nam, voluptatum modi nobis, a architecto, sapiente laboriosam sunt voluptate. Corporis consequuntur iste minus, culpa hic mollitia porro non cupiditate placeat at odio. Vero, expedita reprehenderit? Temporibus, distinctio mollitia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quibusdam eaque et, corporis eos error eligendi delectus aspernatur temporibus magni tempora tempore eius beatae porro maiores aut id natus rerum officia placeat hic numquam incidunt. Labore cumque rerum voluptatibus harum perspiciatis possimus reprehenderit facere fugiat tempore nesciunt, aliquam nisi sequi, commodi veniam pariatur. Voluptates iste ea id voluptas, porro quasi tempore sequi beatae nostrum libero consequuntur ipsa, praesentium quos ut dolore. Provident deleniti, necessitatibus quo ducimus at nihil incidunt, temporibus suscipit quaerat ipsum tempora pariatur. Aspernatur sit omnis recusandae sed fuga. Temporibus autem fuga aperiam qui deleniti deserunt consequuntur, commodi possimus repellat sit in libero magnam, explicabo vero repellendus vitae illum laborum eius dolor? Minus alias voluptatibus dicta, cupiditate quisquam, libero minima pariatur velit deleniti sit error consectetur temporibus repudiandae doloribus. Eius maxime hic autem voluptate atque aspernatur optio quas, excepturi inventore enim unde repellat perspiciatis doloribus rem sunt vero, blanditiis saepe, laborum qui quos quo similique! Repudiandae nesciunt fugiat eligendi deleniti obcaecati, odio nostrum unde quibusdam atque nulla assumenda labore natus sed a aperiam, sunt molestiae ipsum perferendis error similique pariatur neque asperiores voluptates perspiciatis. Laudantium beatae ea corporis aperiam consequuntur, itaque excepturi, cupiditate minus eligendi doloremque autem repellendus officiis, ipsa veniam consequatur debitis? Fugiat nemo hic amet quibusdam doloremque ex voluptate, maxime officiis, impedit a nihil id soluta? Vel ut delectus unde accusantium aliquam tempora incidunt repudiandae corporis, quasi odit dolore aut ratione quis aspernatur possimus placeat? Vero, quidem repellat sunt reprehenderit temporibus vitae. Est consequatur temporibus impedit, eaque harum, in tempora excepturi inventore nostrum velit, alias tenetur repellendus illum accusantium corrupti molestias pariatur fuga quia dolor non atque veniam! Tenetur quam voluptatem labore, eveniet nisi voluptas possimus quae molestiae. Optio nisi cum qui minus molestias, dignissimos nobis consequuntur nam reiciendis! Hic repellendus fugiat doloremque ullam assumenda dicta dolorum magni delectus voluptatem quas! Amet, fugiat. Ipsum ipsam laudantium veritatis placeat excepturi earum voluptatum labore illo doloremque, accusamus quisquam molestias distinctio reprehenderit, porro soluta hic quis? Consequuntur sequi ipsam qui architecto, facere quod perferendis distinctio itaque? At dolorem nesciunt velit fuga quisquam ullam, nulla, perferendis numquam officiis facilis, inventore porro laboriosam. Iusto tenetur dicta dignissimos. Optio id voluptatibus dignissimos provident magnam quis sequi minima, impedit delectus, deserunt atque itaque similique dolorum? Sapiente repellendus animi temporibus accusamus autem nisi doloribus at molestias tenetur dolorum tempore inventore, libero illo quo iure voluptas quam enim eligendi laborum eveniet! Error eligendi est ad vitae molestiae quis reiciendis possimus, fugiat quae? Voluptate molestias numquam dolores earum eos vero error minima. Beatae ab reiciendis iure tempora nulla consequuntur perferendis quam nostrum iste laborum inventore nesciunt animi eum asperiores, labore molestias maxime vitae provident cum! Numquam voluptatibus sequi necessitatibus eum quasi hic inventore! Dolorem earum minus eum voluptates, autem hic? Beatae aliquid amet harum sint nulla vero? Similique aut nihil officiis repellendus enim ea quas id vel nam, voluptatum modi nobis, a architecto, sapiente laboriosam sunt voluptate. Corporis consequuntur iste minus, culpa hic mollitia porro non cupiditate placeat at odio. Vero, expedita reprehenderit? Temporibus, distinctio mollitia.
+      </div>
+
+
+    <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+    <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>
