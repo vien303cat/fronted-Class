@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Plus :data="number" @apple="number = $event"></Plus>
+        <Plus2 v-model:data2="number2"></Plus2>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/x-template" id="plus">
+        <input type="button" :value="data" @click="plus">
+    </script>
+    <script type="text/x-template" id="plusplus">
+        <input type="button" :value="d" @click="d+=100">
+    </script>
+    <script>
+        const { createApp, ref, computed } = Vue
+        Vue.createApp({
+            setup() {
+                const number = ref(100)
+                const number2 = ref(100)
+                return { number,number2 }
+            }
+        })
+        .component('Plus',{
+            template:'#plus',
+            props:{data:Number},
+            setup(props, ctx){
+                console.log(ctx);
+                const plus = () => {
+                    // props 唯讀不能直接修改
+                    // props.data += 100
+
+                    // emit 觸發一個自訂的事件 , 把資料傳出去 ,告訴外層修改資料
+                    ctx.emit('apple',props.data + 100)
+                }
+                return { plus }
+            }
+        })
+        .component('Plus2',{
+            template:'#plusplus',
+            props:{data2:Number},
+            setup(props,{emit}){
+                const d = computed({
+                    // 資料如何產生
+                    get(){
+                        return props.data2
+                    },
+                    // 修改值的時候怎麼處理
+                    set(value){
+                        // 配合v-model 使用的固定格式
+                        // emit(update:prop名,修改的值)
+                        emit('update:data2',value )
+                    }
+                })
+                return { d }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+</html>

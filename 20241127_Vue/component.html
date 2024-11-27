@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Counter></Counter>
+        <Counter></Counter>
+        <Counter></Counter>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/x-template" id="counter">
+        <input type="button" :value="number" @click="number++">
+    </script>
+    <script>
+        const { createApp, ref } = Vue
+
+        // const app = createApp();
+        // app.component();
+        // app.mount();
+
+
+        // vue起手式
+        Vue.createApp({
+            
+        })
+        // .component(元件名字,{})
+        // 元件名稱通常第一個字大寫
+        .component('Counter',{
+            // 定義元件的HTML,或指定 ID 當模板
+            // template:`<input type="button" :value="number" @click="number++">`,
+            template:'#counter',
+            setup(){
+                const number = ref(0);
+                return{ number }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+</html>

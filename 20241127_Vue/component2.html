@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' integrity='sha512-VcyUgkobcyhqQl74HS1TcTMnLEfdfX6BbjhH8ZBjFU9YTwHwtoRtWSGzhpDVEJqtMlvLM2z3JIixUOu63PNCYQ==' crossorigin='anonymous'/>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <!-- 
+                        用標籤屬性把資料傳入元件 props 
+                        price="1000"  -> 文字
+                        :price="1000" -> 數字
+                        布林值有寫就是true,沒寫就是false
+
+                    -->
+                    <Card
+                        :price="1000"
+                        sell 
+                        image="https://picsum.photos/200/200/?random=10"
+                        title="快樂商品"
+                        text="說明文字字"
+                        myNote="也可以自己寫備註 然後用不存在的標籤也不會報錯"
+                    ></Card>
+                </div>
+            </div>
+            <div class="row">
+                <input type="button" value="漲價" class="btn bg-primary" @click="changePrice">
+                <div class="col-3" v-for="product in products">
+                    <!-- 
+                        用標籤屬性把資料傳入元件 props 
+                        price="1000"  -> 文字
+                        :price="1000" -> 數字
+                        布林值有寫就是true,沒寫就是false
+
+                    -->
+                    <!-- <Card
+                        :price="product.price"
+                        :sell ="product.sell"
+                        :image="product.image"
+                        :title="product.title"
+                        :text ="product.text"
+                        myNote="也可以自己寫備註 然後用不存在的標籤也不會報錯"
+                    ></Card> -->
+                    <Card v-bind="product"></Card>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/x-template" id="card">
+        <div class="card">
+            <img :src="image" alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ title }}</h5>
+                <h6 class="card-subtitle text-body-secondary">{{ price }}</h6>
+                <h6 v-if="!sell" class="text-danger">已下架</h6>
+                <p class="card-text">{{ text }}</p>
+                <input type="button" class="btn btn-primary" value="詳細" @click="info">
+            </div>
+        </div>
+    </script>
+    <script>
+        const { createApp, ref, reactive , toRef, toRefs } = Vue
+        Vue.createApp({
+            setup(){
+                const products = reactive([
+                    { price:1000, sell:true,image:'https://github.com/Microsoft.png', title:'Microsoft',text:'nc'},
+                    { price:500, sell:true,image:'https://github.com/wdaweb.png', title:'Wdaweb',text:'wdawda'},
+                ]);
+                const changePrice = () =>{
+                    for(const product of products){
+                        product.price *=2;
+                    }
+                }
+                return { products, changePrice };
+            }
+        })
+        // .component(元件名字,{})
+        // 元件名稱通常第一個字大寫
+        .component('Card',{
+            setup(props){
+                // 直接解構 props 會失去響應性
+                const { price } = props
+                // 解構props 維持響應性
+                const { price: priceRefs } = toRefs(props);
+                const priceRef = toRef(props,'price');
+                const info = () => {
+                    console.log('props.price',props.price)
+                    console.log('price',price)
+                    console.log('priceRefs',priceRefs.value)
+                    console.log('priceRef',priceRef.value)
+                }
+                return { info }
+            },
+            template:'#card',
+            // props 定義元件接收哪些資料
+            // props:['image','title','text','sell'],
+            props:{
+                // 指定資料型態
+                price:Number,
+                sell: Boolean,
+                image: {
+                    type:String
+                },
+                // 指定型態,而且一定要給這個資料
+                text:{
+                    type:String,
+                    required:true,
+                },
+                // 指定型態、預設值、驗證
+                title:{
+                    type:String,
+                    default (){
+                        return '商品標題'
+                    },
+                    validator(value){
+                        return value.length >= 3;
+                    }
+                }
+            }
+        })
+        .mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="input" :style="{ border: inputBorder }">
+      <input type="submit" value="新增">
+    </form>
+    <hr>
+    <input type="text" v-model="search">
+    <ul>
+      <li v-for="item in filteredItems">
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{ item.text }}</del>
+        <span v-else>{{ item.text }}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { ref, reactive, computed, watch, onMounted, } = Vue
+
+    Vue.createApp({
+      setup () {
+        // ref: 所有資料型態都能使用，使用時加 .value，不會深層監聽陣列物件
+        const input = ref('')
+        const search = ref('')
+        // reactive: 只有陣列物件可以用，不用加 .value，可以深層監聽
+        const items = reactive([])
+        // 上方 HTML 不會用到，不需要響應式
+        let id = 1
+        
+        const inputBorder = computed(() => {
+          if (input.value.length === 0) {
+            return ''
+          } else if (input.value.length < 3) {
+            return '5px solid red'
+          } else {
+            return '5px solid green'
+          }
+        })
+
+
+
+        const addItem = () => {
+          if (input.value.length < 3) return
+
+          items.push({
+            text: input.value,
+            done: false,
+            id: id++
+          })
+
+          input.value = ''
+        }
+
+        const delItem = (id) => {
+          const i = items.findIndex(item => {
+            return item.id === id
+          })
+          items.splice(i, 1)
+        }
+
+        const filteredItems = computed(() => {
+          return items.filter(item => {
+            return item.text.includes(search.value)
+          })
+        })
+
+        // watch,onMounted不用return
+        // 用戶 ID 改變時重新加載數據
+        watch(items,() => {
+          localStorage.vueList = JSON.stringify(items)
+        })
+        // 初次加載時獲取數據
+        onMounted(() => {
+          const getJson = JSON.parse(localStorage.vueList || '[]');
+          console.log(getJson);
+          items.splice(0,0, ...getJson);
+
+          if(items.length > 0){
+            id = items[items.length - 1].id + 1;
+          }
+        })
+
+        // 把 HTML 會用到的 return
+        return {
+          input, search, inputBorder, addItem, delItem, filteredItems
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

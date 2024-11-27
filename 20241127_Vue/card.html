@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <p>總共 {{ totalGoods }} 個讚</p>
+    <Card v-for="card in cards" v-bind="card" v-model:good="card.good"></Card>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/x-template" id="card">
+    <div>
+        <img :src="image" width="100">
+        <p>{{ text }}</p>
+        <!-- <input type="button" :value="g ? '收回讚' : '讚'" @click="g = !g"> -->
+        <input type="button" :value="g ? '收回讚' : '讚'" @click="g = !g">
+    </div>
+    </script>
+    <script>
+    const { createApp, reactive, computed } = Vue
+
+    createApp({
+        setup () {
+        const cards = reactive([
+            { image: 'https://github.com/vuejs.png', text: 'Vue', good: false },
+            { image: 'https://github.com/twbs.png', text: 'Bootstrap', good: false },
+            { image: 'https://github.com/jquery.png', text: 'jQuery', good: false }
+        ])
+    
+        const totalGoods = computed(() => {
+            // const goods = cards.filter(card => {
+            //   return card.good === true
+            // })
+            // return goods.length
+            return cards.filter(card => card.good).length
+        })
+    
+        return { cards, totalGoods }
+        }
+    })
+        .component('Card', {
+        template: '#card',
+        props: ['image', 'text', 'good'],
+        setup (props, { emit }) {
+            const g = computed({
+            get () {
+                return props.good
+            },
+            set (value) {
+                emit('update:good', value)
+            }
+            })
+            return { g }
+        }
+        })
+        .mount('#app')
+    </script>
+</body>
+</html>
