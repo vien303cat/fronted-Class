@@ -7,24 +7,66 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="input" placeholder="代辦事項">
-        <input type="button" value="新增">
-        <hr>
-        <input type="text" placeholder="搜尋">
-        <hr>
-        目前顯示:共個
-        <hr>
-        點兩下編輯清單文字,ESC取消編輯
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="input" placeholder="代辦事項" :style="{border : borderStyle}">
+            <input type="submit" value="新增">
+            <hr>
+            <input type="text"  v-model="search" placeholder="搜尋">
+            
+            <hr>
+            目前顯示:共個<br>
+            <ul>
+                <li v-for="val in totalData">
+                <input type="checkbox" v-model="val.done"> {{val.text}} <input type="button" value="X" @click="delItem(val.id)">
+                </li>
+            </ul>
+            <hr>
+            點兩下編輯清單文字,ESC取消編輯
+        </form>
+
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const { ref, reactive, } = Vue
+        const { ref, reactive, computed,  } = Vue
         // vue起手式
         Vue.createApp({
             setup(){
-                const input  = ref('');
-                const search = ref('');
+                const input      = ref('');
+                const search     = ref('');
+                const totalData  = reactive([])
+                let id = 1;
+
+
+                const borderStyle = computed(()=>{
+                    if(input.value.length == 0 ){
+                        return "6px solid red";
+                    }else if(input.value.length < 3){
+                        return "6px solid yellow";
+                    }else{
+                        return "6px solid green";
+                    }
+                })
+
+                const addItem = () =>{
+                    if(input.value.length < 3){
+                        return 0 ;
+                    }
+                    totalData.push({
+                        id : id++,
+                        text : input.value,
+                        done : false,
+                    })
+                    input.value = "";
+                }
+                const delItem = (id) =>{
+                    const delId = totalData.findIndex((val) => {
+                        return val.id == id ; 
+                    })
+                    totalData.splice(delId,1);
+                }
+
+                return {input,search,borderStyle,addItem,totalData,delItem}
             }
         }).mount('#app')
     </script>
