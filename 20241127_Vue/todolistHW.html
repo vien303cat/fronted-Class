@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="input" placeholder="代辦事項">
+        <input type="button" value="新增">
+        <hr>
+        <input type="text" placeholder="搜尋">
+        <hr>
+        目前顯示:共個
+        <hr>
+        點兩下編輯清單文字,ESC取消編輯
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { ref, reactive, } = Vue
+        // vue起手式
+        Vue.createApp({
+            setup(){
+                const input  = ref('');
+                const search = ref('');
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
