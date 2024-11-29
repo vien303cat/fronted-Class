@@ -11,13 +11,20 @@
             <input type="text" v-model="input" placeholder="代辦事項" :style="{border : borderStyle}">
             <input type="submit" value="新增">
             <hr>
-            <input type="text"  v-model="search" placeholder="搜尋">
+            <input type="text"  v-model="search" placeholder="搜尋"><br>
+            <input type="button" value="全部標記為已完成" @click="markAll(true)"><input type="button" value="全部標記為未完成" @click="markAll(false)"><br>
+            <input type="button" value="顯示全部"><input type="button" value="顯示已完成"><input type="button" value="顯示未完成"><br>
+            <input type="button" value="清除全部"><input type="button" value="清除已完成"><input type="button" value="清除未完成"><br>
+            
             
             <hr>
-            目前顯示:共個<br>
+            目前顯示:共{{searchFilter.length}}個<br>
             <ul>
-                <li v-for="val in totalData">
-                <input type="checkbox" v-model="val.done"> {{val.text}} <input type="button" value="X" @click="delItem(val.id)">
+                <li v-for="val in searchFilter">
+                <input type="checkbox" v-model="val.done"> 
+                <del v-if="val.done">{{val.text}}</del>
+                <span v-else>{{val.text}}</span>
+                <input type="button" value="X" @click="delItem(val.id)">
                 </li>
             </ul>
             <hr>
@@ -28,10 +35,11 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const { ref, reactive, computed,  } = Vue
+        const { ref, reactive, computed, watch, onMounted,  } = Vue
         // vue起手式
         Vue.createApp({
             setup(){
+                // .value 只針對透過ref創建的參數
                 const input      = ref('');
                 const search     = ref('');
                 const totalData  = reactive([])
@@ -66,7 +74,36 @@
                     totalData.splice(delId,1);
                 }
 
-                return {input,search,borderStyle,addItem,totalData,delItem}
+                const markAll = (status) => {  
+                    for(let val of searchFilter.value){
+                        val.done = status ;
+                    }
+                }
+                
+                const searchFilter = computed(() => {
+                    const result = totalData.filter(val =>{
+                        return val.text.includes(search.value);
+                    })
+                    return result;
+                })
+                //資料變更時加入資料庫
+                watch(totalData,() => {
+                    localStorage.vueData = JSON.stringify(totalData);
+                })
+
+                //初始進入頁面時讀取資料庫
+                onMounted(() => {
+                    const getData = JSON.parse(localStorage.vueData || '[]') ;
+                    totalData.splice(0,0, ...getData);
+                    
+                    if(totalData.length > 0){
+                        id = totalData[totalData.length - 1].id + 1;
+                    }
+                })
+
+
+
+                return {input,search,borderStyle,addItem,totalData,delItem,searchFilter,markAll}
             }
         }).mount('#app')
     </script>
