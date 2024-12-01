@@ -13,18 +13,18 @@
             <hr>
             <input type="text"  v-model="search" placeholder="搜尋"><br>
             <input type="button" value="全部標記為已完成" @click="markAll(true)"><input type="button" value="全部標記為未完成" @click="markAll(false)"><br>
-            <input type="button" value="顯示全部"><input type="button" value="顯示已完成"><input type="button" value="顯示未完成"><br>
-            <input type="button" value="清除全部"><input type="button" value="清除已完成"><input type="button" value="清除未完成"><br>
+            <input type="button" value="顯示全部" @click="modeChange('全部')"><input type="button" value="顯示已完成" @click="modeChange('已完成')"><input type="button" value="顯示未完成" @click="modeChange('未完成')"><br>
+            <input type="button" value="清除全部" @click="delAll(0)"><input type="button" value="清除已完成" @click="delAll(1)"><input type="button" value="清除未完成" @click="delAll(2)"><br>
             
             
             <hr>
-            目前顯示:共{{searchFilter.length}}個<br>
+            目前顯示 {{displayMode}} :共{{searchFilter.length}}個<br>
             <ul>
                 <li v-for="val in searchFilter">
-                <input type="checkbox" v-model="val.done"> 
-                <del v-if="val.done">{{val.text}}</del>
-                <span v-else>{{val.text}}</span>
-                <input type="button" value="X" @click="delItem(val.id)">
+                    <input type="checkbox" v-model="val.done"> 
+                    <del v-if="val.done">{{val.text}}</del>
+                    <span v-else>{{val.text}}</span>
+                    <input type="button" value="X" @click="delItem(val.id)">
                 </li>
             </ul>
             <hr>
@@ -40,9 +40,10 @@
         Vue.createApp({
             setup(){
                 // .value 只針對透過ref創建的參數
-                const input      = ref('');
-                const search     = ref('');
-                const totalData  = reactive([])
+                const input         = ref('');
+                const search        = ref('');
+                const displayMode   = ref('全部'); 
+                const totalData     = reactive([])
                 let id = 1;
 
 
@@ -64,6 +65,7 @@
                         id : id++,
                         text : input.value,
                         done : false,
+                        fix : false, 
                     })
                     input.value = "";
                 }
@@ -79,10 +81,31 @@
                         val.done = status ;
                     }
                 }
+                const delAll = (status) => {
+                    for(let val of searchFilter.value){
+                        if(status == 0){
+                            delItem(val.id);
+                        }else if(status == 1 && val.done){
+                            delItem(val.id);
+                        }else if(status == 2 && !val.done){
+                            delItem(val.id);
+                        }
+                    }
+                }
+                const modeChange = (status) => {  
+                    displayMode.value = status ;
+                }
+                
                 
                 const searchFilter = computed(() => {
                     const result = totalData.filter(val =>{
-                        return val.text.includes(search.value);
+                        if(displayMode.value == '全部'){
+                            return val.text.includes(search.value);
+                        }else if(displayMode.value == '已完成'){
+                            return  (val.text.includes(search.value) && val.done );
+                        }else{
+                            return (val.text.includes(search.value) && !val.done);
+                        }
                     })
                     return result;
                 })
@@ -103,7 +126,7 @@
 
 
 
-                return {input,search,borderStyle,addItem,totalData,delItem,searchFilter,markAll}
+                return {input,search,borderStyle,addItem,totalData,delItem,searchFilter,markAll,displayMode,modeChange,delAll}
             }
         }).mount('#app')
     </script>
