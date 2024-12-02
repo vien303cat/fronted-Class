@@ -22,20 +22,26 @@
             <ul>
                 <li v-for="val in searchFilter">
                     <input type="checkbox" v-model="val.done"> 
-                    <del v-if="val.done">{{val.text}}</del>
-                    <span v-else>{{val.text}}</span>
+                    <span v-if="val.fix">
+                        <input type="text" v-model="val.text" @keydown.esc="changeInput(val.id,0)" @keydown.enter="changeInput(val.id,1)">
+                    </span>
+                    <span v-else>
+                        <del v-if="val.done" @dblclick="doubleClick(val.id)">{{val.text}}</del>
+                        <span v-else @dblclick="doubleClick(val.id)">{{val.text}}</span>
+                    </span>
                     <input type="button" value="X" @click="delItem(val.id)">
                 </li>
             </ul>
             <hr>
-            點兩下編輯清單文字,ESC取消編輯
+            點兩下編輯清單文字,ESC取消編輯<br>
+            <!-- TODO: 1202:已知bug顯示已完成與未完成狀態時 點擊checkbox值會正確修改但會有顯示上的問題  (應該是feliter的時間點之類的問題? 問老哥) -->
         </form>
 
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const { ref, reactive, computed, watch, onMounted,  } = Vue
+        const { ref, reactive, computed, watch, onMounted, nextTick,  } = Vue
         // vue起手式
         Vue.createApp({
             setup(){
@@ -45,7 +51,6 @@
                 const displayMode   = ref('全部'); 
                 const totalData     = reactive([])
                 let id = 1;
-
 
                 const borderStyle = computed(()=>{
                     if(input.value.length == 0 ){
@@ -66,6 +71,7 @@
                         text : input.value,
                         done : false,
                         fix : false, 
+                        lastval : '',
                     })
                     input.value = "";
                 }
@@ -94,6 +100,26 @@
                 }
                 const modeChange = (status) => {  
                     displayMode.value = status ;
+                }
+                
+                const doubleClick = (id) => {  
+                    const getID = totalData.findIndex((val) => {
+                        return val.id == id ; 
+                    })
+                    const eventItem = totalData[getID];
+                    eventItem.fix = true;
+                    eventItem.lastval = eventItem.text ;
+                }
+                const changeInput = (id,status) => {  
+                    const getID = totalData.findIndex((val) => {
+                        return val.id == id ; 
+                    })
+                    const eventItem = totalData[getID];
+                    eventItem.fix = false;
+                    if(!status){
+                        eventItem.text = eventItem.lastval;
+                    }
+
                 }
                 
                 
@@ -126,7 +152,7 @@
 
 
 
-                return {input,search,borderStyle,addItem,totalData,delItem,searchFilter,markAll,displayMode,modeChange,delAll}
+                return {input,search,borderStyle,addItem,totalData,delItem,searchFilter,markAll,displayMode,modeChange,delAll,doubleClick,changeInput}
             }
         }).mount('#app')
     </script>
