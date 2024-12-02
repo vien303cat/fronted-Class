@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.使用 bootstrap 的 css -->
+    <link rel="stylesheet" href="./css/bootstrap5.3.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" >網頁語言</button>
+
+    <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvas" >
+        <div class="offcanvas-header">
+            <h5 id="offcanvasTopLabel">快逃R</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action active">前端</a>
+                <a href="https://bootstrap5.hexschool.com/docs/5.1/components/list-group/" class="list-group-item list-group-item-action ">bootstrap</a>
+                <a href="https://jquery.com/" class="list-group-item list-group-item-action">JQuery</a>
+                <a href="https://vuejs.org/" class="list-group-item list-group-item-action">VueJS</a>
+                <a class="list-group-item list-group-item-action active">後端</a>
+                <a href="https://www.php.net/manual/en/intro.spl.php" class="list-group-item list-group-item-action ">PHP</a>
+                <a href="https://laravel.com/" class="list-group-item list-group-item-action">Laravel</a>
+                <a href="https://nodejs.org/docs/latest-v12.x/api/index.html" class="list-group-item list-group-item-action">NodeJS</a>
+            </div>
+        </div>
+    </div>
+    <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+    <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>

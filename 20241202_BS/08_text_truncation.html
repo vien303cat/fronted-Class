@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.使用 bootstrap 的 css -->
+  <link rel="stylesheet" href="./css/bootstrap5.3.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .text-truncate-2 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      display: -webkit-box;
+      line-clamp: 3;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>文字截斷</h1>
+    <h2>bootstrap 提供單行截斷</h2>
+    <div class="row">
+      <div class="col-2 text-truncate bg-primary text-white">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, aperiam.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 text-truncate bg-primary text-white">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, aperiam.
+      </div>
+    </div>
+    <h2>多行文字截斷</h2>
+    <div style="width:200px;">
+      <p class="text-truncate-2">
+        號碼課堂最為武器支付眼中無門旅遊表面嘗試標準物理主要模擬，免費版起點各自一部分還沒有萬華回答簡介民族緊張一件監控工業，大學點此我是，發佈財經怪物形成，現場符合年輕人，課堂競爭及其媽媽愛情也沒有點遠得知網際快車，權威招生辦公室設計透明，路線個人帝國重大，台。
+      </p>
+    </div>
+  </div>
+  <!-- 2.使用 bootstrap 的 js，可以讓我們使用元件進行互動 -->
+  <script src="./js/bootstrap.bundle5.3.js"></script>
+</body>
+
+</html>
