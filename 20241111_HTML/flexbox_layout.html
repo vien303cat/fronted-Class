@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="./reset.css">
+    <title>Document</title>
+    <style>
+        .top{
+            width: 100%;
+            height: 5%;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            position: fixed;
+            display: flex;
+            
+            /* 預設主軸為水平排列 */
+            flex-direction: row;
+            /* 預設不換行 */
+            flex-wrap: nowrap;
+            /* 預設次軸會對彈性項目延伸拉長 */
+            align-items: stretch;
+            font-size: 18px;
+        }
+        .top > div {
+            line-height: 250%;
+        }
+        .top > div:nth-child(1) {
+            margin-left: 20%;
+        }
+        .top > div:nth-child(2)  {
+            display: flex;
+            margin-right: 20%;
+            
+        }
+        .top > div:nth-child(2) > div {
+            margin-right: 3%;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div style="margin-right: auto">Start Bootstrap</div>
+        <div> 
+            <div>Home</div>
+            <div style="color: lightgray;">About</div>
+            <div style="color: lightgray;">Contact</div>
+            <div style="color: lightgray;">Services</div>
+        </div>
+    </div>
+</body>
+</html>
