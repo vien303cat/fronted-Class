@@ -15,7 +15,6 @@
             height: 5%;
             background: rgba(0,0,0,0.9);
             color: white;
-            position: fixed;
             display: flex;
             
             /* 預設主軸為水平排列 */
@@ -27,18 +26,43 @@
             font-size: 18px;
         }
         .top > div {
-            line-height: 250%;
-        }
-        .top > div:nth-child(1) {
             margin-left: 20%;
+            line-height: 250%;
         }
         .top > div:nth-child(2)  {
             display: flex;
             margin-right: 20%;
-            
         }
         .top > div:nth-child(2) > div {
             margin-right: 3%;
+        }
+        .topSideWard{
+            color: lightgray;
+        }
+        .photoArea{ 
+            display: flex;
+            justify-content: center;
+            margin: 0 15%;
+        }
+        .img{
+            margin: 3%;
+
+        }
+        .text{
+            display: flex; 
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .text h1{
+            font-size: 26px;
+            font-weight: bolder;
+            margin-bottom: 1% ;
+        }
+        .text h3{
+            font-size: 16px;
+            color: rgba(0,0,0,0.5);
+            margin-bottom: 5% ;
         }
     </style>
 </head>
@@ -47,9 +71,20 @@
         <div style="margin-right: auto">Start Bootstrap</div>
         <div> 
             <div>Home</div>
-            <div style="color: lightgray;">About</div>
-            <div style="color: lightgray;">Contact</div>
-            <div style="color: lightgray;">Services</div>
+            <div class="topSideWard">About</div>
+            <div class="topSideWard">Contact</div>
+            <div class="topSideWard">Services</div>
+        </div>
+    </div>
+    <div class="photoArea">
+        <div class="img">
+            <img src="https://picsum.photos/700/300/?random=10">
+        </div>
+        <div class="text">
+            <h1>ファイナルファンタジーXIV</h1>
+            <h3>
+                《Final Fantasy XIV》是一款MMORPG，玩家們會在一個持續不變的世界中相互協同合作，而世界會對玩家們的行動作出反應。玩家需要創建遊戲中使用的角色，並可定製名稱、種族、性別、面部特徵以及初始職業。            </h3>
+            <button>Click to the Website!</button>
         </div>
     </div>
 </body>
