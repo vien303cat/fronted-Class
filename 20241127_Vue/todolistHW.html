@@ -18,8 +18,12 @@
             <hr>
             目前顯示 {{displayMode}} :共{{searchFilter.length}}個<br>
             <ul>
-                <li v-for="val in searchFilter">
-                    <input type="checkbox" v-model="val.done" :name="val.id"> 
+                <!-- 
+                    :key="" 再次綁定某筆資料 可以更有效的連結確保資料正確性
+                    告訴他"哪個東西過濾前以及過濾後是一樣的" 就用那個東西綁
+                -->
+                <li v-for="val in searchFilter" :key="val.id">
+                    <input type="checkbox" v-model="val.done"> 
                     <span v-if="val.fix">
                         <input type="text" v-model="val.text" @keydown.esc="changeInput(val.id,0)" @keydown.enter="changeInput(val.id,1)">
                     </span>
@@ -32,7 +36,6 @@
             </ul>
             <hr>
             點兩下編輯清單文字,ESC取消編輯<br>
-            <!-- TODO: 1202:已知bug顯示已完成與未完成狀態時 點擊checkbox值會正確修改但會有顯示上的問題  (應該是feliter的時間點之類的問題? 問老哥) -->
         </form>
 
     </div>

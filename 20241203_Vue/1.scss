@@ -1,0 +1,26 @@
+$primary: blue;
+$secondary: lightblue;
+$warning: yellow;
+$danger: red;
+
+h1 {
+    color: $primary;
+}
+
+#header{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    #title{
+        color: $secondary;
+
+        &:hover{
+            color: $danger;
+        }
+
+        &>.logo {
+            width: 100px;
+        }
+
+    }
+}

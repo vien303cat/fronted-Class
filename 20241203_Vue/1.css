@@ -1,0 +1,20 @@
+h1 {
+  color: blue;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#header #title {
+  color: lightblue;
+}
+#header #title:hover {
+  color: red;
+}
+#header #title > .logo {
+  width: 100px;
+}
+
+/*# sourceMappingURL=1.css.map */
