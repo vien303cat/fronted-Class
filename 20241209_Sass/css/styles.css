@@ -1,0 +1,370 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+/* 多行註解是可以編譯出去的 */
+/* 原生變數可以被編譯出去 */
+:root {
+  --primary: #0d6efd;
+  --secondary: #6c757d;
+  --success: #198754;
+  --info: #0dcaf0;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #212529;
+}
+
+/* SCSS 的變數無法編譯出去 */
+.foo {
+  width: 100px;
+  color: red;
+}
+
+h1 {
+  line-height: 1;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgb(0, 0, 50)), color-stop(50%, rgb(0, 50, 200)), to(rgb(0, 0, 255)));
+  background: linear-gradient(0deg, rgb(0, 0, 50) 0%, rgb(0, 50, 200) 50%, rgb(0, 0, 255) 100%);
+  color: #fff;
+  border: 5px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  /* 編譯後自動加上前綴詞 -webkit- */
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+}
+
+/* 流程控制 */
+.mybox {
+  width: 150px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: blue;
+  font-style: italic;
+  color: yellow !important;
+  font-weight: bolder;
+  font-size: 50px;
+  /* 使用not去反運算式結果 */
+  border: 10px dotted green;
+  /* 內建函式 if() ,類似三元運算式  因為是函式因此這個if沒有@ */
+  outline: 10px solid pink;
+}
+
+/* 包含end,跑1.2.3 */
+.through-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: #aaa;
+}
+
+.through-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background: #aaa;
+}
+
+.through-3 {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background: #aaa;
+}
+
+/* 不包含end,跑1.2 */
+.to-1 {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: #aaa;
+}
+
+.to-2 {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background: #aaa;
+}
+
+#section05 ul.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#section05 ul.menu li {
+  width: 100px;
+  text-align: center;
+}
+#section05 ul.menu li a {
+  color: white;
+  text-decoration: none;
+  background: black;
+  padding: 0.5rem;
+  display: block;
+}
+#section05 ul.menu li a:hover {
+  color: yellow;
+  background: purple;
+}
+#section05 ul.menu li + li {
+  border-left: 1px solid #fff;
+}
+
+#exercise .row {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.3);
+}
+#exercise .row .col:nth-child(1) {
+  width: 20%;
+  background: #198754;
+}
+#exercise .row .col:nth-child(2) {
+  width: 20%;
+  background: #ffc107;
+}
+#exercise .row .col:nth-child(3) {
+  width: 20%;
+  background: #dc3545;
+}
+#exercise .row .col img {
+  margin: 1px;
+}
+#exercise .row .col p {
+  font-family: "新細明體";
+}
+#exercise .row .col p:hover {
+  color: white;
+}
+#exercise .row .col a {
+  text-decoration: none;
+}
+
+/* 繼承可以使用 CSS 選擇器或是 % 佔位選擇器來命名
+使用CSS選擇器會被編譯到 CSS , % 佔位符屬於SCSS的範疇, 不會被編譯出去
+元素有共同樣式可以使用繼承提取出去,會被匯聚到群組選擇器 */
+.extend, .box2 {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.box3, .box1 {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.box1 {
+  background: #dc3545;
+}
+
+.box2 {
+  background: #198754;
+}
+
+.box3 {
+  background: #0dcaf0;
+}
+
+/* 計算 */
+.box4 {
+  background: #000;
+  /* 加法 */
+  width: 100px;
+  width: 100px;
+  height: 100px;
+  /* 減法 */
+  width: 50px;
+  width: 50px;
+  height: 50px;
+  /* 乘法 */
+  width: 100px;
+  height: 100px;
+  /* 除法 */
+  width: 50px;
+  height: 50px;
+  /* 若分子、分母都有單位，單位會被消除  */
+  line-height: 1;
+  /* 取餘數 */
+  margin-top: 20px;
+}
+
+/* 函式 */
+.funcbox {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background: deeppink;
+  font-size: 20px;
+  width: 200px;
+  /* 使用預設值 */
+  height: 100px;
+  /* 指定參數值 */
+  height: 200px;
+}
+
+.rem {
+  font-size: 1rem;
+  padding: 3rem;
+}
+
+#section08 p {
+  font-size: 20px;
+  line-height: lineHeight(30px);
+  line-height: lineHeight(20px);
+  color: black;
+  color: #4d4d4d;
+}
+
+/* Mixins(混入) */
+/* 使用 @include 引入 mixin */
+.mixinTry123 {
+  width: 100px;
+  height: 100px;
+  background: #333;
+}
+
+.boxflex {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #333;
+  outline: 10px dashed pink;
+}
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.btn-dark {
+  background: #000;
+}
+.btn-dark:hover {
+  background-color: #333333;
+}
+
+.btn-primary {
+  background: #0d6efd;
+}
+.btn-primary:hover {
+  background-color: #0257d5;
+}
+
+.btn-success {
+  background: #198754;
+}
+.btn-success:hover {
+  background-color: #115c39;
+}
+
+.btn-danger {
+  background: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/* 使用 @mixin + @content 來設計 RWD */
+#section10 .container {
+  width: 100%;
+}
+#section10 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#section10 .col {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+}
+#section10 .col + .col {
+  margin-top: 20px;
+}
+@media (min-width: 576px) {
+  #section10 .container {
+    width: 75%;
+  }
+  #section10 .col {
+    width: 50%;
+  }
+  #section10 .col + .col {
+    margin-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  #section10 .col {
+    width: 33.333333%;
+  }
+}
+@media (min-width: 992px) {
+  #section10 .col {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  #section10 .col {
+    width: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #section10 .col {
+    width: 10%;
+  }
+}
