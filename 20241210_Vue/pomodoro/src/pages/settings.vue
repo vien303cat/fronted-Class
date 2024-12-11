@@ -34,6 +34,12 @@
 
 <script setup>
 import { useSettingsStore } from '@/stores/settings'
+import { onUnmounted } from 'vue'
+
+// 檢查元件銷毀
+onUnmounted(() => {
+  console.log('onUnmounted')
+})
 
 // 記錄各個頁面
 // import { definePage } from 'vue-router/auto'

@@ -121,4 +121,10 @@ path, circle
   &.active
     // v-bind 把 CSS 的值和 Vue 的變數綁定
     fill: v-bind(color)
+
+.digit
+  height: 600px
+  width: 600px
+  margin-right: -350px
+  filter: drop-shadow(5px 5px 5px rgba(255, 255, 255, 0.8))
 </style>
