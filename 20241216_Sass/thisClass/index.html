@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container border border-10">
+    <h1 class="bg-coffee-dark text-white">標題</h1>
+    <p class="text-bg-coffee-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at facilis laboriosam minima placeat neque cumque quidem unde iure nemo quia velit atque, dolorem magnam ducimus dolor consequuntur cupiditate distinctio.</p>
+
+    <div tabindex="1" class="card kaiborder-solid1 kaiborder-solid3-hover kaiborder-solid3-focus cursor-pointer-hover translate-y-n50px-hover transition-half" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.js'></script>
+
+  <script>
+    showName('KaiFu')
+    function showName(who) {
+      console.log(who)
+    }
+
+    console.log(showName2) // undefind
+
+    var showName2 = function (who) {
+      console.log(who)
+    }
+
+    showName2('hello')
+
+
+  </script>
+</body>
+
+</html>

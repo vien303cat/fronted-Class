@@ -1,0 +1,23 @@
+// functions
+
+// 定義一個函式
+@function randomFont() {
+	$result: random(3);
+	@if ($result == 1) {
+		@return 20px;
+	} @else if ($result == 2) {
+		@return 40px;
+	} @else {
+		@return 60px;
+	}
+}
+
+// 傳參數
+@function boxLength1($length, $base) {
+	@return $length * $base * 1px;
+}
+
+// 使用預設值
+@function boxLength2($length: 100, $base: 1) {
+	@return $length * $base * 1px;
+}

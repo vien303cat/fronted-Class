@@ -244,7 +244,7 @@ h1 {
   height: 100px;
   color: white;
   background: deeppink;
-  font-size: 20px;
+  font-size: 60px;
   width: 200px;
   /* 使用預設值 */
   height: 100px;
@@ -367,4 +367,90 @@ h1 {
   #section10 .col {
     width: 10%;
   }
+}
+
+/* list(列表) 像JS的陣列 , 但索引從1開始 , 不是0 */
+/* 用nth(list, index) 取 item 值 */
+.list {
+  width: 100px;
+  width: 200px;
+  width: 300px;
+  border: 1px solid red;
+  border: 1px solid blue;
+  border: 1px solid green;
+  border: 1px solid yellow;
+}
+
+.index {
+  line-height: 1;
+  line-height: 2;
+  line-height: 3;
+  z-index: 1;
+  z-index: 2;
+  z-index: 3;
+}
+
+/* 用length($list) 取 list 的長度 */
+.length {
+  z-index: 3;
+}
+
+/* 搭配 @for 去做動作 */
+/* # {} 差值語法(模板字串) , 就像 js 的 ${} 或是 vue {{ }} */
+.bg-red {
+  background-color: red;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+/* 就像 for in */
+.each-bg-red {
+  background-color: red;
+}
+
+.each-bg-green {
+  background-color: green;
+}
+
+.each-bg-blue {
+  background-color: blue;
+}
+
+.join {
+  z-index: 1, 2, 3, 4, 5, 6;
+}
+
+/* map(物件) */
+/* map寫完要加上分號 */
+.bg-primary {
+  background-color: red;
+}
+
+.bg-secondary {
+  background-color: green;
+}
+
+.bg-warning {
+  background-color: yellow;
+}
+
+.btn-default {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-box1 {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-box2 {
+  width: 300px;
+  height: 300px;
 }

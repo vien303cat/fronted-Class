@@ -1,0 +1,26 @@
+#app {
+  width: 1024px;
+  height: 768px;
+  margin: auto;
+}
+
+#left {
+  width: 215px;
+  height: 683px;
+  float: left;
+  margin-left: 12px;
+}
+
+#left {
+  width: 215px;
+  height: 683px;
+  float: left;
+  margin-left: 12px;
+}
+
+#right {
+  width: 770px;
+  height: 683px;
+  float: right;
+  margin-right: 12px;
+}

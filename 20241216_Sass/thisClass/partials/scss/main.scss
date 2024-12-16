@@ -1,0 +1,25 @@
+// Partials 概念指拆分 scss 檔案再組織成一個 scss 結構，一般會有一個主要入口去組織其他 scss 檔案
+// 其他 scss 檔可以按照自己分類的方式去放置在每個功能目錄
+
+// main.scss 是主要入口，用來引入其他 scss 結構
+
+// 函式
+@import '_functions.scss';
+// 可以省略 _，Sass 會去判斷是不是為 partials
+@import 'functions.scss';
+
+// 變數
+// 也可以省略 .scss
+@import './variables';
+
+// 混入
+@import './mixins';
+
+// 重置
+@import './reset';
+
+// 組件
+@import './components';
+
+// 版型
+@import './layout';
