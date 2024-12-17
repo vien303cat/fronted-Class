@@ -17,23 +17,72 @@
         #emailForm{
             background-color: var(--bs-gray-300);
         }
+
+        
+        .icon{
+
+            width: 150px;
+            height: 150px;
+            margin-left: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 80%;
+
+        }
+
+        .icon:hover{
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 80%;
+            width: 150px;
+            height: 150px;
+        }
+        @media (min-width: 576px) {
+            .imgGroup{
+                height: 100vh;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  ">
         <div class="container-fluid">
             <a class="navbar-brand me-auto ms-3" href="#">遠離塵世的幻想鄉</a>
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">菜單餐點</a>
-                <a class="nav-link" href="#">周邊景點</a>
-                <a class="nav-link" href="#">莊園位置</a>
-                <a class="nav-link" href="#">聯絡我們</a>
-                <a class="nav-link" href="#">咖啡故事</a>
+        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- .navbar-collapse是flexbox -->
+            <div id="myNav" class="collapse navbar-collapse" >
+                <ul class="navbar-nav  mb-2 mb-lg-0  ms-3 ms-lg-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">菜單餐點</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">周邊景點</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">莊園位置</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">聯絡我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">咖啡故事</a>
+                    </li>
+                </ul>
             </div>
+
         </div>
     </nav>
+
+
 
     <!-- 
         data-bs-interval = "5000"  設定輪播間隔時間,單位為毫秒
@@ -201,14 +250,28 @@
         </form>
     </div>
     
-    <div id="footer" class="container-fluid">
-        <div class="row my-5">
-            <div class="col">歐洲不可會在對面擔任重新農村會計他在否則既然魔法的錢，如今信心導致您可以戰士，公斤東京，健康為你關鍵字不能下載，時刻出口注重話題，你說臉色電子讀者，對他一看各級文明人間影片如此身後印刷學習甚至年齡，均為大聲上午學科情節區別畫面吸引實現台鐵願意，塑膠期待逐。</div>
-            <div class="col">歐洲不可會在對面擔任重新農村會計他在否則既然魔法的錢，如今信心導致您可以戰士，公斤東京，健康為你關鍵字不能下載，時刻出口注重話題，你說臉色電子讀者，對他一看各級文明人間影片如此身後印刷學習甚至年齡，均為大聲上午學科情節區別畫面吸引實現台鐵願意，塑膠期待逐。</div>
-            <div class="col">歐洲不可會在對面擔任重新農村會計他在否則既然魔法的錢，如今信心導致您可以戰士，公斤東京，健康為你關鍵字不能下載，時刻出口注重話題，你說臉色電子讀者，對他一看各級文明人間影片如此身後印刷學習甚至年齡，均為大聲上午學科情節區別畫面吸引實現台鐵願意，塑膠期待逐。</div>
-            <div class="col">歐洲不可會在對面擔任重新農村會計他在否則既然魔法的錢，如今信心導致您可以戰士，公斤東京，健康為你關鍵字不能下載，時刻出口注重話題，你說臉色電子讀者，對他一看各級文明人間影片如此身後印刷學習甚至年齡，均為大聲上午學科情節區別畫面吸引實現台鐵願意，塑膠期待逐。</div>
+    <div id="footer" class="container-fluid  bg-black text-light">
+        <div class="row py-5 d-flex justify-content-center">
+            <div class="col-2"><img class="icon" src="https://picsum.photos/300/200/?random=10"></div>
+            <div class="col-2">
+                <p>Address</p>
+                <p>1234 Street Name</p>
+                <p>City,AA 99999</p>
+            </div>
+            <div class="col-2">
+                <p>Links</p>
+                <p>Website builder</p>
+                <p>Download for Windows</p>
+                <p>Download for Mac</p>
+            </div>
+            <div class="col-2">
+                <p>Contacts</p>
+                <p>Email:support@mobirise.com</p>
+                <p>Phone: +1(0)000 0000 001</p>
+                <p>Fax: +1(0)000 0000 002 </p>
+            </div>
         </div>
-        <div class="row text-center my-5">
+        <div class="row text-center">
             <p> Copyright 2024 YuHsuan Chen - All Rights Reserved </p>
         </div>
     </div>
