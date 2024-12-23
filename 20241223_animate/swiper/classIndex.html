@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' />
+  <!-- 01.swiper 的 css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* 設定輪播的寬、高 */
+    #kaifu {
+      height: 350px;
+    }
+
+    /* 修改分頁按鈕的外觀 */
+    /* 一般狀態 */
+    #kaifu .swiper-pagination-bullet {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 1.3rem;
+      background: rgba(100, 100, 100, 1);
+      color: white;
+      opacity: 1;
+    }
+
+    /* 永遠都要注意圖片與容器尺寸是否一致 */
+    #kaifu .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* active 選擇到該按鈕時的狀態 */
+    #kaifu .swiper-pagination-bullet-active {
+      background: rgba(255, 100, 100, 1);
+    }
+
+    #kaifu .swiper-pagination-fraction {
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 1), 0 0 3px rgba(0, 0, 0, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Swiper 設定</h1>
+    <!-- swiper 結構 -->
+    <div id="kaifu" class="swiper">
+      <!-- 輪播單位 -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=1">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=2">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=3">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=4">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=5">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=6">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=7">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://picsum.photos/1920/1080/?random=8">
+        </div>
+      </div>
+
+      <!-- 分頁 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 上一張、下一張 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- 捲動條 -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+  <!-- 02.swiper 的 主程式 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // 初始化 swiper 與設定
+    // new Swiper(選擇 dom 元素, 物件參數)
+    // new 實例化物件
+    const swiper = new Swiper('#kaifu', {
+      // direction: "vertical",                       // 設定輪播方向，vertical 垂直、horizontal 水平
+      spaceBetween: 30,                               // 輪播單位間的距離
+      slidesPerView: 1,                               // 一次顯示幾張
+      mousewheel:true,                                // 使否啟用滑鼠滾輪切換
+      loop:true,                                      // 是否循環輪播
+      autoplay:{        //輪播延遲配合loop使用
+        delay: 500,
+        disableOnInteraction: false,
+      },
+      // 啟用上、下一頁功能
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      // 啟用分頁指示器
+      pagination: {
+        el: ".swiper-pagination",
+        // dynamicBullets: true,                     // 動態分頁按鈕，有大小變化
+        // type: "fraction",                         // 可以設定 progressbar、fraction
+        clickable: true,                             // 可以點擊分頁按鈕
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("./images/macross_delta_wallpaper.jpg") no-repeat center/cover;
+    }
+
+    .mask-img {
+      width: 1000px;
+      height: 400px;
+      background: url("./images/macross_delta_original.png") no-repeat center;
+      mask: url("./images/macross_delta.png") no-repeat center;
+    }
+
+    .img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: cold 6s infinite;
+    }
+
+    @keyframes cold {
+      50% {
+        filter:
+          drop-shadow(0 0 3px rgba(255, 255, 255, 1)) 
+          drop-shadow(0 0 5px rgba(255, 255, 255, 1)) 
+          drop-shadow(0 0 7px rgba(0, 255, 255, 1)) 
+          drop-shadow(0 0 10px rgba(0, 255, 255, 1));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mask-img">
+    <div id="particles-js"></div>
+  </div>
+  <img class="img" src="./images/macross_delta_original.png" width="1000">
+
+  <script src="./js/particles.min.js"></script>
+  <script src="./js/particles_app_marcoss.js"></script>
+</body>
+
+</html>
