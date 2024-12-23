@@ -61,6 +61,7 @@
                 height: 100vh;
             }
         }
+        
     </style>
 </head>
 
@@ -143,7 +144,7 @@
     </div>
 
     <!-- 二區卡片*3 -->
-    <div id="cardArea" class="container mt-3 m-auto vh-100 row">
+    <div id="cardArea" class="container mt-3 m-auto min-vh-100 row">
         
         <div class="card m-auto col-12 col-lg-3">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBYwy4G1S73Bqz09q_8ju9TEMTGUTQzWfdyw&s" class="card-img-top" alt="...">
@@ -172,37 +173,33 @@
     </div>
 
     <!-- 三區大格*2 -->
-    <div id="introduce" class="w-100 vh-100">
+    <div id="introduce" class=" container-fluid w-100 min-vh-100">
         <div class="row w-100 h-50">
-            <div class="col-lg-6 p-0 h-100">
-                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/1024/768/?random=10">
+            <div class="col-lg-6 col-sm-12 p-0 h-100 order-sm-0 ">
+                <img class="img-fluid mh-100 " src="https://picsum.photos/1024/768/?random=10">
             </div>
-            <div class="col-lg-6  d-lg-flex flex-lg-column justify-content-lg-center">
-                <h1 class="m-5">必須開發者大會不斷，運用隱藏版考察但他。</h1>
+            <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="m-5">1必須開發者大會不斷，</h1>
                 <p class="m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut odio facere doloremque eos exercitationem quos delectus dolores at quaerat!</p>
-                <button class="btn btn-success w-25 m-auto">VIEW COLLECTION</button>
+                <button class="btn btn-success w-25">VIEW COLLECTION</button>
             </div>
         </div>
-        <div class="row w-100 h-50">
-            <div class="col-lg-6 order-1 order-md-0 d-lg-flex flex-lg-column justify-content-lg-center ">
-                <h1 class="m-5">必須開發者大會不斷，運用隱藏版考察但他。</h1>
-                <p class="m-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut odio facere doloremque eos exercitationem quos delectus dolores at quaerat!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut odio facere doloremque eos exercitationem quos delectus dolores at quaerat!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut odio facere doloremque eos exercitationem quos delectus dolores at quaerat!
-                </p>
-                <button class="btn btn-success w-25 m-auto ">VIEW COLLECTION</button>
+        <div class="row w-100 h-50 ">
+            <div class="col-lg-6 col-sm-12  order-lg-1 p-0 h-100 m-sm-0">
+                <img class="img-fluid mh-100 " src="https://picsum.photos/1024/768/?random=5" >
             </div>
-            <div class="col-lg-6 order-0 order-md-1 p-0 h-100">
-                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/1024/768/?random=5" >
+            <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="m-5">2必須開發者大會不斷，</h1>
+                <p class="m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut odio facere doloremque eos exercitationem quos delectus dolores at quaerat!</p>
+                <button class="btn btn-success w-25">VIEW COLLECTION</button>
             </div>
         </div>
     </div>
 
 
     <!-- 四區地圖 -->
-    <div id="gMap" class="w-100 vh-100">    
-        <iframe class="w-100 vh-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4796.016398217772!2d137.86636867266793!3d36.651486057733514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7d1ae37465ecf%3A0xc6751451da91a15f!2z5Z-O5ba656We56S-IOaWsOWurg!5e0!3m2!1szh-TW!2stw!4v1734061786903!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="gMap" class="w-100 min-vh-100">    
+        <iframe class="w-100 min-vh-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4796.016398217772!2d137.86636867266793!3d36.651486057733514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7d1ae37465ecf%3A0xc6751451da91a15f!2z5Z-O5ba656We56S-IOaWsOWurg!5e0!3m2!1szh-TW!2stw!4v1734061786903!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <!-- 五區表單 -->
