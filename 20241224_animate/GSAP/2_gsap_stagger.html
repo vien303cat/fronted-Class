@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' />
+    <style>
+        body {
+            padding-bottom: 500px;
+        }
+        h3 {
+            margin: 20px 0;
+        }
+        .wrap{
+            width: 600px;
+            height: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            background: #aaa;
+        }
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8,
+        .box9,
+        .box10,
+        .box11 {
+            width: 50px;
+            height: 50px;
+            background: #000;
+            margin: 5px;
+        }
+        .box2 {
+            background: red;
+        }
+        .box3 {
+            background: green;
+        }
+        .box4 {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>GSAP</h1>
+
+        <h3>Stagger 交錯效果</h3>
+        <div class="wrap">
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+            <div class="box1"></div>
+        </div>
+
+        <h3>動畫狀態與事件函式</h3>
+        <div class="box2"></div>
+        <div class="progress mb-3">
+            <div class="progress-bar"></div>
+        </div>
+        <button id="btn1">play 狀態</button>
+        <button id="btn2">paused 狀態</button>
+        <button id="btn3">reversed 狀態</button>
+
+        <h3>gsap.from() 與 gsap.fromTo()</h3>
+        <h4>gasp.from()</h4>
+        <p>指定補間動畫從設定狀態到目前狀態,常用於進場動畫</p>
+        <div class="box3"></div>
+
+        <h4>gsap.fromTo()</h4>
+        <p>指定補間動畫從 from 設定狀態 1 到 to 設定狀態 2</p>
+        <div class="box4"></div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+    <script src="./gsap/gsap.js"></script>
+    <script>
+
+        // 文件: https://gsap.com/resources/getting-started/Staggers
+        gsap.to('.box1',{
+            y:100,
+            delay:0.5,
+            duration:1,
+            stagger:0.1, // 每個元動畫交錯的時間,0.1秒
+            stagger:{
+                each:0.1, // 每個元動畫交錯的時間,0.1秒
+                from: 'center', // 用關鍵字可以使用 start , end , center , edges ...
+                // from: 2, // 指定索引為交錯動畫的開始,索引從 0 開始
+                repeat: -1,
+                yoyo: true,
+                ease: 'bounce' // 設定整體交錯動畫的呈現速率,不是每個元素的速率
+            },
+            ease: 'elastic', // 設定每個元素的動畫速率
+            // repeat: -1,
+        })
+
+    const tween = gsap.to('.box2', {
+        x: '80vw',
+        duration: 2,
+        yoyo: true,
+        paused: true,
+        reversed: false,
+        ease: 'none',
+        // 不要在這裡使用箭頭函式，因為 this 會指向 window
+        // onStart: (p1, p2) => {
+        //   console.log('start', this)
+        // },
+
+        // 補間動畫開始時調用的函式
+        onStart(p1, p2) {
+            console.log('start', this)
+            console.log('start', p1, p2)
+        },
+        // 補間動畫開始時使用的參數
+        onStartParams: ['動畫開始了', 'KaiFu'],
+
+        // 可以將函式提取出來
+        onComplete: onComplete,
+        onCompleteParams: ['動畫結束了', 'KaiFu'],
+        onUpdate(p1, p2) {
+          // this 指向補間動畫自己，所以可以用補間動畫的方法
+          // console.log(this.progress().toFixed(2))
+            $('.progress-bar').css({
+                width: `${Math.floor(this.progress().toFixed(2) * 100)}%`,
+            })
+        }
+    })
+
+    function onComplete(p1, p2) {
+        console.log('complete', p1, p2)
+    }
+
+    $('#btn1').click(function () {
+        tween.play()
+    })
+
+    $('#btn2').click(() =>{
+        // getter
+        console.log(tween.paused())
+        // setter
+        tween.paused(!(tween.paused()))
+        // tween.paused(true)  //暫停
+        // tween.paused(false) //播放
+    })
+
+    
+    $('#btn3').click(() =>{
+        // getter
+        console.log(tween.reversed())
+        // setter
+        tween.reversed(!(tween.reversed()))
+        // tween.reversed(true)  //反向
+        // tween.reversed(false) //正向
+    })
+
+
+    gsap.from('.box3',{
+        x: -600,
+    })
+    // 動畫屬性例如 duration , delay , ease ... 設定在第二個物件(第三個參數))
+    gsap.fromTo('.box4',{
+        x: 1000,
+    },{
+        x: -100,
+        duration: 3,
+        delay: 3,
+
+    })
+    </script>
+</body>
+
+</html>

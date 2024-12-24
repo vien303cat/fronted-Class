@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.css' />
+    <style>
+        body {
+            padding-bottom: 500px;
+            background-color: black;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid vh-100">
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'></script>
+    <script src="./gsap/gsap.js"></script>
+    <script>
+        // 畫星星
+        //  gsap
+        function createStar(count){
+            for(let i = 0 ; i < count ; i++){
+                $('.container-fluid').append(`<div class='star'>星星</div>`)
+                // $('.container-fluid').append(`<div class='star'>★</div>`)
+                $('.star').each(function(index , star){
+                    $(this).css({
+                        position:'absolute',
+                        left:gsap.utils.random(0,100)+ '%',
+                        top:gsap.utils.random(0,100)+ '%',
+                        color:'yellow',
+                    })
+                })
+            }
+        }
+        createStar(50);
+
+        gsap.to('.star',{
+            fontSize:'random(10,50)',
+            filter: 'drop-shadow(0 0 5px rgba(255,255,0,1)) drop-shadow(0 0 5px rgba(255,255,0,1))',
+            left:'+=random(-10,10)%',
+            x: 'random(-50,50)',
+            y: 'random(-50,50)',
+            rotationY: '-=180',
+            rotation: '-=1080',
+            scale:'random(1,2)',
+            duration: 'random(1,5)',
+            delay: 'random(0,5)',
+            repeat: -1,
+            repeatRefresh:true,
+            yoyo : true,
+            ease: 'back',
+            stagger:{
+                each:0.1,
+                from:'random',
+            }
+        })
+    </script>
+</body>
+
+</html>
