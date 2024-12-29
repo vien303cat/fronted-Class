@@ -7,8 +7,11 @@
     <title>Document</title>
     <!-- reset -->
     <link rel="stylesheet" href="./css/reset.css">
-    <!-- 1.使用 bootstrap 的 css -->
+    <!-- bootstrap 的 css -->
     <link rel="stylesheet" href="./css/bootstrap5.3.css">
+    <!-- font aweswome -->    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css' integrity='sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ==' crossorigin='anonymous'/>
+
 
     <style>
         #introduce{
@@ -92,13 +95,13 @@
                         <a class="nav-link" href="#cardArea">主要角色</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">莊園位置</a>
+                        <a class="nav-link" href="#introduce">場景介紹</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">聯絡我們</a>
+                        <a class="nav-link" href="#gMap">東方故事</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">咖啡故事</a>
+                        <a class="nav-link" href="#emailForm">聯絡我們</a>
                     </li>
                 </ul>
             </div>
@@ -222,7 +225,9 @@
                     正象它的名字那樣，那裡幾乎隨處可見妖怪—以河童與天狗居多—並且人類是不受歡迎的。 
                     最初的描述出現在東方求聞史紀中，在守矢神社傳送至山的頂峰附近之後就成為了東方風神錄中的關鍵地點。
                 </p>
-                <button class="btn btn-success w-50 fs-6">VIEW COLLECTION</button>
+                <a href="https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%96%B9Project" class="btn btn-success w-50 fs-6 text-white text-decoration-none">
+                    VIEW COLLECTION
+                </a>        
             </div>
         </div>
         <div class="row w-100 h-50 m-0">
@@ -237,7 +242,9 @@
                     屋頂上有一個鐘樓，但是它只會在夜晚敲響。
                     紅魔館的內部空間比外面看起來的要大一些，這是因為女僕長十六夜咲夜擁有操縱時間和空間的能力。
                 </p>
-                <button class="btn btn-success w-50 fs-6">VIEW COLLECTION</button>
+                <a href="https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%96%B9Project" class="btn btn-success w-50 fs-6 text-white text-decoration-none">
+                    VIEW COLLECTION
+                </a>               
             </div>
         </div>
     </div>
@@ -264,9 +271,9 @@
                 <div class="mb-3 col-lg-4 col-12">
                     <label for="name" class="form-label ">姓名</label>
                     <div class="input-group ">
-                        <input type="text" id="name" class="form-control" aria-label="Text input with radio button">
+                        <input type="text" id="name" class="form-control">
                         <div class="input-group-text">
-                            先生 <input class="form-check-input mt-0 me-2 ms-1" type="radio" value="1" name="radio">
+                            先生 <input class="form-check-input mt-0 me-2 ms-1" type="radio" value="1" name="radio" checked>
                             女士 <input class="form-check-input mt-0 ms-1" type="radio" value="2" name="radio">
                         </div>
                     </div>
@@ -311,7 +318,7 @@
                 </div>
             </div>
             <div class="row justify-content-center mb-5">
-                <button type="button" class="btn btn-secondary col-md-1 col-2">送出</button>
+                <button id="submit" type="button" class="btn btn-secondary col-md-1 col-2">送出</button>
             </div>
             
         </form>
@@ -321,19 +328,27 @@
         <div class="row py-4 justify-content-center">
             <div class="col-lg-2 col-6"><img class="icon" src="./image/199613.png"></div>
             <div class="col-lg-2 col-6">
-                <p>Address</p>
-                <p>1234 Street Name</p>
-                <p>City,AA 99999</p>
+                <p>此生無悔入東方</p>
+                <p>來世願入幻想鄉</p>
+                <p><a class=" text-white text-decoration-underline fs-3  " href="https://forum.gamer.com.tw/A.php?bsn=10039">再戰十年</a></p>
             </div>
             <div class="col-lg-2 col-6">
-                <p>Links</p>
-                <p>Website builder</p>
-                <p>Download for Windows</p>
-                <p>Download for Mac</p>
+                <p>MyLinks</p>
+                <p>
+                    
+                    <a class=" text-white fs-3  " href="https://github.com/vien303cat" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <br>
+                    <a class=" text-white fs-3  " href="https://github.com/vien303cat/fronted-Class/tree/master/20241125_BS/bshw" target="_blank">
+                        <i class="fa-brands fa-git-alt"></i>
+                    </a>
+                    
+                </p>
             </div>
             <div class="col-lg-2 col-6">
                 <p>Contacts</p>
-                <p>Email:support@mobirise.com</p>
+                <p>vien303cat@gmail.com</p>
                 <p>Phone: +1(0)000 0000 001</p>
                 <p>Fax: +1(0)000 0000 002 </p>
             </div>
@@ -347,4 +362,19 @@
     
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+<script>
+    // 練習sweetAlert
+    $('#submit').click(function(event){
+        Swal.fire({
+            title: "已送出",
+            text: "很開心您也喜歡東方！祝您有個美好快樂的一天！",
+            imageUrl: "./image/itouhouenter2.jpg",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+        });
+    })
+</script>
 </html>
