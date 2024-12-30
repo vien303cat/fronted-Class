@@ -31,6 +31,7 @@
     </p>
     <div style="background-color:#eee;">
       <div class="box1"></div>
+      <!-- <div class="box1"></div> -->
     </div>
   
     <div class="row">
@@ -99,10 +100,27 @@
       delay:1,
       ease: 'none',
       onUpdate(){
+        // 狀態
         $('#paused-text').text(`${tweenText.paused}:${this.paused()}`)
         $('#reversed-text').text(`${tweenText.reversed}:${this.reversed()}`)
         $('#isActive-text').text(`${tweenText.isActive}:${this.isActive()}`)
-      }
+
+        // 進度 toFixed(將浮點數縮成小數點後x位)
+        $('#progress-text').text(`progress：${this.progress().toFixed(2)}`)
+        $('#totalProgress-text').text(`totalProgress：${this.totalProgress().toFixed(2)}`)
+
+        $('#time-text').text(`time:${this.time().toFixed(1)}`)
+        $('#totalTime-text').text(`totalTime:${this.totalTime().toFixed(1)}`)
+        
+        $('#duration-text').text(`duration：${this.duration()}`)
+        $('#totalDuration-text').text(`totalDuration：${this.totalDuration()}`)
+      },
+      onStart(){
+        $('#iteration-text').text(`iteration:播放第 ${this.iteration()} 次`)
+      },
+      onRepeat(){
+        $('#iteration-text').text(`iteration:播放第 ${this.iteration()} 次`)
+      },
     })
     // 正向播放 
     $('#play').on('click',function(){
@@ -162,8 +180,70 @@
       tween.repeat(3).play() 
       console.log(tween.repeatDelay())
     })
-    
 
+    $('#progress').on('click',function(){
+      // tween.progress(0.5)  //0.00000... ~ 1.00000... , 跳到0.5進度一半的位置
+      // tween.totalProgress(0.5)
+      // 包含初始播放 1 次 + repeat 1 次， progress 會跑 2 次， totalProgress 只會跑一次(過程包含 repeatDelay 時間)
+      tween.repeat(1)
+      tween.repeatDelay(5)
+      tween.play()
+
+      // 取值getter
+      let progressValue = tween.progress()
+      let totalProgressValue = tween.totalProgress()
+      console.log('progressValue:',progressValue,'totalProgress',totalProgressValue)
+    })
+
+    $('#time').on('click',function(){
+        // time 每次播放動畫時耗費的時間,以duration 為主 
+        // totalTime 動畫全部總花費的時間,包括 repeatDelay
+        // 以下跑兩次動畫,因為duration 是5秒, 所以time每次都是花費 5 秒
+        // totalTime 總花費時間 = 播了兩次動畫的時間(10秒)+rereatDelay 1 次時間(5秒)
+        tween.repeat(1)
+        tween.repeatDelay(5)
+        tween.play()
+      })
+    
+      $('#duration').on('click',function(){
+        tween.duration(3)
+        tween.repeat(2)
+        tween.repeatDelay(2)
+        tween.play()
+        
+        // duration，初始播放、repeat 播放動畫持續時間的依據，範例 duration 3 秒
+        // totalDuration 是 repeatDelay、repeat 次數的加總
+        // totalDuration = duration + repeat(次數) * (duration + repeatDelays)
+        // 3 + 2 * (3 + 2) = 13
+      })
+    
+      $('#targets').on('click',function(){
+        // tween.targets() // 參與動畫的元素
+        console.log(tween.targets())
+        tween.play()
+        tween
+          .then(function(tween){
+            $(tween.targets()).css({backgroundColor:'blue'})
+            return tween
+          })
+          .then(function(){
+            setTimeout(() => {
+              gsap.to('.box1',{
+                backgroundColor:'red',
+                rotation:360,
+                duration:3,
+              })
+            },1000)
+          })
+      })
+      
+      $('#iteration').on('click',function(){
+        tween.play()
+        tween.repeat(2)
+        // tween.iteration()
+        console.log(tween.iteration())
+      })
+      
 
   </script>
 </body>
