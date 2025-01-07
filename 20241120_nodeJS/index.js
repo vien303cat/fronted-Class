@@ -1,9 +1,6 @@
 import 'dotenv/config'
 import linebot from 'linebot'
-import commandUSD from './commands/usd.js'
-import commandFE from './commands/fe.js'
-import commandQR from './commands/qr.js'
-import commandTWGod from './commands/twgod.js'
+import pokeGO from './commands/pokemon.js'
 
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -12,16 +9,14 @@ const bot = linebot({
 })
 
 bot.on('message', event => {
-  if (event.message.type === 'text') {
-    if (event.message.text === 'usd') {
-      commandUSD(event)
-    } else if (event.message.text === 'fe') {
-      commandFE(event)
-    } else if (event.message.text === 'qr') {
-      commandQR(event)
-    }
-  } else if (event.message.type === 'location') {
-    commandTWGod(event)
+  console.log(Number(event.message.text))
+  console.log(event.message)
+
+  const eventNum = Number(event.message.text)
+  if (eventNum) {
+    pokeGO(event.message.text, event)
+  } else {
+    event.reply('請輸入數字來查詢寶可夢編號！')
   }
 })
 

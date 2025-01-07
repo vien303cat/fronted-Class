@@ -80,7 +80,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: green;
+  background-color: blue;
   font-style: italic;
   color: yellow !important;
   font-weight: bolder;
@@ -244,7 +244,7 @@ h1 {
   height: 100px;
   color: white;
   background: deeppink;
-  font-size: 20px;
+  font-size: 40px;
   width: 200px;
   /* 使用預設值 */
   height: 100px;

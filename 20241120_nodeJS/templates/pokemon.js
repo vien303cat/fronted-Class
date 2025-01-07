@@ -35,34 +35,50 @@ export default () => {
               color: '#000000',
               margin: 'none',
               flex: 0
-            },
+            }
+            // {
+            //   type: 'icon',
+            //   size: 'xl',
+            //   url: 'https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png',
+            //   margin: 'lg'
+            // },
+            // {
+            //   type: 'text',
+            //   text: '屬性',
+            //   size: 'sm',
+            //   color: '#000000',
+            //   margin: 'sm',
+            //   flex: 0
+            // }
+          ]
+        },
+        {
+          type: 'box',
+          layout: 'vertical',
+          margin: 'lg',
+          spacing: 'sm',
+          contents: [
             {
-              type: 'icon',
-              size: 'xl',
-              url: 'https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png',
-              margin: 'lg'
-            },
-            {
-              type: 'text',
-              text: '屬性',
-              size: 'sm',
-              color: '#000000',
-              margin: 'sm',
-              flex: 0
-            },
-            {
-              type: 'icon',
-              size: 'xl',
-              url: 'https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png',
-              margin: 'lg'
-            },
-            {
-              type: 'text',
-              text: '屬性',
-              size: 'sm',
-              color: '#000000',
-              margin: 'sm',
-              flex: 0
+              type: 'box',
+              layout: 'baseline',
+              spacing: 'sm',
+              contents: [
+                {
+                  type: 'text',
+                  text: '類型',
+                  color: '#000000',
+                  size: 'sm',
+                  flex: 1
+                },
+                {
+                  type: 'text',
+                  text: '種子寶可夢',
+                  wrap: true,
+                  color: '#000000',
+                  size: 'lg',
+                  flex: 5
+                }
+              ]
             }
           ]
         },
@@ -86,10 +102,10 @@ export default () => {
                 },
                 {
                   type: 'text',
-                  text: '種子寶可夢',
+                  text: '背上的種子裡存著很多營養，所以就算好幾天不吃東西也能活得好好的！ 從出生的時候開始背上就有一顆植物種子。這顆種子會漸漸地長大。在出生後的一段時間內，牠會吸收背上種子裡儲存著的營養成長。',
                   wrap: true,
                   color: '#000000',
-                  size: 'lg',
+                  size: 'xs',
                   flex: 5
                 }
               ]

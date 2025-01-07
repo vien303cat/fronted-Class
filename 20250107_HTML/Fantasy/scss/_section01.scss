@@ -1,0 +1,9 @@
+#section01{
+  // extend就要配合%frame (scss規範 %是佔位符) 如果enxend .frame的話 也可以但是之後HTML就會多跑一個class
+  @extend %frame;
+  top: -50px;
+  @include lg{
+    top: 0;
+    background: url('../images/section01_top_mask.png') no-repeat center top/100%;
+  }
+}
