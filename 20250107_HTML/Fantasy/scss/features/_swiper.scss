@@ -1,0 +1,35 @@
+#swiper {
+  //  swiper 的主題色
+  --swiper-theme-color:white;
+  height:470px;
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.3;
+    transition: 0.5s;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+  }
+  .swiper-pagination{
+    padding-top: 50px;
+
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-top: -40px;
+  }
+
+  @include sm {
+    height: 300px;
+  }
+  @include lg {
+    height: 300px;
+  }
+  @include xl {
+    height: 400px;
+  }
+}
