@@ -7,7 +7,7 @@
 	.modal-header {
 		color: white;
 		height: 120px;
-		background: url('../../images/login_register_header.png') no-repeat center top/100%;
+		background: url('../images/login_register_header.png') no-repeat center top/100%;
 		padding: 5rem 5rem 2rem;
 		border: none;
 		justify-content: center;
@@ -28,7 +28,7 @@
 
 	.modal-body {
 		padding: 0 5rem;
-		background: url('../../images/login_register_body_02.png') no-repeat center/contain, url('../../images/login_register_body_01.png') repeat-y center/100%;
+		background: url('../images/login_register_body_02.png') no-repeat center/contain, url('../../images/login_register_body_01.png') repeat-y center/100%;
 		margin-bottom: -10px;
 	}
 
@@ -36,7 +36,7 @@
 		border: none;
 		height: 110px;
 		padding: 0 5rem;
-		background: url('../../images/login_register_footer.png') no-repeat center bottom/100%;
+		background: url('../images/login_register_footer.png') no-repeat center bottom/100%;
 		justify-content: center;
 		align-items: start;
 		button {

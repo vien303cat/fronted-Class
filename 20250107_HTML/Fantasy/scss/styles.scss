@@ -1,3 +1,5 @@
+// SCSS 入口檔案
+
 // 變數
 @import './variables';
 
@@ -7,7 +9,8 @@
 @import './mixins/rwd';
 
 // 繼承樣式
-@import './extend/frame';
+@import './extends/frame';
+
 // 全域設定
 @import './global';
 
@@ -19,7 +22,11 @@
 @import './section03';
 @import './section04';
 @import './section05';
+@import './footer';
 
 // 功能
 @import './features/modal';
 @import './features/swiper';
+@import './features/backtop';
+@import './features/shooting_star';
+
