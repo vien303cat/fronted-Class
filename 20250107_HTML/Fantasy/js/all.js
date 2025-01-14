@@ -127,39 +127,40 @@ const tween = gsap.from('#navbar',{
 
 // 霧的動畫------------------------------
 
-$('.fog').each(function (index,fog) {
+$('.fog').each(function (index, fog) {
+	// gsap.set() 可以設定當下 fog 的初始值
 	gsap.set(fog, {
 		width: '100%',
 		height: '100%',
-		background: `url('./images/fog.png') no-prepeat center/80%`,
+		background: `url('./images/fog.png') no-repeat center/80%`,
 		opacity: 0.8,
-		position: 'absolute',
-		top: 'random(0,100)' + '%',
-		x: function (i,fog,fogs){
-			// console.log(index,fog,fogs)
+		position: 'fixed',
+		top: 'random(0, 100)' + '%',
+		x: function () {
+			// console.log(index)
 			// 0,1,2,3
 			// 0,2(一組) => 畫面外的左邊
-			// 1,3(一組) => 畫面外的右邊
-			return index % 2 === 0 ? -$(window).width() : $(window).width()
+			// ，1,3(一組) => 畫面外的右邊
+			return index % 2 == 0 ? -$(window).width() : $(window).width()
 		}
 	})
-	// 當動畫重複播放時,將霧的位置隨機設定 
-	gsap.to(fog,{
-		x: function (i,fog,fogs){
-			return index % 2 == 1 ? -$(window).width() : $(window).width()
+	// gsap.to() 可以設定 fog 的動畫
+	gsap.to(fog, {
+		x: function () {
+			return index % 2 == 0 ? $(window).width() : -$(window).width()
 		},
-		// 當動畫重複播放時,將霧的位置隨機設定
-		onRepeat(){
+		// 當動畫重複播放時，將霧的位置隨機設定
+		onRepeat() {
 			$(fog).css({
-				top: gsap.utils.random(0,100)+ '%'
+				top: gsap.utils.random(0, 100) + '%'
 			})
 		},
-		duration: 30,
+		duration: 60,
 		repeat: -1,
 		ease: 'none'
 	})
-	
 })
+
 
 // 星空背景 ----------------------------
 gsap.to('body',{
@@ -246,3 +247,114 @@ function playStarTimeline(stars) {
 //  會將函式功能串接在一起，第一個函式回傳值會傳給第二個函式，第二個函式回傳值會傳給第三個函式，以此類推
 const playStar = gsap.utils.pipe(createStar, setStarTween, playStarTimeline)
 playStar(15)
+
+// 浮空的島 ---------------------------------------------------------------
+const float_tl = gsap.timeline({
+	scrollTrigger: {
+		trigger: 'body',
+		start: 'top 100%',
+		end: 'bottom 100%',
+		scrub: 5
+	},
+	ease: 'none'
+})
+
+// 用外容器去控制進場(左、右、下)
+float_tl
+	.from('.float-wrap-01', {
+		left: '-30%'
+	})
+	.from(
+		'.float-wrap-02',
+		{
+			right: '-30%'
+		},
+		'<'
+	)
+	.from(
+		'.float-wrap-03',
+		{
+			bottom: '-100%'
+		},
+		'<'
+	)
+
+// 用本身去控制上下浮動
+$('.float-island').each(function (index, island) {
+	gsap.to(island, {
+		y: 50 * (index + 1),
+		duration: 10 * (index + 1),
+		repeat: -1,
+		yoyo: true,
+		ease: 'power1,inOut'
+	})
+})
+
+// SplitText -------------------------------------------------------------
+gsap.set('#splitText', {
+	perspective: 400 // 值越小透視效果越強
+})
+
+const tl = gsap.timeline({
+	repeat: -1,
+	repeatDelay: 8
+})
+
+// 將段落文字轉成陣列
+const paragraphs = gsap.utils.toArray('#splitText p')
+console.log(paragraphs) // [p, p ,p ,p ,p]
+
+/*
+最外面這個是 map 回傳的陣列容器
+[
+	['char', 'char', 'char', 'char', 'char'....],   <--- SplitText
+	['char', 'char', 'char', 'char', 'char'....],   <--- SplitText
+	['char', 'char', 'char', 'char', 'char'....],   <--- SplitText
+	['char', 'char', 'char', 'char', 'char'....],   <--- SplitText
+	['char', 'char', 'char', 'char', 'char'....]    <--- SplitText
+]
+*/
+const splitTexts = paragraphs.map(function (p) {
+	// ['char', 'char', 'char', 'char', 'char'....]
+	return new SplitText(p, {
+		type: 'chars',
+		charsClass: 'charBg'
+	})
+})
+
+console.log(splitTexts) // [[SplitText], [SplitText], [SplitText], [SplitText], [SplitText]]
+
+splitTexts.forEach(function (splitText) {
+	const chars = splitText.chars
+	// 進場動畫
+	tl.from(
+		chars,
+		{
+			y: 80,
+			rotationX: 0,
+			rotationY: 180,
+			scale: 2,
+			transformOrigin: '0% 50% -100',
+			opacity: 0,
+			duration: 2,
+			ease: 'back',
+			stagger: 0.1,
+			// 離場動畫
+			onComplete() {
+				gsap.to(chars, {
+					delay: 3, // 延遲 3 秒
+					duration: 2,
+					opacity: 0,
+					scale: 2,
+					y: 80,
+					rotationX: 180,
+					rotationY: 0,
+					transformOrigin: '0% 50% -100',
+					ease: 'back',
+					stagger: 0.1
+				})
+			}
+		},
+		'+=3' // 下一組動畫必須延遲 3 秒才能進場，因為前一組離場動畫有設定延遲 3 秒
+	)
+})

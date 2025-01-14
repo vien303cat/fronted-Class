@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fantasy World</title>
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      height: 100vh;
+      font-family: "Press Start 2P", serif;
+      overflow-x: hidden;
+    }
+
+    section {
+      color: white;
+      height: 100%;
+      background: #000;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section:nth-child(1) {
+      background: url("./images/ff5.jpg") no-repeat center/cover;
+    }
+
+    section:nth-child(2) {
+      background:
+        linear-gradient(0deg, black, transparent),
+        url("./images/bh3.jpg") no-repeat center/cover;
+    }
+
+    #text01 {
+      width: 70%;
+      height: 250px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #070d7f;
+      border: 5px solid #eee;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+    }
+
+    #text02 {
+      width: 100%;
+      height: 100%;
+      color: red;
+      text-align: center;
+      font-size: 8rem;
+      font-family: '標楷體';
+      font-weight: 500;
+      display: none;
+      justify-content: space-evenly;
+      align-items: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01">Final Fantasy is a fantasy anthology media franchise created by Hironobu Sakaguchi which is owned, developed, and published by Square Enix (formerly Square). The franchise centers on a series of fantasy role-playing video games.</div>
+  </section>
+
+  <section>
+    <div id="text02">生化危機3</div>
+  </section>
+
+  <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+  <!-- Bootstrap -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <!-- gsap -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script src="./gsap/SplitText.min.js"></script>
+
+  <script>
+    // 註冊
+    gsap.registerPlugin(SplitText);
+
+    // splitText 可以將一段文字拆成 字元(char)、單字(word)、行(line)
+    const text01 = new SplitText('#text01', {
+      type: 'chars, words, lines',
+    })
+
+    console.log('text01', text01)
+    console.log('chars:', text01.chars)
+    console.log('words:', text01.words)
+    console.log('lines:', text01.lines)
+
+    gsap.from(text01.chars, {
+      opacity: 0,
+      stagger: {
+        each: 0.01,
+      },
+      ease: 'steps(1)'
+    })
+
+  </script>
+</body>
+
+</html>
