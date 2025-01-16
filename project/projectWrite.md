@@ -81,6 +81,8 @@ p.s.所有資料都預設有createdAt updatedAt
 | `type`      | `int`    | 意見類型(申請管理員0、店家1、)          
 | `store_id`  | `int`    | 店家ID (連結`store`) (0116資料量多好像版面會不好弄(select不好選)) |
 | `depiction` | `string` | 敘述 |
+| `response`  | `string` | 後台回覆訊息(?) |
+| `checked`   | `bool`  | 是否審核：0-未審核，1-已審核 |
 | `ishidden`  | `bool`   | 是否刪除：0-未刪除，1-已刪除 |
 
 
