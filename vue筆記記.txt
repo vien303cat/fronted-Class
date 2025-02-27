@@ -1,0 +1,16 @@
+在 Express 中，req.body、req.query 和 req.params 是用來獲取不同類型的請求數據的。以下是它們的詳細解釋：
+
+req.body：
+用於獲取 POST、PUT、PATCH 等請求方法中提交的數據。
+這些數據通常是通過請求體（request body）發送的，需要使用中介軟體（如 body-parser 或 express.json()）來解析。
+例如，當你發送一個 POST 請求並在請求體中包含 JSON 數據時，這些數據會被存儲在 req.body 中。
+
+req.query：
+用於獲取 URL 查詢字符串中的參數。
+這些參數通常附加在 URL 的末尾，並以 ? 開始，每個參數之間用 & 分隔。
+例如，當你發送一個 GET 請求到 /store?name=example&location=NYC 時，查詢字符串中的參數會被存儲在 req.query 中。
+
+req.params：
+用於獲取 URL 路徑中的參數。
+這些參數通常在路由定義中使用冒號（:）來指定。
+例如，當你定義一個路由 /store/:storeid/user/:userid 並發送一個請求到 /store/123/user/456 時，路徑中的參數會被存儲在 req.params 中。

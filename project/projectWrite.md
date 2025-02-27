@@ -49,6 +49,7 @@ p.s.所有資料都預設有createdAt updatedAt
 | `email`     | `string` | 信箱                       |
 | `account`   | `string` | 帳號                        |
 | `password`  | `string` | 密碼（`hashSync` 加密）     |
+| `image`   | `string`   | 會員頭像                       |
 | `ishidden`  | `bool`   | 是否刪除：0-未刪除，1-已刪除 |
 
 ### **資料表： 拉麵店家 `store` **
