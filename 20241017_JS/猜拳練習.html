@@ -98,10 +98,10 @@
         const txtArr    = ['剪刀','石頭','布'];
         const resultArr = ['贏','平手','輸'];
 
-        let resultCode = 2;
         console.log(spanGet);
         for(let i = 0 ; i < inputGet.length ; i++){
             inputGet[i].addEventListener('click', function(event){
+                let resultCode = 2;
                 //對手出拳
                 const rand = txtArr[Math.round( Math.random() * 2)];
                 if( (inputGet[i].value == '剪刀' && rand == '布')   ||   //贏
